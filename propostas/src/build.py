@@ -20,7 +20,8 @@ def build(key):
     css = (SRC / "shell_base.css").read_text() + "\n" + (SRC / "shell_add.css").read_text()
     slides = (SRC / f"{key}_slides.html").read_text()
     slides = re.sub(r"\{\{([\w.]+\.png)\}\}", lambda m: datauri(m.group(1)), slides)
-    js = "\n".join((SRC / f).read_text() for f in ("lib.js", f"{key}.js", "shell.js"))
+    assets = "const ASSET={" + ",".join(f'"{p.stem}":"{datauri(p.name)}"' for p in sorted((SRC / "assets").glob("*.png"))) + "};"
+    js = assets + "\n" + "\n".join((SRC / f).read_text() for f in ("lib.js", f"{key}.js", "shell.js"))
     html = f"""<!doctype html>
 <html lang="pt-BR">
 <head>

@@ -168,3 +168,8 @@
 /* assinatura */
 .sig{border-top:1.5px solid #002B49;padding-top:6px}
 .sig b{display:block;font:800 15px var(--fb);color:#002B49;letter-spacing:.02em}
+
+/* logos no cabeçalho */
+.am-logo{height:46px;width:auto;display:block;position:relative;margin-right:-6px}
+.ons-logo{height:24px;width:auto;display:block;opacity:.95}
+.am-sep{width:1px;height:26px;background:rgba(255,255,255,.25);margin:0 4px}
