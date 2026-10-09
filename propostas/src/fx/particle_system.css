@@ -1,0 +1,26 @@
+/* Particle System · capa full-bleed no palco 1600x900 */
+.fx-ps{position:absolute;inset:0;overflow:hidden;background:#0E1C39;z-index:0}
+.fx-ps__bg{position:absolute;inset:0;background:radial-gradient(ellipse 55% 65% at 84% 86%,rgba(247,140,22,.14),transparent 62%),radial-gradient(ellipse 70% 60% at 16% 18%,rgba(31,50,99,.95),transparent 70%),radial-gradient(ellipse 60% 70% at 70% 40%,rgba(0,43,73,.9),transparent 75%),linear-gradient(160deg,#122143,#0E1C39 60%)}
+.fx-ps__cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fx-ps--static .fx-ps__cv{display:none}
+.fx-ps__shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(14,28,57,.9) 0%,rgba(14,28,57,.62) 36%,rgba(14,28,57,.12) 58%,rgba(14,28,57,0) 70%)}
+.fx-ps__logos{position:absolute;left:120px;top:72px;z-index:3;display:flex;align-items:center;gap:32px}
+.fx-ps__logos img{height:46px;width:auto;display:block}
+.fx-ps__logos>i{width:1px;height:40px;background:rgba(191,208,225,.35)}
+.fx-ps__chip{display:flex;align-items:center;background:#EEF3F8;border-radius:10px;padding:10px 18px}
+.fx-ps__chip img{height:38px}
+.fx-ps__title{position:absolute;left:120px;top:50%;transform:translateY(-44%);z-index:2;max-width:800px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;color:#fff;pointer-events:none}
+.fx-ps__eyebrow{font:600 15px/1 var(--fb,'Inter',sans-serif);letter-spacing:.24em;text-transform:uppercase;color:#9DBBD9}
+.fx-ps__h{font:700 112px/.92 var(--fh,'Barlow Condensed',sans-serif);letter-spacing:-.005em;text-transform:uppercase;filter:drop-shadow(0 12px 32px rgba(14,28,57,.65))}
+.fx-ps__sub{position:relative;padding-top:24px;font:600 26px/1.3 var(--fb,'Inter',sans-serif);color:#F9A64A}
+.fx-ps__sub::before{content:"";position:absolute;left:0;top:0;width:72px;height:4px;border-radius:2px;background:#F78C16}
+.fx-ps__meta{font:400 17px/1.5 var(--fb,'Inter',sans-serif);color:#BFD0E1}
+/* entrada: só esconde quando o JS armou (sem JS o título continua visível) */
+.fx-ps--armed .fx-ps__title>*,.fx-ps--armed .fx-ps__logos{opacity:0}
+.fx-ps--in .fx-ps__title>*,.fx-ps--in .fx-ps__logos{animation:fx-ps-rise .9s cubic-bezier(.22,.61,.36,1) both}
+.fx-ps--in .fx-ps__title>:nth-child(2){animation-delay:.12s}
+.fx-ps--in .fx-ps__title>:nth-child(3){animation-delay:.32s}
+.fx-ps--in .fx-ps__title>:nth-child(4){animation-delay:.46s}
+.fx-ps--in .fx-ps__logos{animation-delay:.6s}
+@keyframes fx-ps-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fx-ps--armed .fx-ps__title>*,.fx-ps--armed .fx-ps__logos{opacity:1;animation:none!important}}

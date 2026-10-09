@@ -5,10 +5,10 @@ SRC = pathlib.Path(__file__).parent
 OUT = SRC.parent
 
 DECKS = {
-    "gm": ("AXON_Proposta_Gestao_de_Mudancas.html", "AXON · Gestão de Mudanças",
-           "Proposta de método e plano de trabalho de gestão de mudanças para a adoção da plataforma AXON em cinco gerências (PE, PR, PL, OS e PD), em seis meses. Alvarez & Marsal · Digital & Technology Services."),
-    "tmo": ("AXON_Proposta_TMO.html", "AXON · TMO",
-            "Proposta de método e plano de trabalho de Transformation Management Office (PMO + Gestão de Mudanças) para escalar a plataforma AXON em cinco gerências, em seis meses. Alvarez & Marsal · Digital & Technology Services."),
+    "tmo": ("AXON_Proposta_1_TMO.html", "AXON · Proposta 1 · TMO",
+            "Proposta 1: Transformation Office (PMO + Gestão de Mudanças) para escalar a plataforma AXON nas cinco gerências do ONS. Contexto, método e plano de trabalho de 6 meses. Alvarez & Marsal · Digital & Technology Services."),
+    "gm": ("AXON_Proposta_2_GMO.html", "AXON · Proposta 2 · GMO",
+           "Proposta 2: Gestão de Mudanças (método ADKAR) para a adoção da plataforma AXON nas cinco gerências do ONS. Contexto, método e plano de trabalho de 6 meses. Alvarez & Marsal · Digital & Technology Services."),
 }
 
 def datauri(name):
@@ -17,11 +17,14 @@ def datauri(name):
 
 def build(key):
     out, title, desc = DECKS[key]
-    css = (SRC / "shell_base.css").read_text() + "\n" + (SRC / "shell_add.css").read_text()
+    fxdir = SRC / "fx"
+    css = (SRC / "shell_base.css").read_text() + "\n" + "\n".join(p.read_text() for p in sorted(fxdir.glob("*.css"))) + "\n" + (SRC / "shell_add.css").read_text()
     slides = (SRC / f"{key}_slides.html").read_text()
     slides = re.sub(r"\{\{([\w.]+\.png)\}\}", lambda m: datauri(m.group(1)), slides)
-    assets = "const ASSET={" + ",".join(f'"{p.stem}":"{datauri(p.name)}"' for p in sorted((SRC / "assets").glob("*.png"))) + "};"
-    js = assets + "\n" + "\n".join((SRC / f).read_text() for f in ("lib.js", f"{key}.js", "shell.js"))
+    used = (SRC / "shell.js").read_text() + (SRC / f"{key}.js").read_text()
+    assets = "const ASSET={" + ",".join(f'"{p.stem}":"{datauri(p.name)}"' for p in sorted((SRC / "assets").glob("*.png")) if f"ASSET.{p.stem}" in used) + "};"
+    fxjs = "\n".join(p.read_text() for p in sorted(fxdir.glob("*.js")))
+    js = assets + "\n" + (SRC / "lib.js").read_text() + "\n" + fxjs + "\n" + (SRC / f"{key}.js").read_text() + "\n" + (SRC / "shell.js").read_text()
     html = f"""<!doctype html>
 <html lang="pt-BR">
 <head>
@@ -30,7 +33,7 @@ def build(key):
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 {css}
 </style>

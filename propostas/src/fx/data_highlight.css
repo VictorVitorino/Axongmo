@@ -1,0 +1,37 @@
+.fx-dh{position:relative;font-family:var(--fb,'Inter',sans-serif);color:#002B49;--fx-dh-bar:#1F3263;--fx-dh-ink:#35516A;--fx-dh-strong:#002B49;--fx-dh-line:#002B49;--fx-dh-card:#fff;--fx-dh-edge:#BFD0E1;--fx-dh-goal:#C96A05}
+.fx-dh--dark{color:#fff;--fx-dh-bar:#5E8AB4;--fx-dh-ink:#BFD0E1;--fx-dh-strong:#fff;--fx-dh-line:#9DBBD9;--fx-dh-card:#122143;--fx-dh-edge:#1F3263;--fx-dh-goal:#F9A64A}
+.fx-dh.is-reset *{transition:none!important}
+.fx-dh__plot{position:absolute;left:0;right:0;top:var(--fx-dh-top,150px);bottom:44px;display:flex;gap:22px;padding:0 16px;border-bottom:1.5px solid var(--fx-dh-edge)}
+.fx-dh__col{position:relative;flex:1;min-width:0;display:flex;justify-content:center;cursor:pointer}
+.fx-dh__track{position:relative;width:100%;max-width:84px;transition:opacity .4s}
+.fx-dh__bar{position:absolute;left:0;right:0;bottom:0;height:var(--h);border-radius:6px 6px 0 0;background:var(--fx-dh-bar);transform:scaleY(0);transform-origin:50% 100%;transition:transform .5s cubic-bezier(.22,.61,.36,1) calc(var(--i,0)*45ms),background-color .4s,box-shadow .4s}
+.fx-dh.is-in .fx-dh__bar{transform:none}
+.fx-dh__ghost{position:absolute;left:-8px;right:-8px;bottom:0;z-index:1;height:var(--p,0);border-top:2px dashed var(--fx-dh-strong);opacity:0;transition:opacity .4s;pointer-events:none}
+.fx-dh__val{position:absolute;left:50%;bottom:calc(var(--h) + 10px);transform:translateX(-50%);font-style:normal;font-size:16px;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums;opacity:0;transition:opacity .3s}
+.fx-dh__lbl{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);font-size:15px;font-weight:600;color:var(--fx-dh-ink);white-space:nowrap;transition:opacity .4s,color .3s}
+.fx-dh .is-hi{--fx-dh-bar:#F78C16}
+.fx-dh .is-hi .fx-dh__bar{box-shadow:0 0 22px rgba(247,140,22,.4)}
+.fx-dh .is-hi .fx-dh__lbl{color:var(--fx-dh-strong)}
+.fx-dh .is-hi .fx-dh__val,.fx-dh .is-hover .fx-dh__val,.fx-dh .is-ghost .fx-dh__ghost{opacity:1}
+.fx-dh .is-dim .fx-dh__track{opacity:.18}
+.fx-dh .is-dim.is-hover .fx-dh__track{opacity:.55}
+.fx-dh .is-dim .fx-dh__lbl{opacity:.45}
+.fx-dh [data-fx-item]:not(.fx-dh__col){transition:opacity .4s,box-shadow .4s}
+.fx-dh .is-dim:not(.fx-dh__col){opacity:.25}
+.fx-dh .is-dim.is-hover:not(.fx-dh__col){opacity:.6}
+.fx-dh .is-hi:not(.fx-dh__col){box-shadow:0 0 0 2px #F78C16,0 14px 32px rgba(247,140,22,.22)}
+.fx-dh__goal{position:absolute;left:0;right:0;bottom:var(--g,50%);z-index:1;border-top:2px dashed var(--fx-dh-goal);opacity:0;transition:opacity .4s;pointer-events:none}
+.fx-dh__goal span{position:absolute;right:0;bottom:6px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fx-dh-goal)}
+.fx-dh__goal.is-on{opacity:1}
+.fx-dh__ov{position:absolute;left:0;top:0;z-index:2;width:100%;height:100%;overflow:visible;pointer-events:none}
+.fx-dh__ov path{fill:none;stroke:var(--fx-dh-line);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.fx-dh__callout{position:absolute;top:0;left:0;z-index:3;max-width:62%;padding:12px 20px 12px 26px;border-radius:12px;background:var(--fx-dh-card);border:1px solid var(--fx-dh-edge);box-shadow:0 12px 28px rgba(0,43,73,.16);opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s cubic-bezier(.22,.61,.36,1);pointer-events:none}
+.fx-dh__callout::before{content:"";position:absolute;left:11px;top:12px;bottom:12px;width:4px;border-radius:2px;background:#F78C16}
+.fx-dh__callout.is-on{opacity:1;transform:none}
+.fx-dh__callout b{display:block;font-family:var(--fh,'Barlow Condensed',sans-serif);font-size:24px;font-weight:700;line-height:1.15;color:var(--fx-dh-strong)}
+.fx-dh__callout span{display:block;margin-top:4px;font-size:14px;line-height:1.4;color:var(--fx-dh-ink)}
+.fx-dh__ctl{display:flex;flex-wrap:wrap;gap:8px}
+.fx-dh__btn{height:36px;padding:0 14px;border-radius:9px;border:1px solid #BFD0E1;background:#fff;font:600 14px var(--fb,'Inter',sans-serif);color:#35516A;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
+.fx-dh__btn:hover{border-color:#002B49}
+.fx-dh__btn.is-on{background:#002B49;border-color:#002B49;color:#fff}
+@media (prefers-reduced-motion:reduce){.fx-dh *{transition:none!important}.fx-dh__bar{transform:none}}

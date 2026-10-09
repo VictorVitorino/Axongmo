@@ -1,0 +1,42 @@
+/* Motion Graphics · abertura coreografada (palco 1600x900) + loops sutis para diagramas */
+.fx-mg{position:absolute;inset:0;overflow:hidden;color:#fff;font-family:var(--fb,'Inter',sans-serif);background:radial-gradient(ellipse 80% 70% at 72% 18%,#1F3263 0%,#122143 46%,#0E1C39 100%)}
+.fx-mg-orbs,.fx-mg-grid{position:absolute;inset:0;pointer-events:none}
+.fx-mg-orbs::before,.fx-mg-orbs::after{content:"";position:absolute;inset:-60px;animation:fx-mg-drift 16s ease-in-out infinite alternate paused}
+.fx-mg-orbs::before{background:radial-gradient(ellipse 34% 48% at 6% 8%,rgba(94,138,180,.5),rgba(94,138,180,0))}
+.fx-mg-orbs::after{background:radial-gradient(ellipse 30% 40% at 96% 100%,rgba(247,140,22,.26),rgba(247,140,22,0));animation-duration:21s;animation-direction:alternate-reverse}
+.fx-mg-on .fx-mg-orbs::before,.fx-mg-on .fx-mg-orbs::after{animation-play-state:running}
+.fx-mg-grid{background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px}
+@keyframes fx-mg-drift{to{transform:translate(36px,22px)}}
+.fx-mg-ring{position:absolute;width:380px;height:380px}
+.fx-mg-ring svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);overflow:visible;transition:filter .6s}
+.fx-mg-c1{fill:none;stroke:#5E8AB4;stroke-width:1.6;stroke-linecap:round;transition:stroke .6s}
+.fx-mg-c2{fill:none;stroke:#9DBBD9;stroke-width:.8;stroke-dasharray:2 6;stroke-linecap:round;transform-box:fill-box;transform-origin:center}
+.fx-mg-done .fx-mg-c1{stroke:#F9A64A}
+.fx-mg-done .fx-mg-ring svg{filter:drop-shadow(0 0 8px rgba(247,140,22,.55))}
+.fx-mg-sq{position:absolute;width:30px;height:30px;border-radius:7px;background:#F78C16;box-shadow:0 10px 26px rgba(247,140,22,.45)}
+.fx-mg-ringlbl{position:absolute;inset:0;display:grid;place-items:center;font:600 40px/1 var(--fh,'Barlow Condensed',sans-serif);letter-spacing:.3em;text-indent:.3em;color:#fff}
+.fx-mg-col{position:absolute}
+.fx-mg-vline{position:absolute;left:-32px;top:4px;width:3px;height:100%;border-radius:2px;background:linear-gradient(#5E8AB4,rgba(94,138,180,0))}
+.fx-mg-eyebrow{display:inline-block;font:600 18px/1.4 var(--fb,'Inter',sans-serif);letter-spacing:.18em;text-transform:uppercase;color:#9DBBD9;white-space:nowrap}
+.fx-mg-eyebrow::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:#F78C16;margin-right:14px;vertical-align:2px}
+.fx-mg-title{margin:18px 0 0;font:700 84px/1.02 var(--fh,'Barlow Condensed',sans-serif);letter-spacing:-.01em;color:#fff}
+.fx-mg-title em{font-style:normal;color:#F9A64A}
+.fx-mg-w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+.fx-mg-w>i{display:inline-block;font-style:normal;will-change:transform}
+.fx-mg-rule{display:block;width:96px;height:4px;margin-top:26px;border-radius:2px;background:#F78C16}
+.fx-mg-sub{margin:22px 0 0;max-width:720px;font-size:24px;line-height:1.45;color:#BFD0E1}
+[data-mg=line],[data-mg=bar]{transform-origin:left top}
+.fx-mg-stats{position:absolute;display:flex;gap:56px}
+.fx-mg-stat{min-width:200px}
+.fx-mg-stat b{display:block;font:600 64px/1 var(--fh,'Barlow Condensed',sans-serif);font-variant-numeric:tabular-nums;white-space:nowrap}
+.fx-mg-stat span{display:block;margin-top:6px;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#9DBBD9}
+.fx-mg-stat i{display:block;height:4px;margin-top:14px;border-radius:2px;background:linear-gradient(90deg,#5E8AB4,#F78C16)}
+.fx-mg-live [data-mg-loop=float]{animation:fx-mg-float 6s ease-in-out infinite}
+.fx-mg-live [data-mg-loop=spin]{animation:fx-mg-spin 48s linear infinite}
+.fx-mg-live [data-mg-loop=pulse]{animation:fx-mg-pulse 3s ease-in-out infinite}
+.fx-mg-live [data-mg-loop=flow]{stroke-dasharray:6 10;animation:fx-mg-flow 1.4s linear infinite}
+@keyframes fx-mg-float{50%{transform:translateY(-10px)}}
+@keyframes fx-mg-spin{to{transform:rotate(360deg)}}
+@keyframes fx-mg-pulse{50%{filter:drop-shadow(0 0 14px rgba(247,140,22,.75))}}
+@keyframes fx-mg-flow{to{stroke-dashoffset:-32}}
+@media (prefers-reduced-motion:reduce){.fx-mg-orbs::before,.fx-mg-orbs::after,.fx-mg-live [data-mg-loop]{animation:none!important}.fx-mg-c1,.fx-mg-ring svg{transition:none}}

@@ -1,0 +1,21 @@
+.fx-rv-armed [data-fx-reveal]:not(.is-revealed){clip-path:inset(0 100% 0 0);-webkit-clip-path:inset(0 100% 0 0);will-change:clip-path,translate}
+.fx-rv [data-fx-reveal].is-revealed{clip-path:none;-webkit-clip-path:none}
+:where(.fx-rv [data-fx-edge]){position:relative}
+:where(.fx-rv [data-fx-zoom]){overflow:hidden}
+.fx-rv [data-fx-zoom]>img,.fx-rv [data-fx-zoom]>svg,.fx-rv [data-fx-zoom]>video{display:block;width:100%;height:100%;object-fit:cover;transform-origin:50% 50%}
+.fx-rv [data-fx-edge]::after{content:"";position:absolute;top:0;bottom:0;left:calc(var(--fx-rv-e,1) * 100% - 3px);width:3px;border-radius:2px;background:linear-gradient(180deg,#F9A64A,#F78C16);box-shadow:0 0 18px 3px rgba(247,140,22,.55);opacity:var(--fx-rv-o,0);pointer-events:none}
+@media (prefers-reduced-motion:reduce){.fx-rv-armed [data-fx-reveal]{clip-path:none!important;-webkit-clip-path:none!important}}
+@media print{.fx-rv-armed [data-fx-reveal]{clip-path:none!important;-webkit-clip-path:none!important;translate:none!important;scale:none!important}.fx-rv [data-fx-edge]::after{display:none}}
+/* exemplo de slide (Diagnóstico) */
+.fx-rv-demo{position:absolute;inset:96px 96px 88px;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:stretch;font-family:var(--fb)}
+.fx-rv-left{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.fx-rv-eyebrow{align-self:flex-start;font:600 18px/1 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:#F78C16}
+.fx-rv-title{margin:20px 0 36px;font:700 64px/1.02 var(--fh);text-transform:uppercase;color:#002B49}
+.fx-rv-title em{font-style:normal;color:#F78C16}
+.fx-rv-list{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.fx-rv-list li{display:grid;grid-template-columns:56px 1fr;gap:4px 18px;align-items:center;padding:18px 22px;border-radius:12px;background:#EEF3F8;border-left:4px solid #5E8AB4;box-shadow:0 10px 24px rgba(0,43,73,.08)}
+.fx-rv-list i{grid-row:span 2;font:700 34px/1 var(--fh);font-style:normal;color:#F78C16}
+.fx-rv-list b{font:600 22px/1.2 var(--fb);color:#002B49}
+.fx-rv-list span{font:400 17px/1.35 var(--fb);color:#35516A}
+.fx-rv-media{position:relative;margin:0;border-radius:18px;background:linear-gradient(160deg,#1F3263,#0E1C39);box-shadow:0 24px 48px rgba(14,28,57,.28)}
+.fx-rv-media figcaption{position:absolute;left:28px;right:28px;bottom:22px;font:600 15px/1.3 var(--fb);letter-spacing:.12em;text-transform:uppercase;color:#BFD0E1}
