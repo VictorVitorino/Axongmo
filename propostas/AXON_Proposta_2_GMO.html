@@ -121,7 +121,7 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 
 /* ===== STATUS REPORT CHROME ===== */
 .slide{background-color:#F5F8FB;background-image:linear-gradient(#E9EFF4 1px,transparent 1px),linear-gradient(90deg,#E9EFF4 1px,transparent 1px);background-size:40px 40px}
-.sr-top{position:absolute;left:24px;right:24px;top:16px;height:80px;background:linear-gradient(100deg,#002B49 0%,#122143 60%,#1F3263 100%);border-radius:14px;display:flex;align-items:center;gap:16px;padding:0 24px;color:#fff;z-index:3}
+.sr-top{position:absolute;left:12px;right:12px;top:16px;height:80px;background:linear-gradient(100deg,#002B49 0%,#122143 60%,#1F3263 100%);border-radius:14px;display:flex;align-items:center;gap:16px;padding:0 24px;color:#fff;z-index:3}
 .sr-logo{display:flex;align-items:center;gap:10px;min-width:220px}
 .sr-logo .t{font:500 14px/1.08 var(--fb);color:#fff;border-left:3px solid #fff;padding-left:9px}
 .sr-logo .t b{font-weight:800}
@@ -131,7 +131,7 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 .sr-right{margin-left:auto;text-align:right;line-height:1.15}
 .sr-right b{display:block;font:800 18px var(--fb)}.sr-right span{font:400 16px var(--fb);color:#CFE2F0}
 .sr-dec{position:absolute;top:2px;right:26px;font:10px/1 var(--fb);letter-spacing:5px;color:#5E8AB4;z-index:4}
-.sr-band{position:absolute;left:24px;right:24px;top:106px;height:50px;border-radius:14px 14px 0 0;display:flex;align-items:center;gap:10px;padding:0 24px;font:700 24px var(--fh);color:#fff;letter-spacing:.03em;text-transform:uppercase;z-index:2}
+.sr-band{position:absolute;left:12px;right:12px;top:106px;height:50px;border-radius:14px 14px 0 0;display:flex;align-items:center;gap:10px;padding:0 24px;font:700 24px var(--fh);color:#fff;letter-spacing:.03em;text-transform:uppercase;z-index:2}
 .sr-band small{margin-left:auto;font:500 13px var(--fb);text-transform:none;letter-spacing:0;opacity:.92}
 .c-navy{background:linear-gradient(90deg,#002B49,#0E4067 60%,#1B5A8A)}.c-green{background:linear-gradient(90deg,#33556D,#3D6480 60%,#5E8AB4)}
 .c-blue{background:linear-gradient(90deg,#1F3263,#5E8AB4 70%,#5E8AB4)}.c-gold{background:linear-gradient(90deg,#B35F00,#F78C16 60%,#F9A64A)}
@@ -1169,6 +1169,32 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 .tilt .tab td b{font:800 11.5px var(--fb);color:#002B49}
 .tilt .tab td .m{display:inline-block;font:700 9.5px var(--fb);color:#fff;border-radius:99px;padding:1px 7px;margin-right:3px;background:var(--c)}
 
+/* rodada de ajustes: capa axônio, espaçamento do título, página 2 e 3 */
+.cv4 .cv4-h.cv4-big{font-size:168px;line-height:.95;letter-spacing:-.035em}
+.cv4 .cv4-sub.cv4-bigsub{font-size:36px;padding-top:26px;margin-top:10px}
+.cv4 .cv4-sub.cv4-bigsub::before{width:72px;height:4px}
+.body.sp>.stmt2{padding-bottom:12px}
+.fut-scene .lane b,.fut-scene .lane.p1 b,.fut-scene .lane.p2 b,.fut-scene .lane.p3 b{background:linear-gradient(150deg,#B04DFF,#8A00C4);color:#fff;box-shadow:0 0 0 3px rgba(176,77,255,.18),0 0 14px rgba(176,77,255,.55)}
+.path-seg .tg.num{color:#8A00C4;border-color:#D9B8F0}
+.path-seg .tg.num.on,.path-seg .tg.p1.on,.path-seg .tg.p2.on,.path-seg .tg.p3.on{background:linear-gradient(150deg,#B04DFF,#8A00C4)!important;border-color:#8A00C4!important;color:#fff!important;box-shadow:0 0 12px rgba(176,77,255,.55)}
+.fut-scene .ln .b{stroke-width:2.2}
+.fut-scene .ln .f{stroke:#FFC58A;stroke-width:2.2;stroke-dasharray:2 10}
+.fut-scene .ln.dim .b{stroke:#D3DCE6;opacity:.9}
+.ctx-txt{gap:16px;justify-content:flex-start;padding-top:4px}
+.ctx-txt p{font-size:16px;line-height:1.62}
+.ctx-txt h4{font-size:19px}
+.ctx-txt .q{font-size:14.5px;margin-top:6px}
+.asis,.tobe{padding:14px 22px 48px;gap:8px}
+.asis .hd,.tobe .hd{display:flex;justify-content:space-between;align-items:flex-start;padding:2px 0 8px;border-bottom:1px solid rgba(14,28,57,.08);margin-bottom:2px}
+.asis .hd span{display:block;font:600 9.5px "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#6B7B8C}
+.asis .hd b{display:block;font:800 16px/1.1 var(--fh);color:#3E4C5E;margin-top:2px}
+.asis .hd em{font-style:normal;font:700 10.5px var(--fb);color:#fff;background:#6B7B8C;border-radius:6px;padding:4px 9px}
+.asis .row,.tobe .row{flex:none;height:48px;padding:4px 12px}
+.ba.knob-bottom .ba-k{top:auto;bottom:6px;margin:0 0 0 -18px}
+.ba .ba-lbl:empty{display:none}
+.ba-ctl .btn,.ba-ctl .tg{white-space:nowrap}
+.fx-sh-text.ax-sh{filter:drop-shadow(0 0 14px rgba(176,77,255,.45))}
+
 </style>
 </head>
 <body>
@@ -1181,10 +1207,10 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
   <div class="cv4-shade"></div>
   <div class="cv4-title">
     <span class="cv4-eye">Alvarez &amp; Marsal · DTS · ONS</span>
-    <b class="cv4-h"><span class="fx-sh-text">AXON</span></b>
-    <span class="cv4-sub">Proposta de adoção ao modelo</span>
+    <b class="cv4-h cv4-big"><span class="fx-sh-text">AXON</span></b>
+    <span class="cv4-sub cv4-bigsub">Proposta de adoção ao modelo</span>
   </div>
-  <div class="cv4-read"><span>partículas</span><b data-n>260</b><span>conexões</span><b data-links>0</b><span>fps</span><b data-fps>60</b></div>
+  <div class="cv4-read"><span>impulsos</span><b data-n>0</b><span>sinapses</span><b data-links>0</b><span>fps</span><b data-fps>60</b></div>
   <div class="cv4-logos"><span class="am"><img src="data:image/png;base64,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" alt="A&amp;M" style="height:54px"><span><b>Alvarez &amp; Marsal</b><span>Digital &amp; Technology Services</span></span></span><i></i><img src="data:image/png;base64,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" alt="ONS" style="height:40px"></div>
   <div class="cv4-tag">Documento para discussão</div>
 </section>
@@ -1202,11 +1228,11 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 <section class="slide" data-p="2 · Contexto" data-t="Contexto" data-band="Contexto · o que o AXON faz e o que ele muda para o ONS" data-c="c-navy" data-bs="Leia à esquerda · arraste o divisor à direita · troque o caminho" data-src="Leitura da demonstração do produto e das conversas com o time. Sem números auditados: a leitura é qualitativa e será verificada no raio-x do mês 1. O quadro Sem AXON × Com AXON muda conforme o caminho escolhido na página anterior.">
   <div class="body sp fill">
     <div class="stmt2" data-fx-type="word" style="font-size:23px">Um modelo em container vira uma caixinha que roda na nuvem. <span data-fx-hl class="ax-hl">Isso é o AXON.</span> O que ele muda é <span data-fx-hl class="ax-hl">quem faz o quê</span> dentro do ONS.</div>
-    <div class="gr" style="display:grid;grid-template-columns:640px 1fr;gap:20px;min-height:0">
+    <div class="gr" style="display:grid;grid-template-columns:1fr 700px;gap:28px;min-height:0">
       <div class="ctx-txt" id="ctxTxt"></div>
-      <div style="display:flex;flex-direction:column;gap:8px;min-height:0">
+      <div style="display:flex;flex-direction:column;justify-content:center;gap:10px;min-height:0">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><div class="lbl" style="white-space:nowrap">Sem AXON × com AXON <small>o mesmo trabalho, por caminho</small></div><div class="path-seg" id="ctxSeg"></div></div>
-        <div id="baCtx" class="ba" style="flex:1;min-height:0"></div>
+        <div id="baCtx" class="ba knob-bottom" style="height:446px;flex:none"></div>
         <div id="baCtl" class="ba-ctl"></div>
       </div>
     </div>
@@ -1393,6 +1419,67 @@ for(const p of P){ctx.fillStyle=p.hub?"#FF8A4C":"#C9D6E8";if(p.hub){ctx.shadowCo
 fa+=dt;fn++;if(fn>=20){if(fOut)fOut.textContent=String(Math.min(60,Math.round(1000/(fa/fn))));if(lOut)lOut.textContent=String(links);fa=0;fn=0}
 if(!RM)raf=requestAnimationFrame(frame)}
 function play(){stop();fit();P=[];for(let i=0;i<count;i++)P.push(spawn());if(nOut)nOut.textContent=String(count);root.classList.remove("in");void root.offsetWidth;root.classList.add("in");last=0;raf=requestAnimationFrame(frame)}
+function stop(){cancelAnimationFrame(raf);raf=0}
+addEventListener("resize",()=>{if(raf)fit()});return{play,stop}}
+
+/* Capa · axônio: neurônio em roxo neon (dendritos, soma, axônio mielinizado, terminais); impulsos saltam de nó em nó até as sinapses */
+function fxCoverAxon(root,opts){opts=opts||{};const cv=root.querySelector(".cv4-cv"),ctx=cv.getContext("2d"),nOut=root.querySelector("[data-n]"),lOut=root.querySelector("[data-links]"),fOut=root.querySelector("[data-fps]");
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches,W=1600,H=900;let seed=7;const rnd=(a,b)=>{seed=(seed*16807)%2147483647;return a+(seed/2147483647)*(b-a)};
+const SO={x:opts.x||1010,y:opts.y||330,r:34};
+/* dendritos: árvore recursiva; cada galho guarda o caminho da ponta até o soma */
+const dend=[],tips=[];
+function branch(pts,ang,len,w,depth){const last=pts[pts.length-1];const n=8,seg=[];let a=ang,x=last.x,y=last.y;for(let i=0;i<n;i++){a+=rnd(-.16,.16);x+=Math.cos(a)*len/n;y+=Math.sin(a)*len/n;seg.push({x,y})}
+const path=pts.concat(seg);dend.push({pts:[last].concat(seg),w});if(depth<=0||len<38){tips.push(path.slice().reverse());return}
+const k=depth>2?2:rnd(0,1)<.6?2:3;for(let i=0;i<k;i++)branch(path,a+rnd(-.75,.75),len*rnd(.55,.75),w*.68,depth-1)}
+const AXA=.42;[-2.75,-2.2,-1.6,-1.0,-.35,2.2,2.75,1.55].forEach(a=>{const s={x:SO.x+Math.cos(a)*SO.r*.8,y:SO.y+Math.sin(a)*SO.r*.8};branch([{x:SO.x,y:SO.y},s],a,rnd(120,190),5.5,3)});
+/* axônio: curva cúbica do cone de implantação até os terminais */
+const P0={x:SO.x+Math.cos(AXA)*SO.r,y:SO.y+Math.sin(AXA)*SO.r},C1={x:1180,y:430},C2={x:1260,y:620},P3={x:1430,y:700};
+const bez=t=>{const u=1-t;return{x:u*u*u*P0.x+3*u*u*t*C1.x+3*u*t*t*C2.x+t*t*t*P3.x,y:u*u*u*P0.y+3*u*u*t*C1.y+3*u*t*t*C2.y+t*t*t*P3.y}};
+const ax=[];let L=0;for(let i=0;i<=240;i++){const p=bez(i/240);if(i){const q=ax[i-1];L+=Math.hypot(p.x-q.x,p.y-q.y)}p.s=L;ax.push(p)}
+const at=s=>{s=Math.max(0,Math.min(L,s));let i=1;while(i<ax.length-1&&ax[i].s<s)i++;const a=ax[i-1],b=ax[i],k=(s-a.s)/((b.s-a.s)||1);return{x:a.x+(b.x-a.x)*k,y:a.y+(b.y-a.y)*k,ang:Math.atan2(b.y-a.y,b.x-a.x)}};
+const MY=46,GAPN=10,START=34,nodes=[];for(let s=START;s<L-30;s+=MY+GAPN)nodes.push(s+MY+GAPN/2);
+/* terminais sinápticos */
+const term=[],bout=[];[-1.0,-.45,.05,.55,1.05].forEach(d=>{const a=Math.atan2(P3.y-C2.y,P3.x-C2.x)+d;const pts=[{x:P3.x,y:P3.y}];let x=P3.x,y=P3.y,aa=a;const len=rnd(60,95);for(let i=0;i<6;i++){aa+=rnd(-.2,.2);x+=Math.cos(aa)*len/6;y+=Math.sin(aa)*len/6;pts.push({x,y})}term.push(pts);bout.push({x,y,flash:0})});
+/* camada estática pré-renderizada com brilho */
+const off=document.createElement("canvas");off.width=W;off.height=H;const o=off.getContext("2d");o.lineCap="round";o.lineJoin="round";
+const stroke=(pts,w,col,blur)=>{o.save();o.strokeStyle=col;o.lineWidth=w;o.shadowColor="rgba(176,77,255,.85)";o.shadowBlur=blur;o.beginPath();o.moveTo(pts[0].x,pts[0].y);for(let i=1;i<pts.length;i++){const p=pts[i-1],q=pts[i];o.quadraticCurveTo(p.x,p.y,(p.x+q.x)/2,(p.y+q.y)/2)}const e=pts[pts.length-1];o.lineTo(e.x,e.y);o.stroke();o.restore()};
+dend.forEach(d=>stroke(d.pts,d.w,"rgba(183,110,255,.78)",14));
+stroke(ax,4,"rgba(200,140,255,.9)",18);
+nodes.forEach((n,i)=>{const s0=n-GAPN/2-MY,s1=n-GAPN/2;const pts=[];for(let s=s0;s<=s1;s+=4)pts.push(at(s));o.save();o.strokeStyle="rgba(138,0,196,.95)";o.lineWidth=15;o.lineCap="round";o.shadowColor="rgba(176,77,255,.9)";o.shadowBlur=20;o.beginPath();pts.forEach((p,k)=>k?o.lineTo(p.x,p.y):o.moveTo(p.x,p.y));o.stroke();o.strokeStyle="rgba(230,190,255,.55)";o.lineWidth=4;o.shadowBlur=0;o.beginPath();pts.forEach((p,k)=>k?o.lineTo(p.x,p.y-3):o.moveTo(p.x,p.y-3));o.stroke();o.restore()});
+term.forEach(t=>stroke(t,2.4,"rgba(200,140,255,.85)",12));
+/* soma */
+const g=o.createRadialGradient(SO.x-8,SO.y-10,4,SO.x,SO.y,SO.r+18);g.addColorStop(0,"#F3DEFF");g.addColorStop(.35,"#B04DFF");g.addColorStop(.75,"#6A0A9C");g.addColorStop(1,"rgba(106,10,156,0)");o.fillStyle=g;o.beginPath();o.arc(SO.x,SO.y,SO.r+18,0,7);o.fill();
+o.fillStyle="rgba(255,255,255,.9)";o.beginPath();o.arc(SO.x-4,SO.y-4,9,0,7);o.fill();
+/* poeira de fundo */
+const dust=[];for(let i=0;i<70;i++)dust.push({x:rnd(0,W),y:rnd(0,H),r:rnd(.6,1.8),vx:rnd(-.12,.12),vy:rnd(-.1,.1),a:rnd(.15,.45)});
+let aps=[],dps=[],nts=[],cursor=null,raf=0,last=0,fa=0,fn=0,fired=0,soma=0,tAuto=0,tD=0;
+const fire=()=>{aps.push({s:0,v:RM?2:7.5});soma=1};
+function fit(){const r=cv.getBoundingClientRect(),k=r.width?r.width/W:1,pr=Math.min(2,Math.max(1,(devicePixelRatio||1)*k));cv.width=Math.round(W*pr);cv.height=Math.round(H*pr);ctx.setTransform(pr,0,0,pr,0,0)}
+const loc=e=>{const r=cv.getBoundingClientRect();return{x:(e.clientX-r.left)*W/r.width,y:(e.clientY-r.top)*H/r.height}};
+root.addEventListener("pointermove",e=>{cursor=loc(e)});root.addEventListener("pointerleave",()=>cursor=null);
+root.addEventListener("pointerdown",e=>{if(e.target.closest("button,a"))return;fire()});
+function frame(t){const dt=last?Math.min(50,t-last):16.7;last=t;const k=dt/16.7;
+ctx.clearRect(0,0,W,H);
+for(const d of dust){d.x+=d.vx*k;d.y+=d.vy*k;if(d.x<0)d.x=W;if(d.x>W)d.x=0;if(d.y<0)d.y=H;if(d.y>H)d.y=0;ctx.fillStyle=`rgba(201,214,232,${d.a})`;ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,7);ctx.fill()}
+ctx.drawImage(off,0,0);
+/* sinais dendríticos: das pontas até o soma; perto do cursor nascem mais */
+tD+=dt;if(tD>(cursor?160:520)){tD=0;let pick=tips[Math.floor(rnd(0,tips.length))];if(cursor){let best=1e9;tips.forEach(tp=>{const d=Math.hypot(tp[0].x-cursor.x,tp[0].y-cursor.y);if(d<best&&rnd(0,1)<.5){best=d;pick=tp}})}dps.push({p:pick,i:0,f:0})}
+for(let q=dps.length-1;q>=0;q--){const d=dps[q];d.f+=.55*k;while(d.f>=1){d.f-=1;d.i++}if(d.i>=d.p.length-1){dps.splice(q,1);soma=Math.min(1,soma+.25);if(soma>=.95)fire();continue}const a=d.p[d.i],b=d.p[d.i+1],x=a.x+(b.x-a.x)*d.f,y=a.y+(b.y-a.y)*d.f;ctx.save();ctx.shadowColor="#E6C2FF";ctx.shadowBlur=14;ctx.fillStyle="rgba(240,220,255,.95)";ctx.beginPath();ctx.arc(x,y,2.6,0,7);ctx.fill();ctx.restore()}
+tAuto+=dt;if(tAuto>2600){tAuto=0;fire()}
+/* soma pulsando */
+soma=Math.max(0,soma-.012*k);ctx.save();ctx.globalCompositeOperation="lighter";const sg=ctx.createRadialGradient(SO.x,SO.y,0,SO.x,SO.y,SO.r*2.6);sg.addColorStop(0,`rgba(214,140,255,${.35+.5*soma})`);sg.addColorStop(1,"rgba(176,77,255,0)");ctx.fillStyle=sg;ctx.beginPath();ctx.arc(SO.x,SO.y,SO.r*2.6,0,7);ctx.fill();ctx.restore();
+/* potenciais de ação: saltam entre os nós de Ranvier */
+for(let q=aps.length-1;q>=0;q--){const a=aps[q];a.s+=a.v*k;if(a.s>=L){aps.splice(q,1);fired++;bout.forEach(b=>b.flash=1);for(let i=0;i<14;i++){const b=bout[i%bout.length];nts.push({x:b.x,y:b.y,vx:rnd(-1.1,1.1),vy:rnd(-1.1,1.1),a:1})}continue}
+let ni=nodes.findIndex(n=>n>a.s);const sJ=ni<0?a.s:nodes[ni];const near=ni<0?1:Math.max(0,1-(sJ-a.s)/(MY+GAPN));const p=at(a.s);
+ctx.save();ctx.globalCompositeOperation="lighter";const rg=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,34);rg.addColorStop(0,"rgba(255,255,255,.95)");rg.addColorStop(.25,"rgba(214,140,255,.8)");rg.addColorStop(1,"rgba(176,77,255,0)");ctx.fillStyle=rg;ctx.beginPath();ctx.arc(p.x,p.y,34,0,7);ctx.fill();
+if(ni>=0){const pn=at(nodes[ni]);ctx.fillStyle=`rgba(255,180,120,${.25+.6*near})`;ctx.beginPath();ctx.arc(pn.x,pn.y,5+5*near,0,7);ctx.fill()}ctx.restore()}
+/* terminais e neurotransmissores */
+for(const b of bout){b.flash=Math.max(0,b.flash-.02*k);ctx.save();ctx.shadowColor="#FF8A4C";ctx.shadowBlur=10+24*b.flash;ctx.fillStyle=`rgba(255,${150+60*b.flash},${90+80*b.flash},1)`;ctx.beginPath();ctx.arc(b.x,b.y,5.5+3*b.flash,0,7);ctx.fill();ctx.restore()}
+for(let q=nts.length-1;q>=0;q--){const n=nts[q];n.x+=n.vx*k;n.y+=n.vy*k;n.a-=.012*k;if(n.a<=0){nts.splice(q,1);continue}ctx.fillStyle=`rgba(255,170,110,${n.a})`;ctx.beginPath();ctx.arc(n.x,n.y,1.8,0,7);ctx.fill()}
+if(cursor){ctx.strokeStyle="rgba(214,140,255,.25)";ctx.beginPath();ctx.arc(cursor.x,cursor.y,90,0,7);ctx.stroke()}
+fa+=dt;fn++;if(fn>=20){if(fOut)fOut.textContent=String(Math.min(60,Math.round(1000/(fa/fn))));if(nOut)nOut.textContent=String(fired);fa=0;fn=0}
+if(!RM)raf=requestAnimationFrame(frame)}
+function play(){stop();fit();aps=[];dps=[];nts=[];fired=0;if(lOut)lOut.textContent=String(bout.length+tips.length);root.classList.remove("in");void root.offsetWidth;root.classList.add("in");last=0;fire();raf=requestAnimationFrame(frame)}
 function stop(){cancelAnimationFrame(raf);raf=0}
 addEventListener("resize",()=>{if(raf)fit()});return{play,stop}}
 
@@ -2104,10 +2191,10 @@ function fxSpotlight(rootEl, opts) {
 /* ===== Proposta 2 · Gestão de Mudanças (GMO) · adoção do AXON · dois futuros, três caminhos ===== */
 window.DECK={brandSub:"ONS · AXON · Gestão de Mudanças",rightLabel:"Proposta 2 · GMO",footLabel:"AXON · ADOÇÃO · GMO",
 parts:[["Capa","Contexto"],["Futuros","1 · Futuros"],["Contexto","2 · Contexto"],["Riscos","3 · Riscos"],["Pessoas","4 · Pessoas"],["Método","5 · Método"]],
-chapters:{"1 · Futuros":["01","Dois futuros possíveis","O AXON pode virar a rotina do ONS ou virar mais um sistema. Três caminhos levam a esses dois futuros."],"2 · Contexto":["02","Contexto","O que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas."],"3 · Riscos":["03","Cenários e previsão","Os quatro riscos que o AXON vai enfrentar em qualquer caminho, e quando cada um aparece e é absorvido."],"4 · Pessoas":["04","Aproximação e compreensão","A mensagem clara não apaga a dúvida. O mapa sensorial mostra onde as pessoas sentem o AXON."],"5 · Método":["05","Com método, a mudança acontece","Um modelo integrado, quatro dimensões e cinco métodos em camadas para chegar ao futuro certo."]},
+chapters:{"1 · Futuros":["01","Dois futuros possíveis","O AXON pode virar a rotina do ONS ou virar mais um sistema.<br>Três caminhos levam a esses dois futuros."],"2 · Contexto":["02","Contexto","O que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas."],"3 · Riscos":["03","Cenários e previsão","Os quatro riscos que o AXON vai enfrentar em qualquer caminho, e quando cada um aparece e é absorvido."],"4 · Pessoas":["04","Aproximação e compreensão","A mensagem clara não apaga a dúvida. O mapa sensorial mostra onde as pessoas sentem o AXON."],"5 · Método":["05","Com método, a mudança acontece","Um modelo integrado, quatro dimensões e cinco métodos em camadas para chegar ao futuro certo."]},
 zoom:["flowScene","baCtx","mx","tl","heatBA","shim","tiltRoot"],
 descDefault:"Proposta de gestão de mudanças para a adoção do AXON.",
-desc:{"Capa":"Capa em Particle System (Guia DTS): a rede viva representa pessoas, modelos e gerências conectados pelo AXON. Mova o cursor para afastar as partículas e clique para emitir um pulso.",
+desc:{"Capa":"Capa com um axônio vivo: sinais chegam pelos dendritos, o corpo da célula dispara e o impulso salta de nó em nó pela bainha de mielina até as sinapses. Aproxime o cursor dos dendritos para estimular e clique para disparar um impulso.",
 "Dois futuros possíveis":"Connector / Flow Line: três caminhos saem da mesma liberação do AXON. Sem gestão de mudanças, o fluxo termina no futuro em que o AXON vira mais um sistema. Com gestão de mudanças desde o desenvolvimento ou a partir da liberação, termina no futuro em que o AXON vira a rotina, em tempos diferentes. Clique num caminho: a escolha segue para as próximas páginas.",
 "Contexto":"Leitura: o que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas. À direita, o Before / After Slider compara o trabalho sem AXON e com AXON; os três botões mostram como o lado 'com AXON' fica em cada caminho.",
 "Cenários e riscos":"Interactive Matrix: quatro riscos estruturados por frente de gestão de mudanças, posicionados por probabilidade e impacto. Troque o caminho e veja os riscos se moverem; arraste um risco para discutir a avaliação; clique num cartão para destacar.",
@@ -2130,7 +2217,7 @@ function pathSeg(el,opt){opt=opt||{};el.classList.add("path-seg");PK.forEach(k=>
 
 /* ---------- before / after slider ---------- */
 function baSlider(root,o){root.classList.add("ba");root.innerHTML="";const B=H("div",{class:"ba-b"},root),A=H("div",{class:"ba-a"},root);
-const la=H("span",{class:"ba-lbl a"},root,o.la||"Antes"),lb=H("span",{class:"ba-lbl b"},root,o.lb||"Depois");H("div",{class:"ba-h"},root);const k=H("button",{class:"ba-k","aria-label":"divisor"},root,"‹ ›");
+const la=H("span",{class:"ba-lbl a"},root,o.la!=null?o.la:"Antes"),lb=H("span",{class:"ba-lbl b"},root,o.lb!=null?o.lb:"Depois");H("div",{class:"ba-h"},root);const k=H("button",{class:"ba-k","aria-label":"divisor"},root,"‹ ›");
 let x=50,drag=null,stopT=null;const set=v=>{x=clamp(v,0,100);root.style.setProperty("--x",x.toFixed(2)+"%");la.classList.toggle("hid",x<16);lb.classList.toggle("hid",x>84);if(o.onSet)o.onSet(x)};
 const from=e=>{const r=root.getBoundingClientRect();return(e.clientX-r.left)/r.width*100};
 const halt=()=>{if(stopT){stopT();stopT=null}};
@@ -2145,10 +2232,10 @@ function baCtl(el,ba,o){el.innerHTML="";const an=H("button",{class:"btn"},el,"�
 an.addEventListener("click",e=>{e.stopPropagation();if(run){stopA();return}run=true;an.classList.add("on");an.textContent="■ Parar";ba.glide(100,700,()=>ba.glide(0,1500,()=>ba.glide(50,900,stopA)))});
 H("span",{style:"font:500 10px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#8A97A8;margin:0 2px 0 8px"},el,"Posição");
 [[100,o.a||"Antes"],[50,"50 / 50"],[0,o.b||"Depois"]].forEach(([v,l])=>{const b=H("button",{class:"tg","data-pos":v},el,l);b.addEventListener("click",e=>{e.stopPropagation();stopA();ba.glide(v,600)})});
-H("span",{class:"hnt"},el,o.hint||"Arraste o divisor · clique no painel · ← →");ba.onSet=v=>el.querySelectorAll("[data-pos]").forEach(b=>b.classList.toggle("on",Math.abs(+b.dataset.pos-v)<1.5));ba.onSet(ba.x);return{stop:stopA}}
+if(o.hint!=="")H("span",{class:"hnt"},el,o.hint||"Arraste o divisor · clique no painel · ← →");ba.onSet=v=>el.querySelectorAll("[data-pos]").forEach(b=>b.classList.toggle("on",Math.abs(+b.dataset.pos-v)<1.5));ba.onSet(ba.x);return{stop:stopA}}
 
 /* ---------- CAPA ---------- */
-(function(){const sl=SL("Capa");FXR.add(sl,fxCoverParticles(sl,{count:260}));FXR.add(sl,fxShimmerSweep(sl,{delay:1100,every:6500}))})();
+(function(){const sl=SL("Capa");FXR.add(sl,fxCoverAxon(sl));FXR.add(sl,fxShimmerSweep(sl,{delay:1100,every:6500}))})();
 
 /* ---------- 1 · DOIS FUTUROS POSSÍVEIS ---------- */
 (function(){const sl=SL("Dois futuros possíveis"),sc=$("flowScene");
@@ -2159,8 +2246,8 @@ const W=1540,SW=150,LX=212,CW=176,GAP=38,CH=70,FX=1300,FW=W-FX,SX=i=>LX+i*(CW+GA
 const F={eok:{y:208,h:178},ebad:{y:478,h:150}};
 ["Partida","Etapa 1","Etapa 2","Etapa 3","Etapa 4","Etapa 5","Futuro"].forEach((t,i)=>H("div",{class:"col",style:`left:${i===0?0:i===6?FX:SX(i-1)}px;width:${i===0?SW:i===6?FW:CW}px`},sc,t));
 const svg=S("svg",{class:"fl-svg",width:W,height:560,viewBox:`0 0 ${W} 560`},sc);const df=S("defs",null,svg);
-const arrow=(id,c)=>{const m=S("marker",{id,viewBox:"0 0 10 10",refX:"9",refY:"5",markerWidth:"7",markerHeight:"7",orient:"auto"},df);S("path",{d:"M0 1 L9 5 L0 9 z",fill:c},m)};
-arrow("flA0","#BFD0E1");PK.forEach(k=>arrow("flA"+k,PATHS[k].col));
+const arrow=(id,c)=>{const m=S("marker",{id,viewBox:"0 0 12 12",refX:"11",refY:"6",markerWidth:"12",markerHeight:"12",markerUnits:"userSpaceOnUse",orient:"auto"},df);S("path",{d:"M1 1.5 L11 6 L1 10.5 L3.6 6 Z",fill:c},m)};
+arrow("flA0","#C9D4E0");arrow("flAon","#F78C16");
 const ctr={};PK.forEach(k=>{const L=LANES[k];ctr[k]=H("div",{class:`ctr ${k}`,style:`left:${LX-14}px;top:${L.y-CH/2-44}px;width:${EXR-LX+28}px;height:${CH+58}px;--c:${PATHS[k].col}`},sc)});
 const st=H("div",{class:"fn start",style:`left:0;top:${SY-52}px;width:${SW}px;height:104px`},sc);st.innerHTML=`<b>AXON</b><span>Caminhos de implementação</span>`;
 const fut={};[["eok","ok","Futuro 1","O AXON vira a rotina do ONS","Cinco gerências rodando estudos no AXON, legados desligados, custo e tempo visíveis."],["ebad","bad","Futuro 2","O AXON vira mais um sistema","Convivência dupla sem fim, legado mantido por garantia e resultado questionado."]].forEach(([id,cl,e,t,d])=>{const f=F[id];const n=H("div",{class:`fn end ${cl}`,style:`left:${FX}px;top:${f.y-f.h/2}px;width:${FW}px;height:${f.h}px`},sc);n.innerHTML=`<em>${e}</em><b>${t}</b><span>${d}</span><i class="tap">clique para ver quem chega aqui</i>`;n.addEventListener("click",e2=>{e2.stopPropagation();future(id)});fut[id]=n});
@@ -2168,12 +2255,13 @@ const lines={},cards={},labs={};
 PK.forEach((k,li)=>{const L=LANES[k],p=PATHS[k];lines[k]=[];cards[k]=[];
 const lab=H("div",{class:`lane ${k}`,style:`left:${LX}px;top:${L.y-CH/2-34}px`},sc);lab.innerHTML=`<b>${p.tag}</b>${p.n}<em>${p.T}</em>`;lab.addEventListener("click",e=>{e.stopPropagation();setPath(k,sc)});labs[k]=lab;
 const add=(d)=>{const g=S("g",{class:"ln"},svg);const base=S("path",{d,class:"b"},g),flow=S("path",{d,class:"f"},g);lines[k].push({g,base,flow});return g};
-const y=L.y,yS=SY+(li-1)*26;add(`M${SW} ${yS} C${SW+36} ${yS} ${LX-40} ${y} ${LX-3} ${y}`);
+const y=L.y,R=12,TX=SW+30,TX2=FX-28;const elbow=(x0,y0,tx,y1,x1)=>y0===y1?`M${x0} ${y0} H${x1}`:`M${x0} ${y0} H${tx-R} Q${tx} ${y0} ${tx} ${y0+(y1>y0?R:-R)} V${y1-(y1>y0?R:-R)} Q${tx} ${y1} ${tx+R} ${y1} H${x1}`;
+add(elbow(SW,SY,TX,y,LX-2));
 L.steps.forEach(([t,d],i)=>{const x=SX(i);const c=H("div",{class:`stp ${k}`,style:`left:${x}px;top:${y-CH/2}px;width:${CW}px;height:${CH}px;--c:${p.col}`},sc);c.innerHTML=`<div class="in"><div class="fr"><i>${String(i+1).padStart(2,"0")}</i><b>${t}</b></div><div class="bk"><span>${d}</span></div></div>`;c.addEventListener("click",e=>{e.stopPropagation();const was=c.classList.contains("flip");sc.querySelectorAll(".stp.flip").forEach(z=>z.classList.remove("flip"));if(!was)c.classList.add("flip");if(PATH!==k)setPath(k,sc)});cards[k].push(c);
-if(i<4)add(`M${x+CW+2} ${y} L${x+CW+GAP-3} ${y}`)});
-const f=F[L.end],ty=f.y+(L.end==="eok"?(k==="p1"?-30:30):0);add(`M${EXR+2} ${y} C${EXR+40} ${y} ${FX-40} ${ty} ${FX-3} ${ty}`)});
+if(i<4)add(`M${x+CW} ${y} H${x+CW+GAP-2}`)});
+const f=F[L.end],ty=f.y+(L.end==="eok"?(k==="p1"?-30:30):0);add(elbow(EXR,y,TX2,ty,FX-2))});
 let pin=null,timers=[];
-function light(ks){timers.forEach(clearTimeout);timers=[];PK.forEach(k=>{const on=ks.includes(k);cards[k].forEach(c=>{c.classList.toggle("off",!on);if(!on)c.classList.remove("flip")});labs[k].classList.toggle("off",!on);lines[k].forEach(l=>{l.g.classList.remove("on","drawn");l.g.style.setProperty("--c",on?PATHS[k].col:"#BFD0E1");l.base.setAttribute("marker-end",`url(#flA${on?k:"0"})`);const len=l.base.getTotalLength();l.base.style.transition="none";l.base.style.strokeDasharray=len;l.base.style.strokeDashoffset=on?len:0;l.g.classList.toggle("dim",!on)})});
+function light(ks){timers.forEach(clearTimeout);timers=[];PK.forEach(k=>{const on=ks.includes(k);cards[k].forEach(c=>{c.classList.toggle("off",!on);if(!on)c.classList.remove("flip")});labs[k].classList.toggle("off",!on);lines[k].forEach(l=>{l.g.classList.remove("on","drawn");l.g.style.setProperty("--c",on?"#F78C16":"#C9D4E0");l.base.setAttribute("marker-end",`url(#flA${on?"on":"0"})`);if(on)svg.appendChild(l.g);const len=l.base.getTotalLength();l.base.style.transition="none";l.base.style.strokeDasharray=len;l.base.style.strokeDashoffset=on?len:0;l.g.classList.toggle("dim",!on)})});
 fut.eok.classList.toggle("off",!ks.some(k=>LANES[k].end==="eok"));fut.ebad.classList.toggle("off",!ks.some(k=>LANES[k].end==="ebad"));
 ks.forEach(k=>lines[k].forEach((l,i)=>{timers.push(setTimeout(()=>{l.base.getBoundingClientRect();l.base.style.transition="stroke-dashoffset .45s cubic-bezier(.22,.61,.36,1)";l.base.style.strokeDashoffset=0;l.g.classList.add("on")},RMO?0:150+i*160));timers.push(setTimeout(()=>l.g.classList.add("drawn"),RMO?0:600+i*160))}))}
 function future(id){pin=pin===id?null:id;PK.forEach(k=>ctr[k].classList.toggle("on",!!pin&&LANES[k].end===pin));fut.eok.classList.toggle("pin",pin==="eok");fut.ebad.classList.toggle("pin",pin==="ebad");
@@ -2193,11 +2281,11 @@ const ROWS=[["sliders","Configurar estudo","vários arquivos de definição edit
 const TO={p1:[["Tela de parâmetros salva e duplicável; parâmetro novo sem pedir desenvolvimento","hot"],["Nuvem escalável, milhares de casos em paralelo, em horas","hot"],["Paridade validada pelo próprio especialista antes do go; rodada paralela curta","hot"],["Uma plataforma; legados congelados e desligados com portão","hot"],["Previsto por rodada e acompanhado por time","hot"],["Prepara, compara e decide; multiplicador do AXON na gerência","hot"]],
 p2:[["Tela de parâmetros salva e duplicável","hot"],["Nuvem escalável, em horas","hot"],["Rodadas paralelas longas até reconquistar a confiança","" ],["Convivência dupla por mais tempo; desligamento adiado",""],["Previsto por rodada, mas pouco usado no início",""],["Migra para análise, mais tarde e com mais atrito",""]],
 p3:[["Tela existe, mas o arquivo antigo continua sendo editado por garantia","cold"],["Roda na nuvem quando alguém se dispõe; o lote oficial segue no servidor","cold"],["Primeira divergência vira desconfiança; o legado é a referência","cold"],["Legados continuam como fonte oficial; o AXON vira satélite","cold"],["Custo visível, mas comparado como gasto extra","cold"],["Continua operando; o AXON é ferramenta de alguns","cold"]]};
-const ba=baSlider($("baCtx"),{la:"Sem AXON · hoje",lb:"Com AXON"});
-const as=H("div",{class:"asis"},ba.A);as.innerHTML=`<div class="bar"><span>estudo_v14_FINAL(2).dat · servidor-pl-03</span><i>manual</i><i>5 legados</i><i>dias</i></div>`+ROWS.map(([ic,k,o])=>`<div class="row"><b>${k}</b><span>${o}</span></div>`).join("");
+const ba=baSlider($("baCtx"),{la:"",lb:""});
+const as=H("div",{class:"asis"},ba.A);as.innerHTML=`<div class="hd"><div><span>Sem AXON · hoje</span><b>Como o trabalho é feito hoje</b></div><em>dias por rodada</em></div>`+ROWS.map(([ic,k,o])=>`<div class="row"><b>${k}</b><span>${o}</span></div>`).join("");
 const tb=H("div",{class:"tobe"},ba.B);function fill(k){const p=PATHS[k];tb.innerHTML=`<div class="hd"><div><span>Com AXON · caminho ${p.tag}</span><b>${p.n}</b></div><em style="background:${p.col};color:${k==="p1"?"#0E1C39":"#fff"}">${p.T}</em></div>`+ROWS.map(([ic,kk],i)=>`<div class="row ${TO[k][i][1]}"><b>${kk}</b><span>${TO[k][i][0]}</span></div>`).join("")}
 pathSeg($("ctxSeg"));onPath(fill);
-const ctl=baCtl($("baCtl"),ba,{a:"Sem AXON",b:"Com AXON"});
+const ctl=baCtl($("baCtl"),ba,{a:"Sem AXON",b:"Com AXON",hint:""});
 FXR.add(sl,{play(){ba.play()},stop(){ctl.stop();ba.halt()}})})();
 
 /* ---------- 3 · CENÁRIOS E RISCOS (matriz interativa) ---------- */

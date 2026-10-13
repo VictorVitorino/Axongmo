@@ -1,10 +1,10 @@
 /* ===== Proposta 2 · Gestão de Mudanças (GMO) · adoção do AXON · dois futuros, três caminhos ===== */
 window.DECK={brandSub:"ONS · AXON · Gestão de Mudanças",rightLabel:"Proposta 2 · GMO",footLabel:"AXON · ADOÇÃO · GMO",
 parts:[["Capa","Contexto"],["Futuros","1 · Futuros"],["Contexto","2 · Contexto"],["Riscos","3 · Riscos"],["Pessoas","4 · Pessoas"],["Método","5 · Método"]],
-chapters:{"1 · Futuros":["01","Dois futuros possíveis","O AXON pode virar a rotina do ONS ou virar mais um sistema. Três caminhos levam a esses dois futuros."],"2 · Contexto":["02","Contexto","O que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas."],"3 · Riscos":["03","Cenários e previsão","Os quatro riscos que o AXON vai enfrentar em qualquer caminho, e quando cada um aparece e é absorvido."],"4 · Pessoas":["04","Aproximação e compreensão","A mensagem clara não apaga a dúvida. O mapa sensorial mostra onde as pessoas sentem o AXON."],"5 · Método":["05","Com método, a mudança acontece","Um modelo integrado, quatro dimensões e cinco métodos em camadas para chegar ao futuro certo."]},
+chapters:{"1 · Futuros":["01","Dois futuros possíveis","O AXON pode virar a rotina do ONS ou virar mais um sistema.<br>Três caminhos levam a esses dois futuros."],"2 · Contexto":["02","Contexto","O que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas."],"3 · Riscos":["03","Cenários e previsão","Os quatro riscos que o AXON vai enfrentar em qualquer caminho, e quando cada um aparece e é absorvido."],"4 · Pessoas":["04","Aproximação e compreensão","A mensagem clara não apaga a dúvida. O mapa sensorial mostra onde as pessoas sentem o AXON."],"5 · Método":["05","Com método, a mudança acontece","Um modelo integrado, quatro dimensões e cinco métodos em camadas para chegar ao futuro certo."]},
 zoom:["flowScene","baCtx","mx","tl","heatBA","shim","tiltRoot"],
 descDefault:"Proposta de gestão de mudanças para a adoção do AXON.",
-desc:{"Capa":"Capa em Particle System (Guia DTS): a rede viva representa pessoas, modelos e gerências conectados pelo AXON. Mova o cursor para afastar as partículas e clique para emitir um pulso.",
+desc:{"Capa":"Capa com um axônio vivo: sinais chegam pelos dendritos, o corpo da célula dispara e o impulso salta de nó em nó pela bainha de mielina até as sinapses. Aproxime o cursor dos dendritos para estimular e clique para disparar um impulso.",
 "Dois futuros possíveis":"Connector / Flow Line: três caminhos saem da mesma liberação do AXON. Sem gestão de mudanças, o fluxo termina no futuro em que o AXON vira mais um sistema. Com gestão de mudanças desde o desenvolvimento ou a partir da liberação, termina no futuro em que o AXON vira a rotina, em tempos diferentes. Clique num caminho: a escolha segue para as próximas páginas.",
 "Contexto":"Leitura: o que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas. À direita, o Before / After Slider compara o trabalho sem AXON e com AXON; os três botões mostram como o lado 'com AXON' fica em cada caminho.",
 "Cenários e riscos":"Interactive Matrix: quatro riscos estruturados por frente de gestão de mudanças, posicionados por probabilidade e impacto. Troque o caminho e veja os riscos se moverem; arraste um risco para discutir a avaliação; clique num cartão para destacar.",
@@ -27,7 +27,7 @@ function pathSeg(el,opt){opt=opt||{};el.classList.add("path-seg");PK.forEach(k=>
 
 /* ---------- before / after slider ---------- */
 function baSlider(root,o){root.classList.add("ba");root.innerHTML="";const B=H("div",{class:"ba-b"},root),A=H("div",{class:"ba-a"},root);
-const la=H("span",{class:"ba-lbl a"},root,o.la||"Antes"),lb=H("span",{class:"ba-lbl b"},root,o.lb||"Depois");H("div",{class:"ba-h"},root);const k=H("button",{class:"ba-k","aria-label":"divisor"},root,"‹ ›");
+const la=H("span",{class:"ba-lbl a"},root,o.la!=null?o.la:"Antes"),lb=H("span",{class:"ba-lbl b"},root,o.lb!=null?o.lb:"Depois");H("div",{class:"ba-h"},root);const k=H("button",{class:"ba-k","aria-label":"divisor"},root,"‹ ›");
 let x=50,drag=null,stopT=null;const set=v=>{x=clamp(v,0,100);root.style.setProperty("--x",x.toFixed(2)+"%");la.classList.toggle("hid",x<16);lb.classList.toggle("hid",x>84);if(o.onSet)o.onSet(x)};
 const from=e=>{const r=root.getBoundingClientRect();return(e.clientX-r.left)/r.width*100};
 const halt=()=>{if(stopT){stopT();stopT=null}};
@@ -42,10 +42,10 @@ function baCtl(el,ba,o){el.innerHTML="";const an=H("button",{class:"btn"},el,"�
 an.addEventListener("click",e=>{e.stopPropagation();if(run){stopA();return}run=true;an.classList.add("on");an.textContent="■ Parar";ba.glide(100,700,()=>ba.glide(0,1500,()=>ba.glide(50,900,stopA)))});
 H("span",{style:"font:500 10px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#8A97A8;margin:0 2px 0 8px"},el,"Posição");
 [[100,o.a||"Antes"],[50,"50 / 50"],[0,o.b||"Depois"]].forEach(([v,l])=>{const b=H("button",{class:"tg","data-pos":v},el,l);b.addEventListener("click",e=>{e.stopPropagation();stopA();ba.glide(v,600)})});
-H("span",{class:"hnt"},el,o.hint||"Arraste o divisor · clique no painel · ← →");ba.onSet=v=>el.querySelectorAll("[data-pos]").forEach(b=>b.classList.toggle("on",Math.abs(+b.dataset.pos-v)<1.5));ba.onSet(ba.x);return{stop:stopA}}
+if(o.hint!=="")H("span",{class:"hnt"},el,o.hint||"Arraste o divisor · clique no painel · ← →");ba.onSet=v=>el.querySelectorAll("[data-pos]").forEach(b=>b.classList.toggle("on",Math.abs(+b.dataset.pos-v)<1.5));ba.onSet(ba.x);return{stop:stopA}}
 
 /* ---------- CAPA ---------- */
-(function(){const sl=SL("Capa");FXR.add(sl,fxCoverParticles(sl,{count:260}));FXR.add(sl,fxShimmerSweep(sl,{delay:1100,every:6500}))})();
+(function(){const sl=SL("Capa");FXR.add(sl,fxCoverAxon(sl));FXR.add(sl,fxShimmerSweep(sl,{delay:1100,every:6500}))})();
 
 /* ---------- 1 · DOIS FUTUROS POSSÍVEIS ---------- */
 (function(){const sl=SL("Dois futuros possíveis"),sc=$("flowScene");
@@ -56,8 +56,8 @@ const W=1540,SW=150,LX=212,CW=176,GAP=38,CH=70,FX=1300,FW=W-FX,SX=i=>LX+i*(CW+GA
 const F={eok:{y:208,h:178},ebad:{y:478,h:150}};
 ["Partida","Etapa 1","Etapa 2","Etapa 3","Etapa 4","Etapa 5","Futuro"].forEach((t,i)=>H("div",{class:"col",style:`left:${i===0?0:i===6?FX:SX(i-1)}px;width:${i===0?SW:i===6?FW:CW}px`},sc,t));
 const svg=S("svg",{class:"fl-svg",width:W,height:560,viewBox:`0 0 ${W} 560`},sc);const df=S("defs",null,svg);
-const arrow=(id,c)=>{const m=S("marker",{id,viewBox:"0 0 10 10",refX:"9",refY:"5",markerWidth:"7",markerHeight:"7",orient:"auto"},df);S("path",{d:"M0 1 L9 5 L0 9 z",fill:c},m)};
-arrow("flA0","#BFD0E1");PK.forEach(k=>arrow("flA"+k,PATHS[k].col));
+const arrow=(id,c)=>{const m=S("marker",{id,viewBox:"0 0 12 12",refX:"11",refY:"6",markerWidth:"12",markerHeight:"12",markerUnits:"userSpaceOnUse",orient:"auto"},df);S("path",{d:"M1 1.5 L11 6 L1 10.5 L3.6 6 Z",fill:c},m)};
+arrow("flA0","#C9D4E0");arrow("flAon","#F78C16");
 const ctr={};PK.forEach(k=>{const L=LANES[k];ctr[k]=H("div",{class:`ctr ${k}`,style:`left:${LX-14}px;top:${L.y-CH/2-44}px;width:${EXR-LX+28}px;height:${CH+58}px;--c:${PATHS[k].col}`},sc)});
 const st=H("div",{class:"fn start",style:`left:0;top:${SY-52}px;width:${SW}px;height:104px`},sc);st.innerHTML=`<b>AXON</b><span>Caminhos de implementação</span>`;
 const fut={};[["eok","ok","Futuro 1","O AXON vira a rotina do ONS","Cinco gerências rodando estudos no AXON, legados desligados, custo e tempo visíveis."],["ebad","bad","Futuro 2","O AXON vira mais um sistema","Convivência dupla sem fim, legado mantido por garantia e resultado questionado."]].forEach(([id,cl,e,t,d])=>{const f=F[id];const n=H("div",{class:`fn end ${cl}`,style:`left:${FX}px;top:${f.y-f.h/2}px;width:${FW}px;height:${f.h}px`},sc);n.innerHTML=`<em>${e}</em><b>${t}</b><span>${d}</span><i class="tap">clique para ver quem chega aqui</i>`;n.addEventListener("click",e2=>{e2.stopPropagation();future(id)});fut[id]=n});
@@ -65,12 +65,13 @@ const lines={},cards={},labs={};
 PK.forEach((k,li)=>{const L=LANES[k],p=PATHS[k];lines[k]=[];cards[k]=[];
 const lab=H("div",{class:`lane ${k}`,style:`left:${LX}px;top:${L.y-CH/2-34}px`},sc);lab.innerHTML=`<b>${p.tag}</b>${p.n}<em>${p.T}</em>`;lab.addEventListener("click",e=>{e.stopPropagation();setPath(k,sc)});labs[k]=lab;
 const add=(d)=>{const g=S("g",{class:"ln"},svg);const base=S("path",{d,class:"b"},g),flow=S("path",{d,class:"f"},g);lines[k].push({g,base,flow});return g};
-const y=L.y,yS=SY+(li-1)*26;add(`M${SW} ${yS} C${SW+36} ${yS} ${LX-40} ${y} ${LX-3} ${y}`);
+const y=L.y,R=12,TX=SW+30,TX2=FX-28;const elbow=(x0,y0,tx,y1,x1)=>y0===y1?`M${x0} ${y0} H${x1}`:`M${x0} ${y0} H${tx-R} Q${tx} ${y0} ${tx} ${y0+(y1>y0?R:-R)} V${y1-(y1>y0?R:-R)} Q${tx} ${y1} ${tx+R} ${y1} H${x1}`;
+add(elbow(SW,SY,TX,y,LX-2));
 L.steps.forEach(([t,d],i)=>{const x=SX(i);const c=H("div",{class:`stp ${k}`,style:`left:${x}px;top:${y-CH/2}px;width:${CW}px;height:${CH}px;--c:${p.col}`},sc);c.innerHTML=`<div class="in"><div class="fr"><i>${String(i+1).padStart(2,"0")}</i><b>${t}</b></div><div class="bk"><span>${d}</span></div></div>`;c.addEventListener("click",e=>{e.stopPropagation();const was=c.classList.contains("flip");sc.querySelectorAll(".stp.flip").forEach(z=>z.classList.remove("flip"));if(!was)c.classList.add("flip");if(PATH!==k)setPath(k,sc)});cards[k].push(c);
-if(i<4)add(`M${x+CW+2} ${y} L${x+CW+GAP-3} ${y}`)});
-const f=F[L.end],ty=f.y+(L.end==="eok"?(k==="p1"?-30:30):0);add(`M${EXR+2} ${y} C${EXR+40} ${y} ${FX-40} ${ty} ${FX-3} ${ty}`)});
+if(i<4)add(`M${x+CW} ${y} H${x+CW+GAP-2}`)});
+const f=F[L.end],ty=f.y+(L.end==="eok"?(k==="p1"?-30:30):0);add(elbow(EXR,y,TX2,ty,FX-2))});
 let pin=null,timers=[];
-function light(ks){timers.forEach(clearTimeout);timers=[];PK.forEach(k=>{const on=ks.includes(k);cards[k].forEach(c=>{c.classList.toggle("off",!on);if(!on)c.classList.remove("flip")});labs[k].classList.toggle("off",!on);lines[k].forEach(l=>{l.g.classList.remove("on","drawn");l.g.style.setProperty("--c",on?PATHS[k].col:"#BFD0E1");l.base.setAttribute("marker-end",`url(#flA${on?k:"0"})`);const len=l.base.getTotalLength();l.base.style.transition="none";l.base.style.strokeDasharray=len;l.base.style.strokeDashoffset=on?len:0;l.g.classList.toggle("dim",!on)})});
+function light(ks){timers.forEach(clearTimeout);timers=[];PK.forEach(k=>{const on=ks.includes(k);cards[k].forEach(c=>{c.classList.toggle("off",!on);if(!on)c.classList.remove("flip")});labs[k].classList.toggle("off",!on);lines[k].forEach(l=>{l.g.classList.remove("on","drawn");l.g.style.setProperty("--c",on?"#F78C16":"#C9D4E0");l.base.setAttribute("marker-end",`url(#flA${on?"on":"0"})`);if(on)svg.appendChild(l.g);const len=l.base.getTotalLength();l.base.style.transition="none";l.base.style.strokeDasharray=len;l.base.style.strokeDashoffset=on?len:0;l.g.classList.toggle("dim",!on)})});
 fut.eok.classList.toggle("off",!ks.some(k=>LANES[k].end==="eok"));fut.ebad.classList.toggle("off",!ks.some(k=>LANES[k].end==="ebad"));
 ks.forEach(k=>lines[k].forEach((l,i)=>{timers.push(setTimeout(()=>{l.base.getBoundingClientRect();l.base.style.transition="stroke-dashoffset .45s cubic-bezier(.22,.61,.36,1)";l.base.style.strokeDashoffset=0;l.g.classList.add("on")},RMO?0:150+i*160));timers.push(setTimeout(()=>l.g.classList.add("drawn"),RMO?0:600+i*160))}))}
 function future(id){pin=pin===id?null:id;PK.forEach(k=>ctr[k].classList.toggle("on",!!pin&&LANES[k].end===pin));fut.eok.classList.toggle("pin",pin==="eok");fut.ebad.classList.toggle("pin",pin==="ebad");
@@ -90,11 +91,11 @@ const ROWS=[["sliders","Configurar estudo","vários arquivos de definição edit
 const TO={p1:[["Tela de parâmetros salva e duplicável; parâmetro novo sem pedir desenvolvimento","hot"],["Nuvem escalável, milhares de casos em paralelo, em horas","hot"],["Paridade validada pelo próprio especialista antes do go; rodada paralela curta","hot"],["Uma plataforma; legados congelados e desligados com portão","hot"],["Previsto por rodada e acompanhado por time","hot"],["Prepara, compara e decide; multiplicador do AXON na gerência","hot"]],
 p2:[["Tela de parâmetros salva e duplicável","hot"],["Nuvem escalável, em horas","hot"],["Rodadas paralelas longas até reconquistar a confiança","" ],["Convivência dupla por mais tempo; desligamento adiado",""],["Previsto por rodada, mas pouco usado no início",""],["Migra para análise, mais tarde e com mais atrito",""]],
 p3:[["Tela existe, mas o arquivo antigo continua sendo editado por garantia","cold"],["Roda na nuvem quando alguém se dispõe; o lote oficial segue no servidor","cold"],["Primeira divergência vira desconfiança; o legado é a referência","cold"],["Legados continuam como fonte oficial; o AXON vira satélite","cold"],["Custo visível, mas comparado como gasto extra","cold"],["Continua operando; o AXON é ferramenta de alguns","cold"]]};
-const ba=baSlider($("baCtx"),{la:"Sem AXON · hoje",lb:"Com AXON"});
-const as=H("div",{class:"asis"},ba.A);as.innerHTML=`<div class="bar"><span>estudo_v14_FINAL(2).dat · servidor-pl-03</span><i>manual</i><i>5 legados</i><i>dias</i></div>`+ROWS.map(([ic,k,o])=>`<div class="row"><b>${k}</b><span>${o}</span></div>`).join("");
+const ba=baSlider($("baCtx"),{la:"",lb:""});
+const as=H("div",{class:"asis"},ba.A);as.innerHTML=`<div class="hd"><div><span>Sem AXON · hoje</span><b>Como o trabalho é feito hoje</b></div><em>dias por rodada</em></div>`+ROWS.map(([ic,k,o])=>`<div class="row"><b>${k}</b><span>${o}</span></div>`).join("");
 const tb=H("div",{class:"tobe"},ba.B);function fill(k){const p=PATHS[k];tb.innerHTML=`<div class="hd"><div><span>Com AXON · caminho ${p.tag}</span><b>${p.n}</b></div><em style="background:${p.col};color:${k==="p1"?"#0E1C39":"#fff"}">${p.T}</em></div>`+ROWS.map(([ic,kk],i)=>`<div class="row ${TO[k][i][1]}"><b>${kk}</b><span>${TO[k][i][0]}</span></div>`).join("")}
 pathSeg($("ctxSeg"));onPath(fill);
-const ctl=baCtl($("baCtl"),ba,{a:"Sem AXON",b:"Com AXON"});
+const ctl=baCtl($("baCtl"),ba,{a:"Sem AXON",b:"Com AXON",hint:""});
 FXR.add(sl,{play(){ba.play()},stop(){ctl.stop();ba.halt()}})})();
 
 /* ---------- 3 · CENÁRIOS E RISCOS (matriz interativa) ---------- */

@@ -120,3 +120,64 @@ if(!RM)raf=requestAnimationFrame(frame)}
 function play(){stop();fit();P=[];for(let i=0;i<count;i++)P.push(spawn());if(nOut)nOut.textContent=String(count);root.classList.remove("in");void root.offsetWidth;root.classList.add("in");last=0;raf=requestAnimationFrame(frame)}
 function stop(){cancelAnimationFrame(raf);raf=0}
 addEventListener("resize",()=>{if(raf)fit()});return{play,stop}}
+
+/* Capa · axônio: neurônio em roxo neon (dendritos, soma, axônio mielinizado, terminais); impulsos saltam de nó em nó até as sinapses */
+function fxCoverAxon(root,opts){opts=opts||{};const cv=root.querySelector(".cv4-cv"),ctx=cv.getContext("2d"),nOut=root.querySelector("[data-n]"),lOut=root.querySelector("[data-links]"),fOut=root.querySelector("[data-fps]");
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches,W=1600,H=900;let seed=7;const rnd=(a,b)=>{seed=(seed*16807)%2147483647;return a+(seed/2147483647)*(b-a)};
+const SO={x:opts.x||1010,y:opts.y||330,r:34};
+/* dendritos: árvore recursiva; cada galho guarda o caminho da ponta até o soma */
+const dend=[],tips=[];
+function branch(pts,ang,len,w,depth){const last=pts[pts.length-1];const n=8,seg=[];let a=ang,x=last.x,y=last.y;for(let i=0;i<n;i++){a+=rnd(-.16,.16);x+=Math.cos(a)*len/n;y+=Math.sin(a)*len/n;seg.push({x,y})}
+const path=pts.concat(seg);dend.push({pts:[last].concat(seg),w});if(depth<=0||len<38){tips.push(path.slice().reverse());return}
+const k=depth>2?2:rnd(0,1)<.6?2:3;for(let i=0;i<k;i++)branch(path,a+rnd(-.75,.75),len*rnd(.55,.75),w*.68,depth-1)}
+const AXA=.42;[-2.75,-2.2,-1.6,-1.0,-.35,2.2,2.75,1.55].forEach(a=>{const s={x:SO.x+Math.cos(a)*SO.r*.8,y:SO.y+Math.sin(a)*SO.r*.8};branch([{x:SO.x,y:SO.y},s],a,rnd(120,190),5.5,3)});
+/* axônio: curva cúbica do cone de implantação até os terminais */
+const P0={x:SO.x+Math.cos(AXA)*SO.r,y:SO.y+Math.sin(AXA)*SO.r},C1={x:1180,y:430},C2={x:1260,y:620},P3={x:1430,y:700};
+const bez=t=>{const u=1-t;return{x:u*u*u*P0.x+3*u*u*t*C1.x+3*u*t*t*C2.x+t*t*t*P3.x,y:u*u*u*P0.y+3*u*u*t*C1.y+3*u*t*t*C2.y+t*t*t*P3.y}};
+const ax=[];let L=0;for(let i=0;i<=240;i++){const p=bez(i/240);if(i){const q=ax[i-1];L+=Math.hypot(p.x-q.x,p.y-q.y)}p.s=L;ax.push(p)}
+const at=s=>{s=Math.max(0,Math.min(L,s));let i=1;while(i<ax.length-1&&ax[i].s<s)i++;const a=ax[i-1],b=ax[i],k=(s-a.s)/((b.s-a.s)||1);return{x:a.x+(b.x-a.x)*k,y:a.y+(b.y-a.y)*k,ang:Math.atan2(b.y-a.y,b.x-a.x)}};
+const MY=46,GAPN=10,START=34,nodes=[];for(let s=START;s<L-30;s+=MY+GAPN)nodes.push(s+MY+GAPN/2);
+/* terminais sinápticos */
+const term=[],bout=[];[-1.0,-.45,.05,.55,1.05].forEach(d=>{const a=Math.atan2(P3.y-C2.y,P3.x-C2.x)+d;const pts=[{x:P3.x,y:P3.y}];let x=P3.x,y=P3.y,aa=a;const len=rnd(60,95);for(let i=0;i<6;i++){aa+=rnd(-.2,.2);x+=Math.cos(aa)*len/6;y+=Math.sin(aa)*len/6;pts.push({x,y})}term.push(pts);bout.push({x,y,flash:0})});
+/* camada estática pré-renderizada com brilho */
+const off=document.createElement("canvas");off.width=W;off.height=H;const o=off.getContext("2d");o.lineCap="round";o.lineJoin="round";
+const stroke=(pts,w,col,blur)=>{o.save();o.strokeStyle=col;o.lineWidth=w;o.shadowColor="rgba(176,77,255,.85)";o.shadowBlur=blur;o.beginPath();o.moveTo(pts[0].x,pts[0].y);for(let i=1;i<pts.length;i++){const p=pts[i-1],q=pts[i];o.quadraticCurveTo(p.x,p.y,(p.x+q.x)/2,(p.y+q.y)/2)}const e=pts[pts.length-1];o.lineTo(e.x,e.y);o.stroke();o.restore()};
+dend.forEach(d=>stroke(d.pts,d.w,"rgba(183,110,255,.78)",14));
+stroke(ax,4,"rgba(200,140,255,.9)",18);
+nodes.forEach((n,i)=>{const s0=n-GAPN/2-MY,s1=n-GAPN/2;const pts=[];for(let s=s0;s<=s1;s+=4)pts.push(at(s));o.save();o.strokeStyle="rgba(138,0,196,.95)";o.lineWidth=15;o.lineCap="round";o.shadowColor="rgba(176,77,255,.9)";o.shadowBlur=20;o.beginPath();pts.forEach((p,k)=>k?o.lineTo(p.x,p.y):o.moveTo(p.x,p.y));o.stroke();o.strokeStyle="rgba(230,190,255,.55)";o.lineWidth=4;o.shadowBlur=0;o.beginPath();pts.forEach((p,k)=>k?o.lineTo(p.x,p.y-3):o.moveTo(p.x,p.y-3));o.stroke();o.restore()});
+term.forEach(t=>stroke(t,2.4,"rgba(200,140,255,.85)",12));
+/* soma */
+const g=o.createRadialGradient(SO.x-8,SO.y-10,4,SO.x,SO.y,SO.r+18);g.addColorStop(0,"#F3DEFF");g.addColorStop(.35,"#B04DFF");g.addColorStop(.75,"#6A0A9C");g.addColorStop(1,"rgba(106,10,156,0)");o.fillStyle=g;o.beginPath();o.arc(SO.x,SO.y,SO.r+18,0,7);o.fill();
+o.fillStyle="rgba(255,255,255,.9)";o.beginPath();o.arc(SO.x-4,SO.y-4,9,0,7);o.fill();
+/* poeira de fundo */
+const dust=[];for(let i=0;i<70;i++)dust.push({x:rnd(0,W),y:rnd(0,H),r:rnd(.6,1.8),vx:rnd(-.12,.12),vy:rnd(-.1,.1),a:rnd(.15,.45)});
+let aps=[],dps=[],nts=[],cursor=null,raf=0,last=0,fa=0,fn=0,fired=0,soma=0,tAuto=0,tD=0;
+const fire=()=>{aps.push({s:0,v:RM?2:7.5});soma=1};
+function fit(){const r=cv.getBoundingClientRect(),k=r.width?r.width/W:1,pr=Math.min(2,Math.max(1,(devicePixelRatio||1)*k));cv.width=Math.round(W*pr);cv.height=Math.round(H*pr);ctx.setTransform(pr,0,0,pr,0,0)}
+const loc=e=>{const r=cv.getBoundingClientRect();return{x:(e.clientX-r.left)*W/r.width,y:(e.clientY-r.top)*H/r.height}};
+root.addEventListener("pointermove",e=>{cursor=loc(e)});root.addEventListener("pointerleave",()=>cursor=null);
+root.addEventListener("pointerdown",e=>{if(e.target.closest("button,a"))return;fire()});
+function frame(t){const dt=last?Math.min(50,t-last):16.7;last=t;const k=dt/16.7;
+ctx.clearRect(0,0,W,H);
+for(const d of dust){d.x+=d.vx*k;d.y+=d.vy*k;if(d.x<0)d.x=W;if(d.x>W)d.x=0;if(d.y<0)d.y=H;if(d.y>H)d.y=0;ctx.fillStyle=`rgba(201,214,232,${d.a})`;ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,7);ctx.fill()}
+ctx.drawImage(off,0,0);
+/* sinais dendríticos: das pontas até o soma; perto do cursor nascem mais */
+tD+=dt;if(tD>(cursor?160:520)){tD=0;let pick=tips[Math.floor(rnd(0,tips.length))];if(cursor){let best=1e9;tips.forEach(tp=>{const d=Math.hypot(tp[0].x-cursor.x,tp[0].y-cursor.y);if(d<best&&rnd(0,1)<.5){best=d;pick=tp}})}dps.push({p:pick,i:0,f:0})}
+for(let q=dps.length-1;q>=0;q--){const d=dps[q];d.f+=.55*k;while(d.f>=1){d.f-=1;d.i++}if(d.i>=d.p.length-1){dps.splice(q,1);soma=Math.min(1,soma+.25);if(soma>=.95)fire();continue}const a=d.p[d.i],b=d.p[d.i+1],x=a.x+(b.x-a.x)*d.f,y=a.y+(b.y-a.y)*d.f;ctx.save();ctx.shadowColor="#E6C2FF";ctx.shadowBlur=14;ctx.fillStyle="rgba(240,220,255,.95)";ctx.beginPath();ctx.arc(x,y,2.6,0,7);ctx.fill();ctx.restore()}
+tAuto+=dt;if(tAuto>2600){tAuto=0;fire()}
+/* soma pulsando */
+soma=Math.max(0,soma-.012*k);ctx.save();ctx.globalCompositeOperation="lighter";const sg=ctx.createRadialGradient(SO.x,SO.y,0,SO.x,SO.y,SO.r*2.6);sg.addColorStop(0,`rgba(214,140,255,${.35+.5*soma})`);sg.addColorStop(1,"rgba(176,77,255,0)");ctx.fillStyle=sg;ctx.beginPath();ctx.arc(SO.x,SO.y,SO.r*2.6,0,7);ctx.fill();ctx.restore();
+/* potenciais de ação: saltam entre os nós de Ranvier */
+for(let q=aps.length-1;q>=0;q--){const a=aps[q];a.s+=a.v*k;if(a.s>=L){aps.splice(q,1);fired++;bout.forEach(b=>b.flash=1);for(let i=0;i<14;i++){const b=bout[i%bout.length];nts.push({x:b.x,y:b.y,vx:rnd(-1.1,1.1),vy:rnd(-1.1,1.1),a:1})}continue}
+let ni=nodes.findIndex(n=>n>a.s);const sJ=ni<0?a.s:nodes[ni];const near=ni<0?1:Math.max(0,1-(sJ-a.s)/(MY+GAPN));const p=at(a.s);
+ctx.save();ctx.globalCompositeOperation="lighter";const rg=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,34);rg.addColorStop(0,"rgba(255,255,255,.95)");rg.addColorStop(.25,"rgba(214,140,255,.8)");rg.addColorStop(1,"rgba(176,77,255,0)");ctx.fillStyle=rg;ctx.beginPath();ctx.arc(p.x,p.y,34,0,7);ctx.fill();
+if(ni>=0){const pn=at(nodes[ni]);ctx.fillStyle=`rgba(255,180,120,${.25+.6*near})`;ctx.beginPath();ctx.arc(pn.x,pn.y,5+5*near,0,7);ctx.fill()}ctx.restore()}
+/* terminais e neurotransmissores */
+for(const b of bout){b.flash=Math.max(0,b.flash-.02*k);ctx.save();ctx.shadowColor="#FF8A4C";ctx.shadowBlur=10+24*b.flash;ctx.fillStyle=`rgba(255,${150+60*b.flash},${90+80*b.flash},1)`;ctx.beginPath();ctx.arc(b.x,b.y,5.5+3*b.flash,0,7);ctx.fill();ctx.restore()}
+for(let q=nts.length-1;q>=0;q--){const n=nts[q];n.x+=n.vx*k;n.y+=n.vy*k;n.a-=.012*k;if(n.a<=0){nts.splice(q,1);continue}ctx.fillStyle=`rgba(255,170,110,${n.a})`;ctx.beginPath();ctx.arc(n.x,n.y,1.8,0,7);ctx.fill()}
+if(cursor){ctx.strokeStyle="rgba(214,140,255,.25)";ctx.beginPath();ctx.arc(cursor.x,cursor.y,90,0,7);ctx.stroke()}
+fa+=dt;fn++;if(fn>=20){if(fOut)fOut.textContent=String(Math.min(60,Math.round(1000/(fa/fn))));if(nOut)nOut.textContent=String(fired);fa=0;fn=0}
+if(!RM)raf=requestAnimationFrame(frame)}
+function play(){stop();fit();aps=[];dps=[];nts=[];fired=0;if(lOut)lOut.textContent=String(bout.length+tips.length);root.classList.remove("in");void root.offsetWidth;root.classList.add("in");last=0;fire();raf=requestAnimationFrame(frame)}
+function stop(){cancelAnimationFrame(raf);raf=0}
+addEventListener("resize",()=>{if(raf)fit()});return{play,stop}}

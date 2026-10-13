@@ -111,7 +111,7 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 
 /* ===== STATUS REPORT CHROME ===== */
 .slide{background-color:#F5F8FB;background-image:linear-gradient(#E9EFF4 1px,transparent 1px),linear-gradient(90deg,#E9EFF4 1px,transparent 1px);background-size:40px 40px}
-.sr-top{position:absolute;left:24px;right:24px;top:16px;height:80px;background:linear-gradient(100deg,#002B49 0%,#122143 60%,#1F3263 100%);border-radius:14px;display:flex;align-items:center;gap:16px;padding:0 24px;color:#fff;z-index:3}
+.sr-top{position:absolute;left:12px;right:12px;top:16px;height:80px;background:linear-gradient(100deg,#002B49 0%,#122143 60%,#1F3263 100%);border-radius:14px;display:flex;align-items:center;gap:16px;padding:0 24px;color:#fff;z-index:3}
 .sr-logo{display:flex;align-items:center;gap:10px;min-width:220px}
 .sr-logo .t{font:500 14px/1.08 var(--fb);color:#fff;border-left:3px solid #fff;padding-left:9px}
 .sr-logo .t b{font-weight:800}
@@ -121,7 +121,7 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke
 .sr-right{margin-left:auto;text-align:right;line-height:1.15}
 .sr-right b{display:block;font:800 18px var(--fb)}.sr-right span{font:400 16px var(--fb);color:#CFE2F0}
 .sr-dec{position:absolute;top:2px;right:26px;font:10px/1 var(--fb);letter-spacing:5px;color:#5E8AB4;z-index:4}
-.sr-band{position:absolute;left:24px;right:24px;top:106px;height:50px;border-radius:14px 14px 0 0;display:flex;align-items:center;gap:10px;padding:0 24px;font:700 24px var(--fh);color:#fff;letter-spacing:.03em;text-transform:uppercase;z-index:2}
+.sr-band{position:absolute;left:12px;right:12px;top:106px;height:50px;border-radius:14px 14px 0 0;display:flex;align-items:center;gap:10px;padding:0 24px;font:700 24px var(--fh);color:#fff;letter-spacing:.03em;text-transform:uppercase;z-index:2}
 .sr-band small{margin-left:auto;font:500 13px var(--fb);text-transform:none;letter-spacing:0;opacity:.92}
 .c-navy{background:linear-gradient(90deg,#002B49,#0E4067 60%,#1B5A8A)}.c-green{background:linear-gradient(90deg,#33556D,#3D6480 60%,#5E8AB4)}
 .c-blue{background:linear-gradient(90deg,#1F3263,#5E8AB4 70%,#5E8AB4)}.c-gold{background:linear-gradient(90deg,#B35F00,#F78C16 60%,#F9A64A)}
