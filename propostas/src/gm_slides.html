@@ -41,25 +41,20 @@
 <section class="slide" data-p="3 · Riscos" data-t="Cenários e riscos" data-band="Cenários · o que o AXON vai enfrentar, em qualquer caminho" data-c="c-red" data-bs="Troque o caminho · arraste um risco · clique num quadrante" data-src="Quatro riscos estruturados por frente de gestão de mudanças, com o estágio ADKAR que cada um trava e o momento em que aparece. Probabilidade e impacto: avaliação qualitativa da consultoria (0 a 100), revista no raio-x; a posição muda conforme o caminho escolhido.">
   <div class="body sp fill">
     <div class="stmt2" data-fx-type="word" style="font-size:23px">Independente do caminho, o AXON vai atravessar <span data-fx-hl>quatro riscos</span> e um <span data-fx-hl>vale de implementação</span>. O caminho só muda o tamanho de cada um.</div>
-    <div class="gr" style="display:grid;grid-template-columns:1fr 560px;gap:16px;min-height:0">
-      <div id="mx" class="mx"></div>
-      <div id="rkCards" style="display:flex;flex-direction:column;gap:8px;min-height:0"></div>
+    <div class="gr" style="display:grid;grid-template-columns:600px 1fr;gap:22px;min-height:0">
+      <div id="mx" class="mx mx2"></div>
+      <div id="rkCards" class="rk2-grid"></div>
     </div>
   </div>
 </section>
 
 <!--@PREVISAO-->
-<section class="slide" data-p="3 · Riscos" data-t="Previsão de absorção" data-band="Previsão · quando cada impacto aparece e quando é absorvido" data-c="c-red" data-bs="Clique num caminho: a linha do tempo muda · passe o mouse nas frentes" data-src="PREVISÃO: estimativa da consultoria com base em referências de adoção de plataformas técnicas e no porte do ONS (5 gerências, ~150 usuários potenciais). Fórmulas e parâmetros abertos no slide; calibrados no raio-x do mês 1 e revistos a cada onda. Mês 0 = liberação da plataforma.">
+<section class="slide" data-p="3 · Riscos" data-t="Vale da implementação" data-band="Linha do tempo · onde cada risco aparece numa implementação" data-c="c-red" data-bs="Percorra a implementação · clique num risco · compare sem gestão de mudanças" data-src="Curva conceitual e ILUSTRATIVA do vale da implementação (curva J de desempenho), sobre um modelo de referência de projeto ERP: preparação, desenho, construção, testes, go-live, estabilização e evolução. Posição dos riscos A a D: leitura da consultoria, validada no raio-x do mês 1. Não é um cronograma.">
   <div class="body sp fill">
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px"><div class="stmt2" data-fx-type="word" style="font-size:23px">Cada risco tem hora para aparecer. <span data-fx-hl>Com gestão de mudanças desde o desenvolvimento</span>, o AXON vira rotina em cerca de metade do tempo.</div><span class="ilu" style="white-space:nowrap;margin-top:6px">Previsão · estimativa a calibrar</span></div>
-    <div style="display:flex;align-items:center;gap:10px"><div class="lbl">Caminho</div><div id="tlSeg" class="path-seg"></div><div id="tlSum" style="margin-left:auto;display:flex;gap:10px"></div></div>
-    <div class="gr" style="display:grid;grid-template-columns:1fr 430px;gap:16px;min-height:0">
-      <div class="card" style="border-radius:12px;padding:8px 14px;display:flex;flex-direction:column"><svg id="tl" viewBox="0 0 1020 450" width="1020" height="450" style="display:block;width:100%;height:auto"></svg></div>
-      <div style="display:flex;flex-direction:column;gap:10px;min-height:0">
-        <div class="pnl" style="padding:10px 14px;flex:none"><div class="eye" style="margin:0">Como estimamos</div><div id="tlForm" style="margin-top:6px"></div></div>
-        <div class="card" style="border-radius:12px;padding:8px 12px;flex:1;min-height:0;overflow:hidden"><div class="lbl" style="font-size:11.5px">Tempo e esforço por frente <small id="tlLab"></small></div><table id="tlTab" class="tl-tab"></table></div>
-      </div>
-    </div>
+    <div class="stmt2" data-fx-type="word" style="font-size:23px">Toda implementação atravessa um vale. <span data-fx-hl>O risco não é entrar nele</span>: é <span data-fx-hl>permanecer nele</span>.</div>
+    <div id="valeCtl" class="vl-ctl"></div>
+    <div class="gr" style="min-height:0"><svg id="vale" viewBox="0 0 1544 484" width="1544" height="484" style="display:block;width:100%;height:auto"></svg></div>
+    <div id="valeDet" class="vl-det"></div>
   </div>
 </section>
 

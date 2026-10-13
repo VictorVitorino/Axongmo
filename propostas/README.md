@@ -5,7 +5,7 @@ Duas apresentações em HTML (arquivo único, abrem direto no navegador) com **c
 | Arquivo | Proposta | Páginas |
 | --- | --- | --- |
 | `AXON_Proposta_1_TMO.html` | **Proposta 1 · Transformation Office (PMO + GMO)**, pelo método A&M de TMO: arquitetura do AXON e desafio de escala, sete atividades e quatro pilares do TO, governança em três níveis, riscos e ferramentas, plano de 6 meses em sete frentes, resultados e entregáveis | 6 |
-| `AXON_Proposta_2_GMO.html` | **Proposta 2 · Gestão de Mudanças (GMO)**: dois futuros e três caminhos (Connector / Flow Line), contexto em leitura com Sem AXON × Com AXON (Before / After Slider por caminho), cenários e riscos por frente (Interactive Matrix), previsão de absorção com fórmulas (linha do tempo por caminho), heatmap sensorial e cognitivo com divisor antes × depois, Modelo Integrado de Transformação e Adoção (Shimmer / Holographic Sweep) e camadas de método com ficha técnica (3D Tilt / Perspective) | 8 |
+| `AXON_Proposta_2_GMO.html` | **Proposta 2 · Gestão de Mudanças (GMO)**: dois futuros e três caminhos (Connector / Flow Line), contexto em leitura com Sem AXON × Com AXON (Before / After Slider por caminho), cenários e riscos por frente (Interactive Matrix), vale da implementação sobre um projeto de referência (curva J com os momentos de risco), heatmap sensorial e cognitivo com divisor antes × depois, Modelo Integrado de Transformação e Adoção (Shimmer / Holographic Sweep) e camadas de método com ficha técnica (3D Tilt / Perspective) | 8 |
 
 Estrutura: Proposta 1 segue Capa (Particle System do Guia DTS, com logos A&M e ONS) → Contexto → Método → Plano de trabalho. Proposta 2 segue Capa → Dois futuros possíveis → Contexto → Cenários e previsão → Pessoas → Método (modelo integrado e camadas).
 

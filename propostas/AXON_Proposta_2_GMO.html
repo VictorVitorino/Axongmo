@@ -1195,6 +1195,70 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 .ba-ctl .btn,.ba-ctl .tg{white-space:nowrap}
 .fx-sh-text.ax-sh{filter:drop-shadow(0 0 14px rgba(176,77,255,.45))}
 
+/* página 4 · matriz enxuta e cartões 2×2 */
+.mx2 .ylab{top:6px;bottom:76px}.mx2 .plot{top:6px;bottom:76px;left:28px;right:4px}.mx2 .xlab{bottom:56px;left:28px}.mx2 .ctl{left:28px;bottom:0}
+.mx2 .q{padding:12px 14px}.mx2 .q b{font-size:15px}.mx2 .q span{font-size:10.5px}
+.mx2 .b{--d:48px;transition:left .8s cubic-bezier(.22,.61,.36,1),top .8s cubic-bezier(.22,.61,.36,1),opacity .3s,transform .25s}
+.mx2 .dot{left:0;top:0;width:100%;height:100%;background:radial-gradient(circle at 34% 28%,color-mix(in srgb,var(--c) 55%,#fff),var(--c) 72%);border:2.5px solid #fff;font:800 19px var(--fh);box-shadow:0 8px 18px rgba(14,28,57,.28)}
+.mx2 .halo{position:absolute;inset:-9px;border-radius:50%;background:var(--c);opacity:0;pointer-events:none}
+.mx2 .b.in .halo{animation:mxHalo 2.8s ease-out infinite}
+@keyframes mxHalo{0%{transform:scale(.7);opacity:.32}100%{transform:scale(1.45);opacity:0}}
+.mx2 .tag{left:50%;right:auto;top:calc(100% + 7px);transform:translateX(-50%);display:flex;align-items:center;gap:6px;font:700 12.5px var(--fb);color:#002B49;background:#fff;border:1px solid var(--line);border-radius:99px;padding:4px 11px 4px 9px;box-shadow:0 4px 12px rgba(14,28,57,.1)}
+.mx2 .tag i{width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
+.mx2 .b.up .tag{top:auto;bottom:calc(100% + 7px)}
+.mx2 .b.al .tag{left:0;transform:none}.mx2 .b.ar .tag{left:auto;right:0;transform:none}
+.mx2 .b.hot,.mx2 .b.sel{transform:scale(1.12);z-index:7}
+.mx2 .b.hot .tag,.mx2 .b.sel .tag{border-color:var(--c);box-shadow:0 0 0 2px color-mix(in srgb,var(--c) 30%,transparent),0 6px 16px rgba(14,28,57,.16)}
+.rk2-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;min-height:0}
+.rk2{background:#fff;border:1px solid var(--line);border-top:5px solid var(--c);border-radius:12px;padding:14px 18px;display:flex;flex-direction:column;gap:8px;cursor:pointer;transition:box-shadow .25s,transform .25s,opacity .3s;min-height:0;overflow:hidden}
+.rk2:hover,.rk2.hot,.rk2.on{box-shadow:0 12px 30px rgba(14,28,57,.13);transform:translateY(-2px)}
+.rk2.on{box-shadow:0 0 0 2px var(--c),0 12px 30px rgba(14,28,57,.13)}
+.rk2.dim{opacity:.45}
+.rk2 .hd{display:flex;align-items:center;gap:12px}
+.rk2 .lt{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;flex:none;font:800 20px var(--fh);color:#fff;background:radial-gradient(circle at 34% 28%,color-mix(in srgb,var(--c) 55%,#fff),var(--c) 72%);box-shadow:0 6px 14px rgba(14,28,57,.2)}
+.rk2 .fr{font:800 10.5px var(--fb);letter-spacing:.12em;text-transform:uppercase;color:#6B7B8C}
+.rk2 .hd b{display:block;font:800 23px/1.05 var(--fh);color:#002B49;margin-top:2px}
+.rk2 .kd{font:italic 600 12.5px var(--fb);color:#5E8AB4}
+.rk2 p{font:500 13.5px/1.5 var(--fb);color:#35516A;margin:0}
+.rk2 .cs{font:600 12.5px/1.45 var(--fb);color:#8A1F1F;background:#FBEDEC;border-radius:8px;padding:7px 10px}
+.rk2 .cs b{display:block;font:800 10px var(--fb);letter-spacing:.12em;text-transform:uppercase;color:#BC0404;margin-bottom:1px}
+.rk2 .mt{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:auto}
+.rk2 .mt span,.vl-det .ad{font:700 11px var(--fb);border-radius:99px;padding:3px 9px;background:#EEF3F8;color:#002B49}
+.rk2 .mt .lb{background:none;padding:0 2px;color:#6B7B8C;letter-spacing:.1em;font-size:10px}
+.rk2 .mt .ad,.vl-det .ad{background:#002B49;color:#fff}.rk2 .mt .ad.hi,.vl-det .ad.hi{background:#F78C16;color:#0E1C39}
+.rk2 .mt .mo{margin-left:auto;background:#FEF1E2;color:#8A4A05}
+/* página 5 · vale da implementação */
+.vl-ctl{display:flex;align-items:center;gap:10px;flex:none}
+.vl-ctl .lb{font:500 11px "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#6B7A90}
+.vl-ctl .btn{margin-left:auto;height:32px;padding:0 14px;border-radius:9px;background:#002B49;color:#fff;font:700 12.5px var(--fb);border:0;cursor:pointer;white-space:nowrap}
+.vl-ctl .btn.on{background:#8A00C4}
+.vl-ctl .tg{height:32px;padding:0 14px;border-radius:9px;border:1.5px solid #BC0404;background:#fff;color:#BC0404;font:700 12.5px var(--fb);cursor:pointer;white-space:nowrap}
+.vl-ctl .tg.on{background:#BC0404;color:#fff}
+#vale .vl-nog{opacity:0;transition:opacity .5s}#vale.nog .vl-nog{opacity:1}
+#vale .vl-gl{animation:vlFloat 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes vlFloat{0%,100%{transform:translateY(0);opacity:.95}50%{transform:translateY(-6px);opacity:.55}}
+#vale .vl-ph rect{fill:#fff;stroke:#BFD0E1;transition:fill .3s,stroke .3s}
+#vale .vl-ph .t{fill:#002B49}#vale .vl-ph .d{fill:#6B7B8C}
+#vale .vl-ph.lit rect{fill:#002B49;stroke:#002B49}#vale .vl-ph.lit .t{fill:#fff}#vale .vl-ph.lit .d{fill:#C8DBEB}
+#vale .vl-mk{cursor:pointer;opacity:0;transition:opacity .45s}
+#vale .vl-mk.in{opacity:1}#vale .vl-mk.in.off{opacity:.45}
+#vale .vl-mk .rg{opacity:0;transform-box:fill-box;transform-origin:center}
+#vale .vl-mk.on .rg{animation:mxHalo 1.6s ease-out infinite}
+.vl-co{background:#fff;border:1.5px solid var(--c);border-radius:10px;padding:6px 9px;box-shadow:0 6px 16px rgba(14,28,57,.1);transition:box-shadow .25s,transform .25s}
+#vale .vl-mk.on .vl-co{box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 28%,transparent),0 10px 24px rgba(14,28,57,.16)}
+.vl-co .h{display:flex;align-items:center;gap:7px}
+.vl-co .lt{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;flex:none;background:var(--c);color:#fff;font:800 12px var(--fh)}
+.vl-co b{font:800 14.5px/1.1 var(--fh);color:#002B49}
+.vl-co i{display:block;font:italic 500 11px/1.3 var(--fb);color:#6B7B8C;margin-top:4px}
+.vl-det{flex:none;display:grid;grid-template-columns:48px 1fr 1fr 1.05fr 1.4fr 1.15fr;gap:16px;align-items:center;background:#fff;border:1px solid var(--line);border-left:6px solid var(--c,#BFD0E1);border-radius:12px;padding:10px 16px;min-height:76px}
+.vl-det .lt{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:#fff;font:800 21px var(--fh)}
+.vl-det .nm b{display:block;font:800 20px/1.05 var(--fh);color:#002B49}.vl-det .nm span{display:block;font:600 11px/1.35 var(--fb);color:#6B7B8C;margin-top:3px}
+.vl-det em{display:block;font:800 9.5px var(--fb);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:#5E8AB4}
+.vl-det p{margin:3px 0 0;font:500 12.5px/1.4 var(--fb);color:#35516A}.vl-det p.q{font-style:italic;color:#002B49;font-weight:600}
+.vl-det p.ch{display:flex;flex-wrap:wrap;gap:4px}.vl-det p.ch span{white-space:nowrap}
+.vl-det .mtd{display:inline-block;font:800 11px var(--fb);background:#F0DBFF;color:#6A0A9C;border-radius:99px;padding:3px 9px;margin-right:2px}
+.vl-det .vl-empty{grid-column:1/-1;font:600 13px var(--fb);color:#6B7B8C;text-align:center}
+
 </style>
 </head>
 <body>
@@ -1243,25 +1307,20 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 <section class="slide" data-p="3 · Riscos" data-t="Cenários e riscos" data-band="Cenários · o que o AXON vai enfrentar, em qualquer caminho" data-c="c-red" data-bs="Troque o caminho · arraste um risco · clique num quadrante" data-src="Quatro riscos estruturados por frente de gestão de mudanças, com o estágio ADKAR que cada um trava e o momento em que aparece. Probabilidade e impacto: avaliação qualitativa da consultoria (0 a 100), revista no raio-x; a posição muda conforme o caminho escolhido.">
   <div class="body sp fill">
     <div class="stmt2" data-fx-type="word" style="font-size:23px">Independente do caminho, o AXON vai atravessar <span data-fx-hl>quatro riscos</span> e um <span data-fx-hl>vale de implementação</span>. O caminho só muda o tamanho de cada um.</div>
-    <div class="gr" style="display:grid;grid-template-columns:1fr 560px;gap:16px;min-height:0">
-      <div id="mx" class="mx"></div>
-      <div id="rkCards" style="display:flex;flex-direction:column;gap:8px;min-height:0"></div>
+    <div class="gr" style="display:grid;grid-template-columns:600px 1fr;gap:22px;min-height:0">
+      <div id="mx" class="mx mx2"></div>
+      <div id="rkCards" class="rk2-grid"></div>
     </div>
   </div>
 </section>
 
 <!--@PREVISAO-->
-<section class="slide" data-p="3 · Riscos" data-t="Previsão de absorção" data-band="Previsão · quando cada impacto aparece e quando é absorvido" data-c="c-red" data-bs="Clique num caminho: a linha do tempo muda · passe o mouse nas frentes" data-src="PREVISÃO: estimativa da consultoria com base em referências de adoção de plataformas técnicas e no porte do ONS (5 gerências, ~150 usuários potenciais). Fórmulas e parâmetros abertos no slide; calibrados no raio-x do mês 1 e revistos a cada onda. Mês 0 = liberação da plataforma.">
+<section class="slide" data-p="3 · Riscos" data-t="Vale da implementação" data-band="Linha do tempo · onde cada risco aparece numa implementação" data-c="c-red" data-bs="Percorra a implementação · clique num risco · compare sem gestão de mudanças" data-src="Curva conceitual e ILUSTRATIVA do vale da implementação (curva J de desempenho), sobre um modelo de referência de projeto ERP: preparação, desenho, construção, testes, go-live, estabilização e evolução. Posição dos riscos A a D: leitura da consultoria, validada no raio-x do mês 1. Não é um cronograma.">
   <div class="body sp fill">
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px"><div class="stmt2" data-fx-type="word" style="font-size:23px">Cada risco tem hora para aparecer. <span data-fx-hl>Com gestão de mudanças desde o desenvolvimento</span>, o AXON vira rotina em cerca de metade do tempo.</div><span class="ilu" style="white-space:nowrap;margin-top:6px">Previsão · estimativa a calibrar</span></div>
-    <div style="display:flex;align-items:center;gap:10px"><div class="lbl">Caminho</div><div id="tlSeg" class="path-seg"></div><div id="tlSum" style="margin-left:auto;display:flex;gap:10px"></div></div>
-    <div class="gr" style="display:grid;grid-template-columns:1fr 430px;gap:16px;min-height:0">
-      <div class="card" style="border-radius:12px;padding:8px 14px;display:flex;flex-direction:column"><svg id="tl" viewBox="0 0 1020 450" width="1020" height="450" style="display:block;width:100%;height:auto"></svg></div>
-      <div style="display:flex;flex-direction:column;gap:10px;min-height:0">
-        <div class="pnl" style="padding:10px 14px;flex:none"><div class="eye" style="margin:0">Como estimamos</div><div id="tlForm" style="margin-top:6px"></div></div>
-        <div class="card" style="border-radius:12px;padding:8px 12px;flex:1;min-height:0;overflow:hidden"><div class="lbl" style="font-size:11.5px">Tempo e esforço por frente <small id="tlLab"></small></div><table id="tlTab" class="tl-tab"></table></div>
-      </div>
-    </div>
+    <div class="stmt2" data-fx-type="word" style="font-size:23px">Toda implementação atravessa um vale. <span data-fx-hl>O risco não é entrar nele</span>: é <span data-fx-hl>permanecer nele</span>.</div>
+    <div id="valeCtl" class="vl-ctl"></div>
+    <div class="gr" style="min-height:0"><svg id="vale" viewBox="0 0 1544 484" width="1544" height="484" style="display:block;width:100%;height:auto"></svg></div>
+    <div id="valeDet" class="vl-det"></div>
   </div>
 </section>
 
@@ -2191,14 +2250,14 @@ function fxSpotlight(rootEl, opts) {
 /* ===== Proposta 2 · Gestão de Mudanças (GMO) · adoção do AXON · dois futuros, três caminhos ===== */
 window.DECK={brandSub:"ONS · AXON · Gestão de Mudanças",rightLabel:"Proposta 2 · GMO",footLabel:"AXON · ADOÇÃO · GMO",
 parts:[["Capa","Contexto"],["Futuros","1 · Futuros"],["Contexto","2 · Contexto"],["Riscos","3 · Riscos"],["Pessoas","4 · Pessoas"],["Método","5 · Método"]],
-chapters:{"1 · Futuros":["01","Dois futuros possíveis","O AXON pode virar a rotina do ONS ou virar mais um sistema.<br>Três caminhos levam a esses dois futuros."],"2 · Contexto":["02","Contexto","O que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas."],"3 · Riscos":["03","Cenários e previsão","Os quatro riscos que o AXON vai enfrentar em qualquer caminho, e quando cada um aparece e é absorvido."],"4 · Pessoas":["04","Aproximação e compreensão","A mensagem clara não apaga a dúvida. O mapa sensorial mostra onde as pessoas sentem o AXON."],"5 · Método":["05","Com método, a mudança acontece","Um modelo integrado, quatro dimensões e cinco métodos em camadas para chegar ao futuro certo."]},
-zoom:["flowScene","baCtx","mx","tl","heatBA","shim","tiltRoot"],
+chapters:{"1 · Futuros":["01","Dois futuros possíveis","O AXON pode virar a rotina do ONS ou virar mais um sistema.<br>Três caminhos levam a esses dois futuros."],"2 · Contexto":["02","Contexto","O que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas."],"3 · Riscos":["03","Riscos e vale da implementação","Os quatro riscos que o AXON vai enfrentar em qualquer caminho,<br>e o momento em que cada um aparece numa implementação."],"4 · Pessoas":["04","Aproximação e compreensão","A mensagem clara não apaga a dúvida. O mapa sensorial mostra onde as pessoas sentem o AXON."],"5 · Método":["05","Com método, a mudança acontece","Um modelo integrado, quatro dimensões e cinco métodos em camadas para chegar ao futuro certo."]},
+zoom:["flowScene","baCtx","mx","vale","heatBA","shim","tiltRoot"],
 descDefault:"Proposta de gestão de mudanças para a adoção do AXON.",
 desc:{"Capa":"Capa com um axônio vivo: sinais chegam pelos dendritos, o corpo da célula dispara e o impulso salta de nó em nó pela bainha de mielina até as sinapses. Aproxime o cursor dos dendritos para estimular e clique para disparar um impulso.",
 "Dois futuros possíveis":"Connector / Flow Line: três caminhos saem da mesma liberação do AXON. Sem gestão de mudanças, o fluxo termina no futuro em que o AXON vira mais um sistema. Com gestão de mudanças desde o desenvolvimento ou a partir da liberação, termina no futuro em que o AXON vira a rotina, em tempos diferentes. Clique num caminho: a escolha segue para as próximas páginas.",
 "Contexto":"Leitura: o que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas. À direita, o Before / After Slider compara o trabalho sem AXON e com AXON; os três botões mostram como o lado 'com AXON' fica em cada caminho.",
-"Cenários e riscos":"Interactive Matrix: quatro riscos estruturados por frente de gestão de mudanças, posicionados por probabilidade e impacto. Troque o caminho e veja os riscos se moverem; arraste um risco para discutir a avaliação; clique num cartão para destacar.",
-"Previsão de absorção":"Linha do tempo com previsão: cada botão de caminho redesenha quando cada frente começa, quanto dura e quando o AXON vira rotina. As fórmulas e os parâmetros estão abertos no painel; a tabela mostra tempo e esforço por frente.",
+"Cenários e riscos":"Interactive Matrix: quatro riscos, um por frente de gestão de mudanças, posicionados por probabilidade e impacto. Troque o caminho (1, 2 ou 3) e veja os riscos se moverem; arraste um risco para discutir a avaliação; passe o mouse ou clique num cartão para destacar o risco na matriz.",
+"Vale da implementação":"Linha do tempo conceitual sobre um projeto de implementação de referência (modelo ERP): a curva de desempenho sobe na preparação, cai no vale depois do impacto inicial e volta mais alta na autonomia. Os riscos A a D aparecem no momento em que costumam surgir. Percorra a implementação, clique num risco para ver o que se ouve, o sinal de alerta e o que a gestão de mudanças faz, e compare com a curva sem gestão de mudanças, em que o vale se prolonga.",
 "Aproximação e compreensão":"Heatmap sensorial e cognitivo (efeito térmico do modelo TMG, modulado para o AXON): perfis × temas de preocupação. O divisor compara o calor sem aproximação e o calor previsto com o trabalho de aproximação. Clique numa zona para ler o que a pessoa pensa e como nos aproximamos.",
 "Modelo integrado":"Shimmer / Holographic Sweep: os indicadores do modelo carregam sobre um esqueleto e o selo do programa recebe o reflexo holográfico. Quatro dimensões, cinco métodos, quatro frentes, quatro riscos tratados.",
 "Camadas de método":"3D Tilt / Perspective: os cinco métodos são camadas do programa. Clique numa ficha ou numa camada para abrir a ficha técnica; recolha o bloco para ver o protótipo do programa AXON e expanda para ver cada camada."}};
@@ -2289,57 +2348,109 @@ const ctl=baCtl($("baCtl"),ba,{a:"Sem AXON",b:"Com AXON",hint:""});
 FXR.add(sl,{play(){ba.play()},stop(){ctl.stop();ba.halt()}})})();
 
 /* ---------- 3 · CENÁRIOS E RISCOS (matriz interativa) ---------- */
-const RISKS=[{k:"A",fr:"A · Engajamento e gestão de stakeholders",kind:"Risco humano e comportamental",t:"Perda de domínio e identidade profissional",d:"O profissional teme perder relevância, autonomia ou o domínio de processos que construiu ao longo dos anos.",cs:"resistência silenciosa e baixa disposição para mudar",ad:["A","D"],mo:"pré-implantação",c:"#002B49",pos:{p3:[80,86],p2:[56,72],p1:[34,58]}},
-{k:"B",fr:"B · Comunicação e construção de confiança",kind:"Risco de credibilidade e percepção de valor",t:"Ruptura da confiança técnica",d:"O especialista não confia plenamente na consistência dos resultados do AXON em comparação aos métodos conhecidos.",cs:"rejeição da plataforma como referência técnica, mesmo com resultados válidos",ad:["K","D"],mo:"piloto e validação",c:"#1F3263",pos:{p3:[72,78],p2:[46,62],p1:[20,44]}},
-{k:"C",fr:"C · Capacitação e adoção assistida",kind:"Risco cognitivo e de produtividade",t:"Vale da implementação",d:"Durante a curva de aprendizagem a produtividade cai temporariamente, enquanto esforço e insegurança aumentam.",cs:"frustração, abandono precoce e percepção negativa da solução",ad:["K","H"],mo:"expansão do uso",c:"#5E8AB4",pos:{p3:[88,68],p2:[64,56],p1:[46,50]}},
-{k:"D",fr:"D · Gestão de impactos e sustentação",kind:"Risco operacional e de institucionalização",t:"Inércia dos legados e efeito dominó",d:"As equipes continuam usando scripts, planilhas e sistemas anteriores, mantendo processos paralelos.",cs:"retrabalho, baixa adesão sustentada e benefícios não capturados",ad:["H","R"],mo:"consolidação",c:"#F78C16",pos:{p3:[92,90],p2:[52,80],p1:[26,70]}}];
+const RISKS=[{k:"A",fr:"Engajamento e gestão de stakeholders",kind:"Risco humano e comportamental",sn:"Perda de domínio",d:"O profissional teme perder relevância, autonomia ou o domínio de processos que construiu ao longo dos anos.",cs:"resistência silenciosa e baixa disposição para mudar",ad:["A","D"],mo:"pré-implantação",c:"#002B49",pos:{p1:[28,58],p2:[50,76],p3:[66,90]},
+q:"“Isso que eu faço vai virar uma caixinha?”",sg:"silêncio nas reuniões, pedidos de exceção, ninguém se oferece para o piloto",ac:"conversa do líder antes do anúncio, especialistas no desenho dos containers e papel novo combinado",mt:"Kotter + Bridges",vx:.35,top:70},
+{k:"B",fr:"Comunicação e construção de confiança",kind:"Risco de credibilidade e percepção de valor",sn:"Ruptura de confiança",d:"O especialista não confia plenamente na consistência dos resultados do AXON em comparação aos métodos conhecidos.",cs:"rejeição da plataforma como referência técnica, mesmo com resultados válidos",ad:["K","D"],mo:"piloto e validação",c:"#5E8AB4",pos:{p1:[16,36],p2:[38,56],p3:[56,70]},
+q:"“Deu diferente do meu. O meu está certo.”",sg:"rodadas duplicadas por garantia, resultados do AXON refeitos à mão",ac:"paridade validada pelo próprio especialista, tolerância combinada antes da rodada e lógica do modelo explicada",mt:"CTA + COM-B",vx:.56,top:88},
+{k:"C",fr:"Capacitação e adoção assistida",kind:"Risco cognitivo e de produtividade",sn:"Vale da implementação",d:"Durante a curva de aprendizagem a produtividade cai temporariamente, enquanto esforço e insegurança aumentam.",cs:"frustração, abandono precoce e percepção negativa da solução",ad:["K","H"],mo:"expansão do uso",c:"#F78C16",pos:{p1:[52,46],p2:[70,60],p3:[86,62]},
+q:"“Sei o que é; ainda não sei aplicar.”",sg:"queda de produtividade, chamados repetidos, estudos voltando para o legado",ac:"turmas com o estudo real, plantão na onda, multiplicadores por perto e meta protegida durante o vale",mt:"Kolb + CTA",vx:.68,top:178},
+{k:"D",fr:"Gestão de impactos e sustentação",kind:"Risco operacional e de institucionalização",sn:"Inércia dos legados",d:"As equipes continuam usando scripts, planilhas e sistemas anteriores, mantendo processos paralelos.",cs:"retrabalho, baixa adesão sustentada e benefícios não capturados",ad:["H","R"],mo:"consolidação",c:"#8A3A3A",pos:{p1:[34,22],p2:[60,38],p3:[90,86]},
+q:"“Por garantia, rodo também no antigo.”",sg:"planilhas e scripts paralelos vivos, legado sem data para desligar",ac:"portões de desnutrição, guardião do legado, vigilância da recaída e reforço da rotina nova",mt:"COM-B + Kotter",vx:.86,top:96}];
 const ADN={A:"Consciência",D:"Desejo",K:"Conhecimento",H:"Habilidade",R:"Reforço"};
+const adChips=r=>r.ad.map(a=>`<span class="ad ${a==="H"?"hi":""}" title="${ADN[a]}">${a==="H"?"A":a} · ${ADN[a]}</span>`).join("");
 (function(){const sl=SL("Cenários e riscos"),root=$("mx");
-root.innerHTML=`<div class="read"><b data-n>Troque o caminho ou arraste um risco</b><span>prob.</span><b data-p>—</b><span>impacto</span><b data-i>—</b></div><div class="ylab"><span>Impacto ↑</span></div><div class="plot"><div class="q tl" data-q="tl"><b>Atenção</b><span>alto impacto · menor probabilidade</span></div><div class="q tr" data-q="tr"><b>Crítico</b><span>alto impacto · alta probabilidade</span></div><div class="q bl" data-q="bl"><b>Monitorar</b><span>baixo impacto · baixa probabilidade</span></div><div class="q br" data-q="br"><b>Preparar</b><span>baixo impacto · alta probabilidade</span></div><i class="ax v"></i><i class="ax h"></i></div><div class="xlab">Probabilidade →</div><div class="ctl"><div class="lbl" style="font-size:11px">Caminho</div><div class="path-seg" id="mxSeg"></div><span class="hnt">Arraste um risco · clique num quadrante ou num cartão</span></div>`;
-const plot=root.querySelector(".plot"),rN=root.querySelector("[data-n]"),rP=root.querySelector("[data-p]"),rI=root.querySelector("[data-i]");pathSeg($("mxSeg"));
-const QL={tl:"Atenção",tr:"Crítico",bl:"Monitorar",br:"Preparar"};const qOf=(p,i)=>i>=50?(p<50?"tl":"tr"):(p<50?"bl":"br");
-const ST=RISKS.map((r,k)=>{const el=H("div",{class:"b"+(k%2?" tb":""),style:`--c:${r.c}`},plot);el.innerHTML=`<span class="dot">${r.k}</span><span class="tag">${r.t}</span>`;return{r,el,p:50,i:50,q:null}});
-const cards=RISKS.map((r,k)=>{const c=H("div",{class:"rk-card","data-a":"left",style:`--c:${r.c};--d:${5+k*.3}`},$("rkCards"));c.innerHTML=`<div class="fr">${r.fr}</div><b>${r.t}</b><p><i style="color:#6B7B8C;font-style:normal;font-weight:600">${r.kind}.</i> ${r.d}</p><div class="cs">Consequência: ${r.cs}</div><div class="mt"><span>ADKAR</span>${r.ad.map(a=>`<span class="ad ${a==="H"?"hi":""}" title="${ADN[a]}">${a==="H"?"A":a} · ${ADN[a]}</span>`).join("")}<span>Momento: ${r.mo}</span></div>`;c.addEventListener("click",e=>{e.stopPropagation();select(k)});return c});
+root.innerHTML=`<div class="ylab"><span>Impacto ↑</span></div><div class="plot"><div class="q tl" data-q="tl"><b>Atenção</b><span>alto impacto · menor probabilidade</span></div><div class="q tr" data-q="tr"><b>Crítico</b><span>alto impacto · alta probabilidade</span></div><div class="q bl" data-q="bl"><b>Monitorar</b><span>baixo impacto · baixa probabilidade</span></div><div class="q br" data-q="br"><b>Preparar</b><span>baixo impacto · alta probabilidade</span></div><i class="ax v"></i><i class="ax h"></i></div><div class="xlab">Probabilidade →</div><div class="ctl"><div class="lbl" style="font-size:11px">Caminho</div><div id="mxSeg"></div></div>`;
+const plot=root.querySelector(".plot");pathSeg($("mxSeg"));
+const qOf=(p,i)=>i>=50?(p<50?"tl":"tr"):(p<50?"bl":"br");
+const ST=RISKS.map((r,k)=>{const el=H("div",{class:"b",style:`--c:${r.c}`},plot);el.innerHTML=`<span class="halo"></span><span class="dot">${r.k}</span><span class="tag"><i></i>${r.sn}</span>`;return{r,el,p:50,i:50,q:null}});
+const cards=RISKS.map((r,k)=>{const c=H("div",{class:"rk2","data-a":"up",style:`--c:${r.c};--d:${5+k*.25}`},$("rkCards"));
+c.innerHTML=`<div class="hd"><span class="lt">${r.k}</span><div><div class="fr">${r.fr}</div><b>${r.sn}</b></div></div><div class="kd">${r.kind}</div><p>${r.d}</p><div class="cs"><b>Consequência</b>${r.cs}</div><div class="mt"><span class="lb">ADKAR</span>${adChips(r)}<span class="mo">Momento: ${r.mo}</span></div>`;
+c.addEventListener("click",e=>{e.stopPropagation();select(k)});c.addEventListener("pointerenter",()=>hot(k));c.addEventListener("pointerleave",()=>hot(-1));return c});
 let sel=-1,focus=null,drag=null;
-const place=s=>{s.el.style.left=s.p.toFixed(1)+"%";s.el.style.top=(100-s.i).toFixed(1)+"%";s.q=qOf(s.p,s.i);s.el.classList.toggle("flip",s.p>72)};
-const read=s=>{rN.textContent=s?`${s.r.k} · ${s.r.t} · ${QL[s.q]}`:"Troque o caminho ou arraste um risco";rP.textContent=s?Math.round(s.p):"—";rI.textContent=s?Math.round(s.i):"—"};
-const paint=()=>{ST.forEach((s,k)=>{s.el.classList.toggle("sel",k===sel);s.el.classList.toggle("dim",(!!focus&&s.q!==focus)||(sel>=0&&k!==sel))});cards.forEach((c,k)=>c.classList.toggle("on",k===sel));root.querySelectorAll(".q").forEach(q=>q.classList.toggle("on",q.dataset.q===focus))};
-function select(k){sel=sel===k?-1:k;focus=null;paint();read(sel>=0?ST[sel]:null)}
+const place=s=>{s.el.style.left=s.p.toFixed(1)+"%";s.el.style.top=(100-s.i).toFixed(1)+"%";s.q=qOf(s.p,s.i);s.el.classList.toggle("up",s.i<20);s.el.classList.toggle("al",s.p<14);s.el.classList.toggle("ar",s.p>84)};
+const paint=()=>{ST.forEach((s,k)=>{s.el.classList.toggle("sel",k===sel);s.el.classList.toggle("dim",(!!focus&&s.q!==focus)||(sel>=0&&k!==sel))});cards.forEach((c,k)=>{c.classList.toggle("on",k===sel);c.classList.toggle("dim",(sel>=0&&k!==sel)||(!!focus&&ST[k].q!==focus))});root.querySelectorAll(".q").forEach(q=>q.classList.toggle("on",q.dataset.q===focus))};
+function hot(k){ST.forEach((s,j)=>s.el.classList.toggle("hot",j===k));cards.forEach((c,j)=>c.classList.toggle("hot",j===k))}
+function select(k){sel=sel===k?-1:k;focus=null;paint()}
 root.querySelectorAll(".q").forEach(q=>q.addEventListener("click",e=>{e.stopPropagation();focus=focus===q.dataset.q?null:q.dataset.q;sel=-1;paint()}));
-ST.forEach((s,k)=>{const b=s.el;b.addEventListener("pointerdown",e=>{if(e.pointerType==="mouse"&&e.button!==0)return;drag={s,id:e.pointerId,m:0,x0:e.clientX,y0:e.clientY};try{b.setPointerCapture(e.pointerId)}catch(_){}b.classList.add("drag");read(s);e.preventDefault();e.stopPropagation()});
-b.addEventListener("pointermove",e=>{if(!drag||drag.s!==s||e.pointerId!==drag.id)return;const r=plot.getBoundingClientRect();drag.m=Math.max(drag.m,Math.hypot(e.clientX-drag.x0,e.clientY-drag.y0));if(drag.m<3)return;s.p=clamp((e.clientX-r.left)/r.width*100,4,96);s.i=clamp((1-(e.clientY-r.top)/r.height)*100,4,96);place(s);read(s)});
-const up=e=>{if(!drag||drag.s!==s)return;try{b.releasePointerCapture(drag.id)}catch(_){}b.classList.remove("drag");const m=drag.m;drag=null;if(m<5)select(k)};b.addEventListener("pointerup",up);b.addEventListener("pointercancel",up);
-b.addEventListener("pointerenter",()=>{if(!drag&&sel<0)read(s)});b.addEventListener("pointerleave",()=>{if(!drag&&sel<0)read(null)})});
-function apply(k){ST.forEach(s=>{[s.p,s.i]=s.r.pos[k];place(s)});paint();if(sel>=0)read(ST[sel])}
+ST.forEach((s,k)=>{const b=s.el;b.addEventListener("pointerdown",e=>{if(e.pointerType==="mouse"&&e.button!==0)return;drag={s,id:e.pointerId,m:0,x0:e.clientX,y0:e.clientY};try{b.setPointerCapture(e.pointerId)}catch(_){}b.classList.add("drag");e.preventDefault();e.stopPropagation()});
+b.addEventListener("pointermove",e=>{if(!drag||drag.s!==s||e.pointerId!==drag.id)return;const r=plot.getBoundingClientRect();drag.m=Math.max(drag.m,Math.hypot(e.clientX-drag.x0,e.clientY-drag.y0));if(drag.m<3)return;s.p=clamp((e.clientX-r.left)/r.width*100,4,96);s.i=clamp((1-(e.clientY-r.top)/r.height)*100,4,96);place(s)});
+const up=e=>{if(!drag||drag.s!==s)return;try{b.releasePointerCapture(drag.id)}catch(_){}b.classList.remove("drag");const m=drag.m;drag=null;if(m<5)select(k);paint()};b.addEventListener("pointerup",up);b.addEventListener("pointercancel",up);
+b.addEventListener("pointerenter",()=>hot(k));b.addEventListener("pointerleave",()=>hot(-1))});
+function apply(k){ST.forEach(s=>{[s.p,s.i]=s.r.pos[k];place(s)});paint()}
 onPath(apply);
-FXR.add(sl,{play(){ST.forEach(s=>s.el.classList.remove("in"));apply(PATH);ST.forEach((s,k)=>setTimeout(()=>s.el.classList.add("in"),500+k*140))},stop(){}})})();
+FXR.add(sl,{play(){ST.forEach(s=>s.el.classList.remove("in"));apply(PATH);ST.forEach((s,k)=>setTimeout(()=>s.el.classList.add("in"),500+k*160))},stop(){}})})();
 
-/* ---------- 4 · PREVISÃO DE ABSORÇÃO (linha do tempo) ---------- */
-(function(){const sl=SL("Previsão de absorção");
-const FR=[{k:"A",n:"Engajamento e stakeholders",base:7,team:2,c:"#002B49"},{k:"B",n:"Comunicação e confiança",base:6,team:1.5,c:"#1F3263"},{k:"C",n:"Capacitação e adoção assistida",base:8,team:2,c:"#5E8AB4"},{k:"D",n:"Impactos e sustentação",base:10,team:1.5,c:"#F78C16"}];
-const SCN={p3:{R:[0,0,0,0],S:[0,1,2,4],gmo:false},p1:{R:[.5,.45,.4,.45],S:[-3,-2,0,1],gmo:true},p2:{R:[.3,.35,.3,.3],S:[0,1,2,3],gmo:true}};
-const calc=k=>{const s=SCN[k];const rows=FR.map((f,i)=>{const D=+(f.base*(1-s.R[i])).toFixed(1),S=s.S[i];return{f,S,D,E:s.gmo?+(D*f.team).toFixed(1):0,end:+(S+D).toFixed(1)}});return{rows,T:Math.max(...rows.map(r=>r.end)),E:+rows.reduce((a,r)=>a+r.E,0).toFixed(1),vale:[rows[2].S+rows[2].D*.15,rows[2].S+rows[2].D*.7]}};
-pathSeg($("tlSeg"));$("tlSeg").classList.add("path-seg");
-$("tlForm").innerHTML=`<div class="tl-form"><code>D_f = D_base × (1 − R)</code><span>duração de cada frente: a base sem gestão de mudanças, reduzida pelo fator R do caminho</span><code>T = max(S_f + D_f)</code><span>mês em que a última frente fecha = AXON como rotina (mês 0 = liberação)</span><code>E = Σ D_f × equipe_f</code><span>esforço de GMO em pessoa-mês (equipe por frente: 1,5 a 2 pessoas)</span><code>R · S</code><span>caminho 1: R = 0,40 a 0,50, começa 3 meses antes · caminho 2: R = 0,30 a 0,35, começa na liberação · caminho 3: R = 0, começa na liberação</span></div>`;
-const s=$("tl"),W=1020,X0=190,X1=W-16,M0=-4,M1=16,MW=(X1-X0)/(M1-M0),XM=m=>X0+(m-M0)*MW,top=50,rh=72,yMs=top+FR.length*rh+34;mk(s,"tlA","#F78C16");
-for(let m=M0;m<M1;m++){S("rect",{x:XM(m)+1,y:14,width:MW-2,height:18,rx:4,fill:m<0?"#FEF1E2":m%2?"#EEF3F8":"#E4EBF2"},s);T(s,XM(m)+MW/2,27,m<0?"−"+(-m):String(m),{"text-anchor":"middle",fill:m<0?"#B35F00":"#35516A",style:"font:800 10.5px var(--fb)"});S("line",{x1:XM(m),y1:34,x2:XM(m),y2:yMs+6,stroke:"#EEF2F5"},s)}
-T(s,XM(M0),9,"meses antes da liberação",{fill:"#B35F00",style:"font:700 9.5px var(--fb)"});T(s,XM(1),9,"meses após a liberação",{fill:"#6B7B8C",style:"font:700 9.5px var(--fb)"});
-S("line",{x1:XM(0),y1:12,x2:XM(0),y2:yMs+14,stroke:"#BC0404","stroke-width":2,"stroke-dasharray":"5 4"},s);const rl=S("g",null,s);S("rect",{x:XM(0)-42,y:yMs+16,width:84,height:18,rx:9,fill:"#BC0404"},rl);T(rl,XM(0),yMs+29,"LIBERAÇÃO",{"text-anchor":"middle",fill:"#fff",style:"font:800 9.5px var(--fb);letter-spacing:.1em"});
-const bars=FR.map((f,i)=>{const y=top+i*rh;T(s,0,y+26,f.k+" · "+f.n,{fill:"#002B49",style:"font:800 12.5px var(--fb)"});const sub=T(s,0,y+42,"",{fill:"#6B7B8C",style:"font:600 10.5px var(--fb)"});S("line",{x1:X0,y1:y+rh-4,x2:X1,y2:y+rh-4,stroke:"#EEF2F5"},s);const g=S("g",null,s);const r=S("rect",{x:XM(0),y:y+14,width:0,height:30,rx:8,fill:f.c},g);const t=T(g,0,y+33,"",{fill:i===2?"#0E1C39":"#fff",style:"font:800 11px var(--fb)"});if(i===3)t.setAttribute("fill","#0E1C39");const ghost=S("rect",{x:XM(0),y:y+14,width:0,height:30,rx:8,fill:"none",stroke:"#BC0404","stroke-dasharray":"4 3",opacity:0},g);tip(g,f.k+" · "+f.n,"");return{r,t,sub,ghost,g,y}});
-const vale=S("g",null,s);const vr=S("rect",{x:0,y:top+2*rh+4,width:0,height:rh-10,rx:8,fill:"rgba(188,4,4,.08)",stroke:"#E0443A","stroke-dasharray":"3 3"},vale);const vt=T(vale,0,top+2*rh+rh-12,"vale da implementação",{fill:"#BC0404",style:"font:800 9.5px var(--fb);letter-spacing:.08em;text-transform:uppercase"});
-const msg=S("g",null,s);const ml=S("line",{x1:0,y1:top-4,x2:0,y2:yMs+6,stroke:"#F78C16","stroke-width":2.5},msg);const md=S("path",{d:"",fill:"#F78C16"},msg);const mt=T(msg,0,yMs+4,"",{"text-anchor":"middle",fill:"#B35F00",style:"font:800 11px var(--fb)"});const mq=T(msg,0,yMs+4,"",{fill:"#BC0404",style:"font:800 10px var(--fb)"});
-const cur={};let an=[];const fmt=v=>String(v).replace(".",",");
-function draw(k,anim){an.forEach(f=>f());an=[];const c=calc(k),p=PATHS[k];
-c.rows.forEach((row,i)=>{const b=bars[i],from=cur[i]||{S:0,D:0};const x0=XM(from.S),w0=from.D*MW,x1=XM(row.S),w1=row.D*MW;b.sub.textContent=`início mês ${fmt(row.S)} · ${fmt(row.D)} meses · ${row.E?fmt(row.E)+" pessoa-mês":"sem equipe de GMO"}`;b.t.textContent=`${fmt(row.D)} m`;tip(b.g,FR[i].k+" · "+FR[i].n,`Caminho ${p.tag}: começa no mês ${fmt(row.S)}, dura ${fmt(row.D)} meses${row.E?", "+fmt(row.E)+" pessoa-mês de GMO":", esforço absorvido pelas gerências"}`);
-b.ghost.setAttribute("opacity",k==="p3"?0:1);b.ghost.setAttribute("x",XM(SCN.p3.S[i]));b.ghost.setAttribute("width",FR[i].base*MW);
-an.push(tween(anim?900:0,e=>{const x=x0+(x1-x0)*e,w=w0+(w1-w0)*e;b.r.setAttribute("x",x);b.r.setAttribute("width",Math.max(0,w));b.t.setAttribute("x",x+10);b.t.setAttribute("opacity",w>60?1:0)}));cur[i]={S:row.S,D:row.D}});
-const vx0=XM(c.vale[0]),vx1=XM(c.vale[1]);vr.setAttribute("x",vx0);vr.setAttribute("width",vx1-vx0);vt.setAttribute("x",vx0+6);
-const mx=XM(c.T);ml.setAttribute("x1",mx);ml.setAttribute("x2",mx);md.setAttribute("d",`M${mx-7} ${top-6} L${mx+7} ${top-6} L${mx} ${top+4} Z`);mt.setAttribute("x",mx);mt.textContent=(k==="p3"?"adoção parcial · mês ":"AXON como rotina · mês ")+fmt(c.T);const far=mx>W-200;mq.setAttribute("x",far?mx-8:mx+8);mq.setAttribute("text-anchor",far?"end":"start");mq.setAttribute("y",top-10);mq.textContent=k==="p3"?"sem garantia de chegada":"";mt.setAttribute("text-anchor",far?"end":"middle");mt.setAttribute("x",far?mx+4:mx);
-$("tlLab").textContent=`caminho ${p.tag} · ${p.n}`;
-$("tlTab").innerHTML=`<tr><th>Frente</th><th style="text-align:right">Início</th><th style="text-align:right">Duração</th><th style="text-align:right">Esforço GMO</th></tr>`+c.rows.map(r=>`<tr><td><b>${r.f.k}</b> · ${r.f.n}</td><td class="n">mês ${fmt(r.S)}</td><td class="n">${fmt(r.D)} m</td><td class="n">${r.E?fmt(r.E)+" p·m":"—"}</td></tr>`).join("")+`<tr class="tot"><td><b>${k==="p3"?"Adoção parcial":"AXON como rotina"}</b></td><td class="n">—</td><td class="n">mês ${fmt(c.T)}</td><td class="n">${c.E?fmt(c.E)+" p·m":"—"}</td></tr>`;
-$("tlSum").innerHTML=`<div class="tl-sum"><b style="color:${p.col}">${k==="p3"?fmt(c.T)+"+":fmt(c.T)}</b>meses até a rotina</div><div class="tl-sum"><b>${c.E?fmt(c.E):"0"}</b>pessoa-mês de GMO</div><div class="tl-sum"><b>${fmt(+(c.vale[1]-c.vale[0]).toFixed(1))}</b>meses de vale</div>`}
-onPath((k,src)=>draw(k,src!==undefined));
-FXR.add(sl,{play(){Object.keys(cur).forEach(i=>delete cur[i]);draw(PATH,true)},stop(){an.forEach(f=>f());an=[]}})})();
+/* ---------- 4 · VALE DA IMPLEMENTAÇÃO (curva J sobre um projeto de referência) ---------- */
+(function(){const sl=SL("Vale da implementação"),s=$("vale"),W=1544,PX0=60,PX1=1490,AX=384,VY=v=>AX-8-v*330,FX=f=>PX0+f*(PX1-PX0);
+const spline=(P,n)=>{const out=[];for(let i=0;i<P.length-1;i++){const p0=P[i-1]||P[i],p1=P[i],p2=P[i+1],p3=P[i+2]||P[i+1];for(let k=0;k<n;k++){const t=k/n,t2=t*t,t3=t2*t,f=(a,b,c,d)=>.5*(2*b+(-a+c)*t+(2*a-5*b+4*c-d)*t2+(-a+3*b-3*c+d)*t3);out.push([f(p0[0],p1[0],p2[0],p3[0]),f(p0[1],p1[1],p2[1],p3[1])])}}out.push(P[P.length-1]);return out};
+const px=P=>P.map(([f,v])=>[FX(f),VY(v)]);
+const SOL=spline(px([[0,.30],[.12,.33],[.26,.42],[.38,.56],[.45,.62],[.52,.46],[.58,.30],[.64,.18],[.72,.16],[.80,.28],[.90,.58],[1,.80]]),40);
+const NOG=spline(px([[.45,.62],[.52,.44],[.58,.26],[.66,.10],[.76,.06],[.86,.08],[.94,.14],[1,.24]]),40);
+const D=pts=>"M"+pts.map(p=>p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" L");
+const yAt=(pts,x)=>{for(let i=1;i<pts.length;i++)if(pts[i][0]>=x){const a=pts[i-1],b=pts[i],k=(x-a[0])/((b[0]-a[0])||1);return a[1]+(b[1]-a[1])*k}return pts[pts.length-1][1]};
+const seg=(pts,a,b)=>pts.filter(p=>p[0]>=FX(a)-.5&&p[0]<=FX(b)+.5);
+const df=S("defs",null,s);
+const lg=(id,c1,o1,c2,o2)=>{const g=S("linearGradient",{id,x1:0,y1:0,x2:0,y2:1},df);S("stop",{offset:0,"stop-color":c1,"stop-opacity":o1},g);S("stop",{offset:1,"stop-color":c2,"stop-opacity":o2},g)};
+lg("vlL","#BFD0E1",.55,"#EEF3F8",.25);lg("vlV","#F9A64A",.38,"#FEF1E2",.25);lg("vlR","#BFD0E1",.45,"#EEF3F8",.2);
+const fl=S("filter",{id:"vlGlow",x:"-50%",y:"-50%",width:"200%",height:"200%"},df);S("feGaussianBlur",{stdDeviation:"4",result:"b"},fl);const fm=S("feMerge",null,fl);S("feMergeNode",{in:"b"},fm);S("feMergeNode",{in:"SourceGraphic"},fm);
+mk(s,"vlAx","#8A97A8");mk(s,"vlAr","#F78C16");
+const cp=S("clipPath",{id:"vlClip"},df);const cr=S("rect",{x:0,y:0,width:0,height:AX+4},cp);
+/* eixos */
+S("line",{x1:PX0,y1:AX,x2:W-14,y2:AX,stroke:"#8A97A8","stroke-width":1.5,"marker-end":"url(#vlAx)"},s);S("line",{x1:PX0,y1:AX,x2:PX0,y2:14,stroke:"#8A97A8","stroke-width":1.5,"marker-end":"url(#vlAx)"},s);
+T(s,PX0+10,22,"Nível de aprendizado e desempenho",{fill:"#6B7B8C",style:"font:700 12px var(--fb)"});T(s,W-14,AX-8,"tempo",{"text-anchor":"end",fill:"#6B7B8C",style:"font:700 12px var(--fb)"});
+const G=S("g",{"clip-path":"url(#vlClip)"},s);
+const area=(pts,fill)=>S("path",{d:D(pts)+` L${pts[pts.length-1][0].toFixed(1)} ${AX} L${pts[0][0].toFixed(1)} ${AX} Z`,fill},G);
+area(seg(SOL,0,.45),"url(#vlL)");area(seg(SOL,.45,.80),"url(#vlV)");area(seg(SOL,.80,1),"url(#vlR)");
+/* sem gestão de mudanças (comparação) */
+const NG=S("g",{class:"vl-nog"},s);
+S("path",{d:D(seg(SOL,.45,1))+" L"+NOG.slice().reverse().map(p=>p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" L")+" Z",fill:"rgba(247,140,22,.10)"},NG);
+S("path",{d:D(NOG),fill:"none",stroke:"#BC0404","stroke-width":3,"stroke-dasharray":"8 6","stroke-linecap":"round"},NG);
+T(NG,FX(.80),AX-10,"Sem gestão de mudanças: o vale se prolonga",{"text-anchor":"middle",fill:"#BC0404",style:"font:italic 700 12px var(--fb)"});
+const bx=FX(.975),by0=yAt(SOL,bx)+8,by1=yAt(NOG,bx)-8;S("path",{d:`M${bx-6} ${by0} H${bx} V${by1} H${bx-6}`,fill:"none",stroke:"#F78C16","stroke-width":2},NG);
+fo(NG,bx-200,262,186,66,`<div style="text-align:right"><div style="font:800 14px/1.05 var(--fh);color:#C96A05;letter-spacing:.04em">VALOR DA GESTÃO<br>DA MUDANÇA</div><div style="font:500 11px/1.3 var(--fb);color:#35516A;margin-top:3px">travessia mais curta e<br>adoção sustentada</div></div>`);
+/* curva com gestão de mudanças */
+S("path",{d:D(seg(SOL,0,.45)),fill:"none",stroke:"#002B49","stroke-width":4,"stroke-linecap":"round"},G);
+S("path",{d:D(seg(SOL,.45,.80)),fill:"none",stroke:"#F78C16","stroke-width":6,"stroke-linecap":"round",filter:"url(#vlGlow)"},G);
+S("path",{d:D(seg(SOL,.80,1)),fill:"none",stroke:"#002B49","stroke-width":4,"stroke-dasharray":"12 9","stroke-linecap":"round"},G);
+/* glifos de incerteza no vale */
+const coil=(cx,cy)=>{let d="";for(let t=0;t<=6*Math.PI;t+=.25){const x=cx-34+t*68/(6*Math.PI)+9*Math.cos(t),y=cy-4+7*Math.sin(t);d+=(d?" L":"M")+x.toFixed(1)+" "+y.toFixed(1)}return S("path",{d,fill:"none",stroke:"#8A97A8","stroke-width":1.2,opacity:.75},G)};
+[.63,.71,.78].forEach(f=>coil(FX(f),yAt(SOL,FX(f))-4));
+const bolt=(x,y)=>S("path",{d:`M${x+3} ${y-11} L${x-4} ${y+1} L${x} ${y+1} L${x-3} ${y+11} L${x+5} ${y-2} L${x+1} ${y-2} Z`,fill:"#F78C16",class:"vl-gl"},G);
+[[.61,40,"?"],[.635,58,"b"],[.66,30,"?"],[.70,52,"?"],[.735,36,"b"],[.76,58,"?"],[.785,30,"?"]].forEach(([f,dy,t],i)=>{const x=FX(f),y=yAt(SOL,x)-dy;const g=t==="b"?bolt(x,y):T(G,x,y,"?",{"text-anchor":"middle",fill:i%2?"#8A97A8":"#35516A",class:"vl-gl",style:`font:800 ${18+(i%3)*3}px var(--fb)`});g.style.animationDelay=(i*.35)+"s"});
+/* títulos */
+T(s,FX(.63),42,"VALE DA IMPLEMENTAÇÃO",{"text-anchor":"middle",fill:"#C96A05",style:"font:800 26px var(--fh);letter-spacing:.14em"});T(s,FX(.63),62,"adaptação: incertezas, ajustes e experimentação",{"text-anchor":"middle",fill:"#6B7B8C",style:"font:600 13px var(--fb)"});
+fo(s,PX0+14,38,340,130,`<div style="font:800 11px var(--fb);letter-spacing:.16em;color:#C96A05">LEITURA EXECUTIVA</div><div style="font:800 23px/1.12 var(--fh);color:#002B49;margin-top:5px">O novo modelo é conhecido, ainda não é praticado.</div><div style="font:500 12.5px/1.45 var(--fb);color:#35516A;margin-top:5px">A queda de desempenho é esperada nesta fase. O risco não é entrar no vale: <b style="color:#002B49">é permanecer nele.</b></div>`);
+const pk=[FX(.45),VY(.62)];S("circle",{cx:pk[0],cy:pk[1],r:7,fill:"#002B49",stroke:"#fff","stroke-width":2.5},G);S("line",{x1:pk[0],y1:pk[1]+9,x2:pk[0],y2:pk[1]+50,stroke:"#002B49","stroke-dasharray":"2 3"},G);T(G,pk[0]-10,pk[1]+50,"Impacto inicial",{"text-anchor":"end",fill:"#002B49",style:"font:800 14px var(--fb)"});T(G,pk[0]-10,pk[1]+66,"muitas mudanças ao mesmo tempo",{"text-anchor":"end",fill:"#6B7B8C",style:"font:600 11px var(--fb)"});
+const en=[PX1,VY(.80)];S("circle",{cx:en[0],cy:en[1],r:8,fill:"#8A97A8",stroke:"#fff","stroke-width":2.5},G);T(G,PX1,en[1]-40,"Consolidação e autonomia",{"text-anchor":"end",fill:"#002B49",style:"font:800 14px var(--fb)"});T(G,PX1,en[1]-25,"o AXON vira rotina e gera novos resultados",{"text-anchor":"end",fill:"#6B7B8C",style:"font:600 11px var(--fb)"});
+/* go-live */
+const gx=FX(.58),gy=yAt(SOL,gx);S("line",{x1:gx,y1:gy+10,x2:gx,y2:476,stroke:"#BC0404","stroke-width":1.6,"stroke-dasharray":"5 4"},s);const gl=S("g",null,s);S("rect",{x:gx-46,y:AX-34,width:92,height:20,rx:10,fill:"#fff",stroke:"#BC0404"},gl);T(gl,gx,AX-20,"GO-LIVE",{"text-anchor":"middle",fill:"#BC0404",style:"font:800 10.5px var(--fb);letter-spacing:.12em"});S("path",{d:`M${gx} ${AX-7} L${gx+7} ${AX} L${gx} ${AX+7} L${gx-7} ${AX} Z`,fill:"#BC0404"},s);
+/* ADKAR e fases do projeto de referência */
+[[0,.45,"Awareness · Desire","por que mudar e o que eu ganho","#002B49","#fff"],[.45,.80,"Knowledge · Ability","do saber ao fazer","#F78C16","#0E1C39"],[.80,1,"Reinforcement","o novo vira rotina","#fff","#C96A05"]].forEach(([a,b,t,d,c,tc])=>{const g=S("g",null,s);S("rect",{x:FX(a)+2,y:392,width:FX(b)-FX(a)-4,height:26,rx:6,fill:c,stroke:c==="#fff"?"#F78C16":"none","stroke-dasharray":c==="#fff"?"5 3":"0"},g);T(g,(FX(a)+FX(b))/2,409,`${t}  ·  ${d}`,{"text-anchor":"middle",fill:tc,style:"font:800 12px var(--fb)"})});
+const PH=[[0,.12,"Preparação","escopo, equipe e patrocínio"],[.12,.28,"Desenho","processos e containers futuros"],[.28,.45,"Construção","configuração e catálogo"],[.45,.58,"Testes e paridade","validação contra o legado"],[.58,.80,"Estabilização","hypercare, suporte e ajustes"],[.80,1,"Evolução","melhoria contínua e autonomia"]];
+const phs=PH.map(([a,b,t,d])=>{const g=S("g",{class:"vl-ph"},s);S("rect",{x:FX(a)+2,y:426,width:FX(b)-FX(a)-4,height:50,rx:8},g);T(g,(FX(a)+FX(b))/2,447,t,{"text-anchor":"middle",class:"t",style:"font:800 14px var(--fh);letter-spacing:.03em"});T(g,(FX(a)+FX(b))/2,465,d,{"text-anchor":"middle",class:"d",style:"font:600 11px var(--fb)"});return{g,a,b}});
+
+/* riscos sobre a curva */
+const mks=RISKS.map((r,k)=>{const x=FX(r.vx),y=yAt(SOL,x),w=178,g=S("g",{class:"vl-mk",style:`--c:${r.c}`},s);
+S("line",{x1:x,y1:r.top+(r.k==="C"?82:66),x2:x,y2:y-12,stroke:r.c,"stroke-width":1.6,"marker-end":"url(#vlAr)"},g);
+S("circle",{cx:x,cy:y,r:14,class:"rg",fill:"none",stroke:r.c,"stroke-width":2},g);S("circle",{cx:x,cy:y,r:7,fill:r.c,stroke:"#fff","stroke-width":2.5},g);
+fo(g,x-w/2,r.top,w,92,`<div class="vl-co"><div class="h"><span class="lt">${r.k}</span><b>${r.sn}</b></div><i>${r.q}</i></div>`);
+g.addEventListener("click",e=>{e.stopPropagation();pick(k,true)});return{g,x}});
+/* detalhe */
+const det=$("valeDet");let cur=-1;
+function pick(k,user){cur=k;mks.forEach((m,j)=>{m.g.classList.toggle("on",j===k);m.g.classList.toggle("off",k>=0&&j!==k)});if(k<0){det.innerHTML=`<div class="vl-empty">Clique num risco da curva ou percorra a implementação para ver o que acontece em cada momento.</div>`;return}const r=RISKS[k];
+det.style.setProperty("--c",r.c);det.innerHTML=`<span class="lt">${r.k}</span><div class="nm"><b>${r.sn}</b><span>${r.fr} · momento: ${r.mo}</span></div><div><em>O que se ouve</em><p class="q">${r.q}</p></div><div><em>Sinal de alerta</em><p>${r.sg}</p></div><div><em>O que a gestão de mudanças faz aqui</em><p>${r.ac}</p></div><div><em>Métodos · ADKAR</em><p class="ch"><span class="mtd">${r.mt}</span>${adChips(r)}</p></div>`;if(user)stopRun()}
+/* controles */
+const ctl=$("valeCtl");ctl.innerHTML=`<span class="lb">Implementação de referência · modelo de projeto ERP</span><span class="ilu">curva conceitual · ilustrativa</span><button class="btn" data-run>▶ Percorrer a implementação</button><button class="tg" data-nog>Comparar sem gestão de mudanças</button>`;
+const bRun=ctl.querySelector("[data-run]"),bNog=ctl.querySelector("[data-nog]");let nog=false;
+bNog.addEventListener("click",e=>{e.stopPropagation();nog=!nog;bNog.classList.toggle("on",nog);s.classList.toggle("nog",nog)});
+const dot=S("g",{class:"vl-cur",opacity:0},s);S("circle",{r:16,fill:"rgba(176,77,255,.22)"},dot);S("circle",{r:7,fill:"#8A00C4",stroke:"#fff","stroke-width":2.5,filter:"url(#vlGlow)"},dot);
+let raf=0,tm=[];function stopRun(){cancelAnimationFrame(raf);raf=0;bRun.classList.remove("on");bRun.textContent="▶ Percorrer a implementação";dot.setAttribute("opacity",0);phs.forEach(p=>p.g.classList.remove("lit"))}
+function run(){stopRun();bRun.classList.add("on");bRun.textContent="■ Parar";dot.setAttribute("opacity",1);const t0=performance.now(),dur=RMO?1:9000;let hit=-1;
+const fr=t=>{const k=clamp((t-t0)/dur,0,1),x=PX0+k*(PX1-PX0),y=yAt(SOL,x);dot.setAttribute("transform",`translate(${x.toFixed(1)} ${y.toFixed(1)})`);const f=k;phs.forEach(p=>p.g.classList.toggle("lit",f>=p.a&&f<p.b+(p.b===1?.01:0)));
+RISKS.forEach((r,j)=>{if(j>hit&&f>=r.vx-.005){hit=j;pick(j)}});if(k<1)raf=requestAnimationFrame(fr);else{raf=0;bRun.classList.remove("on");bRun.textContent="▶ Percorrer de novo";setTimeout(()=>{dot.setAttribute("opacity",0);phs.forEach(p=>p.g.classList.remove("lit"))},900)}};raf=requestAnimationFrame(fr)}
+bRun.addEventListener("click",e=>{e.stopPropagation();if(raf)stopRun();else run()});
+FXR.add(sl,{play(){tm.forEach(clearTimeout);tm=[];stopRun();nog=false;bNog.classList.remove("on");s.classList.remove("nog");pick(-1);mks.forEach(m=>m.g.classList.remove("in"));cr.setAttribute("width",0);
+tween(RMO?0:1800,e=>cr.setAttribute("width",(W*e).toFixed(0)));mks.forEach((m,j)=>tm.push(setTimeout(()=>m.g.classList.add("in"),RMO?0:900+j*260)));tm.push(setTimeout(run,RMO?0:2400))},stop(){tm.forEach(clearTimeout);stopRun()}})})();
 
 /* ---------- 5 · APROXIMAÇÃO E COMPREENSÃO (heatmap sensorial) ---------- */
 (function(){const sl=SL("Aproximação e compreensão");
