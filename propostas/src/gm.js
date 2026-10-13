@@ -19,7 +19,7 @@ function tween(dur,fn,done){let raf=0;const t0=performance.now(),e=t=>1-Math.pow
 document.querySelectorAll(".slide").forEach(s=>{if(s.querySelector("[data-fx-type]"))FXR.add(s,fxTypography(s,{delay:220,gap:120}))});
 
 /* ---------- caminhos (estado compartilhado entre as páginas) ---------- */
-const PATHS={c1:{k:"c1",tag:"C1",n:"Sem gestão de mudanças",s:"a plataforma é liberada e cada gerência se vira",col:"#E0443A",soft:"#8A3A3A",short:"Sem GMO",T:"14+ meses · sem garantia"},c2:{k:"c2",tag:"C2",n:"GMO desde o desenvolvimento",s:"catequização, impactos e riscos mapeados antes da liberação",col:"#F78C16",soft:"#F78C16",short:"GMO antes da liberação",T:"~6 a 7 meses"},c3:{k:"c3",tag:"C3",n:"GMO a partir da liberação",s:"a gestão de mudanças começa quando a plataforma já está no ar",col:"#5E8AB4",soft:"#5E8AB4",short:"GMO após a liberação",T:"~10 a 11 meses"}};
+const PATHS={c1:{k:"c1",tag:"C1",n:"Sem gestão de mudanças",s:"a plataforma é liberada e cada gerência se vira",col:"#E0443A",soft:"#8A3A3A",short:"Sem GMO",T:"14+ meses · sem garantia"},c2:{k:"c2",tag:"C2",n:"GMO desde o desenvolvimento",s:"catequização, impactos e riscos mapeados antes da liberação",col:"#F78C16",soft:"#F78C16",short:"GMO antes da liberação",T:"~6 a 7 meses"},c3:{k:"c3",tag:"C3",n:"GMO a partir da liberação",s:"a gestão de mudanças começa quando a plataforma já está no ar",col:"#5E8AB4",soft:"#5E8AB4",short:"GMO após a liberação",T:"~9 a 11 meses"}};
 const PK=["c1","c2","c3"];let PATH="c2";const PSUB=[];
 function setPath(k,src){PATH=k;PSUB.forEach(f=>f(k,src))}
 function onPath(f){PSUB.push(f);f(PATH)}
@@ -45,23 +45,34 @@ H("span",{style:"font:500 10px 'JetBrains Mono',monospace;letter-spacing:.14em;t
 H("span",{class:"hnt"},el,o.hint||"Arraste o divisor · clique no painel · ← →");ba.onSet=v=>el.querySelectorAll("[data-pos]").forEach(b=>b.classList.toggle("on",Math.abs(+b.dataset.pos-v)<1.5));ba.onSet(ba.x);return{stop:stopA}}
 
 /* ---------- CAPA ---------- */
-(function(){const sl=SL("Capa");FXR.add(sl,fxCoverParticles(sl,{count:140}));FXR.add(sl,fxShimmerSweep(sl,{delay:1100,every:6500}))})();
+(function(){const sl=SL("Capa");FXR.add(sl,fxCoverParticles(sl,{count:260}));FXR.add(sl,fxShimmerSweep(sl,{delay:1100,every:6500}))})();
 
 /* ---------- 1 · DOIS FUTUROS POSSÍVEIS ---------- */
 (function(){const sl=SL("Dois futuros possíveis"),sc=$("flowScene");
-const LANES={c2:{y:38,steps:[["Mapa de impactos e riscos","durante o desenvolvimento, com cada gerência"],["Catequização e coalizão","especialistas entram no piloto e viram multiplicadores"],["Paridade validada junto","o especialista confere o resultado contra o método dele"],["Liberação com pessoas prontas","trilha feita, caminho combinado, legado com guardião"],["Ondas por gerência","rodada paralela curta, reforço e desligamento"]],end:"ok"},
-c3:{y:178,steps:[["Liberação da plataforma","o AXON chega antes da conversa"],["Diagnóstico de impactos, tarde","receios já formados; a narrativa corre atrás"],["Reconquista da confiança","rodadas paralelas longas para provar paridade"],["Capacitação assistida","turmas, plantões e multiplicadores"],["Ondas por gerência","mais lentas, com recaídas tratadas"]],end:"ok"},
-c1:{y:318,steps:[["Liberação da plataforma","treinamento demonstrativo e manual"],["Uso paralelo por garantia","legado continua como fonte oficial"],["Primeira divergência","resultado diferente do legado vira desconfiança"],["Recaída ao legado","o AXON vira ferramenta de alguns"],["Adoção parcial","2 de 5 gerências, sem desligar legados"]],end:"bad"}};
-const X0=0,SX=[190,414,638,862,1086],EX=1278,NH=64;
-const st=H("div",{class:"fn start","data-fx-node":"s0",style:`left:${X0}px;top:188px`},sc);st.innerHTML=`<b>AXON</b><span>plataforma pronta para ser liberada</span>`;
-const ok=H("div",{class:"fn end ok","data-fx-node":"eok",style:`left:${EX}px;top:92px`},sc);ok.innerHTML=`<em>Futuro 1</em><b>O AXON vira a rotina do ONS</b><span>cinco gerências rodando estudos no AXON, legados desligados, custo e tempo visíveis, especialistas analisando em vez de operar</span>`;
-const bad=H("div",{class:"fn end bad","data-fx-node":"ebad",style:`left:${EX}px;top:300px`},sc);bad.innerHTML=`<em>Futuro 2</em><b>O AXON vira mais um sistema</b><span>convivência dupla sem fim, legados mantidos por garantia, resultado questionado e a plataforma usada por quem já acreditava nela</span>`;
-const edges=[];PK.forEach(k=>{const L=LANES[k],p=PATHS[k];const lab=H("div",{class:`lane ${k}`,style:`left:${SX[0]}px;top:${L.y-26}px`},sc);lab.innerHTML=`<b>${p.tag.slice(1)}</b>${p.n}<em>${p.T}</em>`;lab.addEventListener("click",e=>{e.stopPropagation();setPath(k,sc)});
-let prev="s0";L.steps.forEach(([t,d],i)=>{const id=k+i,n=H("div",{class:`fn ${k}`,"data-fx-node":id,style:`left:${SX[i]}px;top:${L.y}px;min-height:${NH}px`},sc);n.innerHTML=`<i>0${i+1}</i><b>${t}</b><span>${d}</span>`;tip(n,`${p.tag} · ${t}`,d);n.addEventListener("click",()=>setPath(k,sc));edges.push([prev,id]);prev=id});edges.push([prev,L.end==="ok"?"eok":"ebad"])});
-const cf=fxConnector(sc,{edges,hover:true,auto:false,dim:false,delay:400,stagger:120,dur:520,speed:70,curve:.55});
-onPath(k=>{PK.forEach(q=>sc.classList.toggle("sel-"+q,q===k));$("futFoot").querySelectorAll(".fut-card").forEach(c=>c.classList.toggle("on",c.dataset.k===k))});
-[["c1","Ganha: velocidade para liberar","Arrisca: o especialista nunca passa a confiar; o legado vira fonte oficial por garantia e a plataforma perde a disputa pela rotina."],["c2","Ganha: pessoas prontas no dia da liberação","Arrisca: exige abrir a plataforma às gerências enquanto ela ainda muda; o time de produto precisa de proteção para não virar balcão."],["c3","Ganha: começa com a plataforma estável","Arrisca: os receios já se formaram sem resposta; reconquistar confiança custa mais do que construí-la antes."]].forEach(([k,g,r])=>{const p=PATHS[k],c=H("div",{class:"fut-card","data-k":k,style:`border-top:3px solid ${p.col}`},$("futFoot"));c.innerHTML=`<b>${p.tag} · ${p.n}</b><span>${g}</span><span>${r}</span><span class="t">Previsão de rotina: ${p.T}</span>`;c.addEventListener("click",e=>{e.stopPropagation();setPath(k,sc)})});
-FXR.add(sl,{play(){cf.play()},stop(){cf.stop()}})})();
+const LANES={c2:{y:52,steps:[["Mapa de impactos e riscos","durante o desenvolvimento, com cada gerência"],["Catequização e coalizão","especialistas entram no piloto e viram multiplicadores"],["Paridade validada junto","o especialista confere o resultado contra o método dele"],["Liberação com pessoas prontas","trilha feita, caminho combinado, legado com guardião"],["Ondas por gerência","rodada paralela curta, reforço e desligamento"]],end:"eok"},
+c3:{y:194,steps:[["Liberação da plataforma","o AXON chega antes da conversa"],["Diagnóstico de impactos, tarde","receios já formados; a narrativa corre atrás"],["Reconquista da confiança","rodadas paralelas longas para provar paridade"],["Capacitação assistida","turmas, plantões e multiplicadores"],["Ondas por gerência","mais lentas, com recaídas tratadas"]],end:"eok"},
+c1:{y:336,steps:[["Liberação da plataforma","treinamento demonstrativo e manual"],["Uso paralelo por garantia","legado continua como fonte oficial"],["Primeira divergência","resultado diferente do legado vira desconfiança"],["Recaída ao legado","o AXON vira ferramenta de alguns"],["Adoção parcial","2 de 5 gerências, sem desligar legados"]],end:"ebad"}};
+const SX=[200,424,648,872,1096],EX=1310,NH=66;
+["Partida","Etapa 1","Etapa 2","Etapa 3","Etapa 4","Etapa 5","Futuro"].forEach((t,i)=>H("div",{class:"col",style:`left:${i===0?-10:i===6?EX+28:SX[i-1]}px`},sc,t));
+const st=H("div",{class:"fn start","data-fx-node":"s0",style:"left:0;top:206px"},sc);st.innerHTML=`<b>AXON</b><span>Caminhos de implementação</span>`;
+const ok=H("div",{class:"fn end ok","data-fx-node":"eok",style:`left:${EX}px;top:104px`},sc);ok.innerHTML=`<em>Futuro 1</em><b>O AXON vira a rotina do ONS</b><span>cinco gerências rodando estudos no AXON, legados desligados, custo e tempo visíveis, especialistas analisando em vez de operar</span>`;
+const bad=H("div",{class:"fn end bad","data-fx-node":"ebad",style:`left:${EX}px;top:318px`},sc);bad.innerHTML=`<em>Futuro 2</em><b>O AXON vira mais um sistema</b><span>convivência dupla sem fim, legados mantidos por garantia, resultado questionado e a plataforma usada por quem já acreditava nela</span>`;
+const EDGES={},NODES={},LAB={};PK.forEach(k=>{const L=LANES[k],p=PATHS[k];const lab=H("div",{class:`lane ${k}`,style:`left:${SX[0]}px;top:${L.y-26}px`},sc);lab.innerHTML=`<b>${p.tag.slice(1)}</b>${p.n}<em>${p.T}</em>`;lab.addEventListener("click",e=>{e.stopPropagation();show(k)});LAB[k]=lab;
+let prev="s0";EDGES[k]=[];NODES[k]=[];L.steps.forEach(([t,d],i)=>{const id=k+i,n=H("div",{class:`fn ${k}`,"data-fx-node":id,style:`left:${SX[i]}px;top:${L.y}px;min-height:${NH}px`},sc);n.innerHTML=`<i>0${i+1}</i><b>${t}</b><span>${d}</span>`;tip(n,`${p.tag} · ${t}`,d);n.addEventListener("click",()=>show(k));EDGES[k].push([prev,id]);NODES[k].push(n);prev=id});EDGES[k].push([prev,L.end])});
+let cf=null,mode="c2",pin=null;
+function draw(lanes){if(cf)cf.destroy();const edges=lanes.flatMap(k=>EDGES[k]);cf=fxConnector(sc,{edges,hover:true,auto:false,dim:false,dots:0,delay:150,stagger:110,dur:480,curve:.55});sc.classList.add("fx-cf--light");cf.play();
+PK.forEach(k=>{const on=lanes.includes(k);NODES[k].forEach(n=>{n.classList.toggle("off",!on);n.classList.toggle("lit",on)});LAB[k].classList.toggle("off",!on)});
+ok.classList.toggle("off",!lanes.some(k=>LANES[k].end==="eok"));bad.classList.toggle("off",!lanes.some(k=>LANES[k].end==="ebad"))}
+function show(k){pin=null;ok.classList.remove("pin");bad.classList.remove("pin");mode=k;setPath(k,sc)}
+function future(id){pin=pin===id?null:id;ok.classList.toggle("pin",pin==="eok");bad.classList.toggle("pin",pin==="ebad");if(!pin){draw([mode]);return}draw(PK.filter(k=>LANES[k].end===pin));$("futHint").textContent=pin==="eok"?"Futuro 1: chegam até ele os caminhos C2 e C3, em tempos diferentes":"Futuro 2: é onde termina o caminho C1, sem gestão de mudanças"}
+ok.addEventListener("click",e=>{e.stopPropagation();future("eok")});bad.addEventListener("click",e=>{e.stopPropagation();future("ebad")});
+/* controles: um botão que avança C1 → C2 → C3 e redesenha os fluxos */
+const ctl=$("futCtl");const nb=H("button",{class:"btn"},ctl,"");nb.addEventListener("click",e=>{e.stopPropagation();show(PK[(PK.indexOf(mode)+1)%3])});
+H("span",{class:"lb"},ctl,"Caminho");const seg=H("div",{class:"path-seg"},ctl);pathSeg(seg);const rd=H("button",{class:"btn",style:"background:#fff;color:#002B49;border:1px solid var(--line)"},ctl,"↻ Redesenhar");rd.addEventListener("click",e=>{e.stopPropagation();draw(pin?PK.filter(k=>LANES[k].end===pin):[mode])});
+H("span",{class:"hnt",id:"futHint"},ctl,"Clique em Caminho para ver o próximo · clique num futuro para ver quem chega até ele");
+onPath((k,src)=>{mode=k;pin=null;ok.classList.remove("pin");bad.classList.remove("pin");const p=PATHS[k],nx=PATHS[PK[(PK.indexOf(k)+1)%3]];nb.className="btn "+k;nb.textContent=`Caminho ${p.tag.slice(1)} · ${p.short}  →  ver ${nx.tag}`;$("futHint").textContent=`${p.tag} · ${p.n}: ${p.s}`;$("futFoot").querySelectorAll(".fut-card").forEach(c=>c.classList.toggle("on",c.dataset.k===k));if(sl.classList.contains("active"))draw([k])});
+[["c1","Ganha: velocidade para liberar","Arrisca: o especialista nunca passa a confiar; o legado vira fonte oficial por garantia e a plataforma perde a disputa pela rotina."],["c2","Ganha: pessoas prontas no dia da liberação","Arrisca: exige abrir a plataforma às gerências enquanto ela ainda muda; o time de produto precisa de proteção para não virar balcão."],["c3","Ganha: começa com a plataforma estável","Arrisca: os receios já se formaram sem resposta; reconquistar confiança custa mais do que construí-la antes."]].forEach(([k,g,r])=>{const p=PATHS[k],c=H("div",{class:"fut-card","data-k":k,style:`border-top:3px solid ${p.col}`},$("futFoot"));c.innerHTML=`<b>${p.tag} · ${p.n}</b><span>${g}</span><span>${r}</span><span class="t">Previsão de rotina: ${p.T}</span>`;c.addEventListener("click",e=>{e.stopPropagation();show(k)})});
+FXR.add(sl,{play(){pin=null;ok.classList.remove("pin");bad.classList.remove("pin");draw([mode])},stop(){if(cf)cf.stop()}})})();
 
 /* ---------- 2 · CONTEXTO ---------- */
 (function(){const sl=SL("Contexto");
@@ -76,7 +87,7 @@ c1:[["Tela existe, mas o arquivo antigo continua sendo editado por garantia","co
 const ba=baSlider($("baCtx"),{la:"Sem AXON · hoje",lb:"Com AXON"});
 const as=H("div",{class:"asis"},ba.A);as.innerHTML=`<div class="bar"><span>estudo_v14_FINAL(2).dat · servidor-pl-03</span><i>manual</i><i>5 legados</i><i>dias</i></div>`+ROWS.map(([ic,k,o])=>`<div class="row"><b>${k}</b><span>${o}</span></div>`).join("");
 const tb=H("div",{class:"tobe"},ba.B);function fill(k){const p=PATHS[k];tb.innerHTML=`<div class="hd"><div><span>Com AXON · caminho ${p.tag}</span><b>${p.n}</b></div><em style="background:${p.col};color:${k==="c2"?"#0E1C39":"#fff"}">${p.T}</em></div>`+ROWS.map(([ic,kk],i)=>`<div class="row ${TO[k][i][1]}"><b>${kk}</b><span>${TO[k][i][0]}</span></div>`).join("")}
-$("ctxSeg").classList.add("path-seg");pathSeg($("ctxSeg"));onPath(fill);
+pathSeg($("ctxSeg"));onPath(fill);
 const ctl=baCtl($("baCtl"),ba,{a:"Sem AXON",b:"Com AXON"});
 FXR.add(sl,{play(){ba.play()},stop(){ctl.stop();ba.halt()}})})();
 
@@ -109,7 +120,7 @@ FXR.add(sl,{play(){ST.forEach(s=>s.el.classList.remove("in"));apply(PATH);ST.for
 /* ---------- 4 · PREVISÃO DE ABSORÇÃO (linha do tempo) ---------- */
 (function(){const sl=SL("Previsão de absorção");
 const FR=[{k:"A",n:"Engajamento e stakeholders",base:7,team:2,c:"#002B49"},{k:"B",n:"Comunicação e confiança",base:6,team:1.5,c:"#1F3263"},{k:"C",n:"Capacitação e adoção assistida",base:8,team:2,c:"#5E8AB4"},{k:"D",n:"Impactos e sustentação",base:10,team:1.5,c:"#F78C16"}];
-const SCN={c1:{R:[0,0,0,0],S:[0,1,2,4],gmo:false},c2:{R:[.5,.45,.4,.45],S:[-3,-2,0,1],gmo:true},c3:{R:[.3,.35,.3,.3],S:[0,1,2,3.5],gmo:true}};
+const SCN={c1:{R:[0,0,0,0],S:[0,1,2,4],gmo:false},c2:{R:[.5,.45,.4,.45],S:[-3,-2,0,1],gmo:true},c3:{R:[.3,.35,.3,.3],S:[0,1,2,3],gmo:true}};
 const calc=k=>{const s=SCN[k];const rows=FR.map((f,i)=>{const D=+(f.base*(1-s.R[i])).toFixed(1),S=s.S[i];return{f,S,D,E:s.gmo?+(D*f.team).toFixed(1):0,end:+(S+D).toFixed(1)}});return{rows,T:Math.max(...rows.map(r=>r.end)),E:+rows.reduce((a,r)=>a+r.E,0).toFixed(1),vale:[rows[2].S+rows[2].D*.15,rows[2].S+rows[2].D*.7]}};
 pathSeg($("tlSeg"));$("tlSeg").classList.add("path-seg");
 $("tlForm").innerHTML=`<div class="tl-form"><code>D_f = D_base × (1 − R)</code><span>duração de cada frente: a base sem gestão de mudanças, reduzida pelo fator R do caminho</span><code>T = max(S_f + D_f)</code><span>mês em que a última frente fecha = AXON como rotina (mês 0 = liberação)</span><code>E = Σ D_f × equipe_f</code><span>esforço de GMO em pessoa-mês (equipe por frente: 1,5 a 2 pessoas)</span><code>R · S</code><span>C1: R = 0, começa na liberação · C3: R = 0,30 a 0,35, começa na liberação · C2: R = 0,40 a 0,50, começa 3 meses antes</span></div>`;
