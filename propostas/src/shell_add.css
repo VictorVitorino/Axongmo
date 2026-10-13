@@ -539,8 +539,8 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 .tilt .tab td .m{display:inline-block;font:700 9.5px var(--fb);color:#fff;border-radius:99px;padding:1px 7px;margin-right:3px;background:var(--c)}
 
 /* rodada de ajustes: capa axônio, espaçamento do título, página 2 e 3 */
-.cv4 .cv4-h.cv4-big{font-size:168px;line-height:.95;letter-spacing:-.035em}
-.cv4 .cv4-sub.cv4-bigsub{font-size:36px;padding-top:26px;margin-top:10px}
+.cv4 .cv4-h.cv4-big{font-size:128px;line-height:.95;letter-spacing:-.035em}
+.cv4 .cv4-sub.cv4-bigsub{font-size:29px;padding-top:22px;margin-top:8px}
 .cv4 .cv4-sub.cv4-bigsub::before{width:72px;height:4px}
 .body.sp>.stmt2{padding-bottom:12px}
 .fut-scene .lane b,.fut-scene .lane.p1 b,.fut-scene .lane.p2 b,.fut-scene .lane.p3 b{background:linear-gradient(150deg,#B04DFF,#8A00C4);color:#fff;box-shadow:0 0 0 3px rgba(176,77,255,.18),0 0 14px rgba(176,77,255,.55)}
@@ -757,3 +757,22 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 .tilt2 .fxm th:first-child{width:205px}.tilt2 .fxm th.mc{width:50px}
 .tilt2 .fxm td{padding:4px 5px;font-size:11px}
 .tilt2 .fxm td.rk{font-size:10.5px;line-height:1.25}
+
+.cv4 .cv4-pulse{pointer-events:auto;margin-left:6px;height:30px;padding:0 14px;border-radius:99px;border:1px solid rgba(214,140,255,.7);background:linear-gradient(150deg,rgba(176,77,255,.35),rgba(138,0,196,.25));color:#F3E2FF;font:700 13px var(--fb);cursor:pointer;box-shadow:0 0 14px rgba(176,77,255,.35);transition:background .2s,box-shadow .2s}
+.cv4 .cv4-pulse:hover{background:linear-gradient(150deg,#B04DFF,#8A00C4);box-shadow:0 0 22px rgba(176,77,255,.7)}
+/* barra de avanço com toque de roxo neon */
+#rail .seg2 i b{background:linear-gradient(90deg,#1F3263,#8A00C4 55%,#C163FF);box-shadow:0 0 8px rgba(176,77,255,.55)}
+#rail .seg2.on span{color:#6A0A9C}
+#rail .seg2:hover span{color:#8A00C4}
+
+/* ficha técnica com divisões horizontais claras */
+.tilt2 .ficha .fg{display:flex;flex-direction:column;gap:0;padding:2px 18px 0}
+.tilt2 .ficha .fg .rw{display:grid;grid-template-columns:1fr 1fr;gap:0 22px;padding:10px 0;border-bottom:1px solid #E9EEF4}
+.tilt2 .ficha .fg .rw.one{grid-template-columns:1fr}
+.tilt2 .ficha .fg .rw:last-child{border-bottom:0}
+.tilt2 .ficha .steps{border-top:1px solid #E9EEF4}
+/* percurso sem gestão */
+#vale .vl-ngm{cursor:pointer}
+.vl-det.ng{background:#FFF8F7}
+.vl-det.ng em{color:#BC0404}
+.tilt2 .ficha .fg .rw{padding:7px 0}.tilt2 .ficha .steps{padding:6px 18px 8px}

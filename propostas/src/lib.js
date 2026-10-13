@@ -121,63 +121,67 @@ function play(){stop();fit();P=[];for(let i=0;i<count;i++)P.push(spawn());if(nOu
 function stop(){cancelAnimationFrame(raf);raf=0}
 addEventListener("resize",()=>{if(raf)fit()});return{play,stop}}
 
-/* Capa · axônio: neurônio em roxo neon (dendritos, soma, axônio mielinizado, terminais); impulsos saltam de nó em nó até as sinapses */
-function fxCoverAxon(root,opts){opts=opts||{};const cv=root.querySelector(".cv4-cv"),ctx=cv.getContext("2d"),nOut=root.querySelector("[data-n]"),lOut=root.querySelector("[data-links]"),fOut=root.querySelector("[data-fps]");
-const RM=matchMedia("(prefers-reduced-motion: reduce)").matches,W=1600,H=900;let seed=7;const rnd=(a,b)=>{seed=(seed*16807)%2147483647;return a+(seed/2147483647)*(b-a)};
-const SO={x:opts.x||1010,y:opts.y||330,r:34};
-/* dendritos: árvore recursiva; cada galho guarda o caminho da ponta até o soma */
-const dend=[],tips=[];
-function branch(pts,ang,len,w,depth){const last=pts[pts.length-1];const n=8,seg=[];let a=ang,x=last.x,y=last.y;for(let i=0;i<n;i++){a+=rnd(-.16,.16);x+=Math.cos(a)*len/n;y+=Math.sin(a)*len/n;seg.push({x,y})}
-const path=pts.concat(seg);dend.push({pts:[last].concat(seg),w});if(depth<=0||len<38){tips.push(path.slice().reverse());return}
-const k=depth>2?2:rnd(0,1)<.6?2:3;for(let i=0;i<k;i++)branch(path,a+rnd(-.75,.75),len*rnd(.55,.75),w*.68,depth-1)}
-const AXA=.42;[-2.75,-2.2,-1.6,-1.0,-.35,2.2,2.75,1.55].forEach(a=>{const s={x:SO.x+Math.cos(a)*SO.r*.8,y:SO.y+Math.sin(a)*SO.r*.8};branch([{x:SO.x,y:SO.y},s],a,rnd(120,190),5.5,3)});
-/* axônio: curva cúbica do cone de implantação até os terminais */
-const P0={x:SO.x+Math.cos(AXA)*SO.r,y:SO.y+Math.sin(AXA)*SO.r},C1={x:1180,y:430},C2={x:1260,y:620},P3={x:1430,y:700};
-const bez=t=>{const u=1-t;return{x:u*u*u*P0.x+3*u*u*t*C1.x+3*u*t*t*C2.x+t*t*t*P3.x,y:u*u*u*P0.y+3*u*u*t*C1.y+3*u*t*t*C2.y+t*t*t*P3.y}};
-const ax=[];let L=0;for(let i=0;i<=240;i++){const p=bez(i/240);if(i){const q=ax[i-1];L+=Math.hypot(p.x-q.x,p.y-q.y)}p.s=L;ax.push(p)}
-const at=s=>{s=Math.max(0,Math.min(L,s));let i=1;while(i<ax.length-1&&ax[i].s<s)i++;const a=ax[i-1],b=ax[i],k=(s-a.s)/((b.s-a.s)||1);return{x:a.x+(b.x-a.x)*k,y:a.y+(b.y-a.y)*k,ang:Math.atan2(b.y-a.y,b.x-a.x)}};
-const MY=46,GAPN=10,START=34,nodes=[];for(let s=START;s<L-30;s+=MY+GAPN)nodes.push(s+MY+GAPN/2);
-/* terminais sinápticos */
-const term=[],bout=[];[-1.0,-.45,.05,.55,1.05].forEach(d=>{const a=Math.atan2(P3.y-C2.y,P3.x-C2.x)+d;const pts=[{x:P3.x,y:P3.y}];let x=P3.x,y=P3.y,aa=a;const len=rnd(60,95);for(let i=0;i<6;i++){aa+=rnd(-.2,.2);x+=Math.cos(aa)*len/6;y+=Math.sin(aa)*len/6;pts.push({x,y})}term.push(pts);bout.push({x,y,flash:0})});
-/* camada estática pré-renderizada com brilho */
-const off=document.createElement("canvas");off.width=W;off.height=H;const o=off.getContext("2d");o.lineCap="round";o.lineJoin="round";
-const stroke=(pts,w,col,blur)=>{o.save();o.strokeStyle=col;o.lineWidth=w;o.shadowColor="rgba(176,77,255,.85)";o.shadowBlur=blur;o.beginPath();o.moveTo(pts[0].x,pts[0].y);for(let i=1;i<pts.length;i++){const p=pts[i-1],q=pts[i];o.quadraticCurveTo(p.x,p.y,(p.x+q.x)/2,(p.y+q.y)/2)}const e=pts[pts.length-1];o.lineTo(e.x,e.y);o.stroke();o.restore()};
-dend.forEach(d=>stroke(d.pts,d.w,"rgba(183,110,255,.78)",14));
-stroke(ax,4,"rgba(200,140,255,.9)",18);
-nodes.forEach((n,i)=>{const s0=n-GAPN/2-MY,s1=n-GAPN/2;const pts=[];for(let s=s0;s<=s1;s+=4)pts.push(at(s));o.save();o.strokeStyle="rgba(138,0,196,.95)";o.lineWidth=15;o.lineCap="round";o.shadowColor="rgba(176,77,255,.9)";o.shadowBlur=20;o.beginPath();pts.forEach((p,k)=>k?o.lineTo(p.x,p.y):o.moveTo(p.x,p.y));o.stroke();o.strokeStyle="rgba(230,190,255,.55)";o.lineWidth=4;o.shadowBlur=0;o.beginPath();pts.forEach((p,k)=>k?o.lineTo(p.x,p.y-3):o.moveTo(p.x,p.y-3));o.stroke();o.restore()});
-term.forEach(t=>stroke(t,2.4,"rgba(200,140,255,.85)",12));
+/* Capa · rede de neurônios: começa com um neurônio delicado; cada pulso ou clique faz crescer outro, que liga o axônio a um vizinho e propaga o impulso */
+function fxCoverNeurons(root,opts){opts=opts||{};const cv=root.querySelector(".cv4-cv"),ctx=cv.getContext("2d"),nOut=root.querySelector("[data-n]"),lOut=root.querySelector("[data-links]"),fOut=root.querySelector("[data-fps]"),btn=root.querySelector(".cv4-pulse");
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches,W=1600,H=900,MAX=opts.max||11;let sd=11;const rnd=(a,b)=>{sd=(sd*16807)%2147483647;return a+(sd/2147483647)*(b-a)};
+const SLOTS=[[1110,420],[1370,250],[1400,640],[880,650],[1210,790],[1500,440],[980,190],[790,400],[1260,560],[1520,820],[700,800]];
+const bake=document.createElement("canvas");bake.width=W;bake.height=H;const bx=bake.getContext("2d");bx.lineCap="round";bx.lineJoin="round";
+let N=[],sig=[],aps=[],sparks=[],cursor=null,raf=0,last=0,now=0,fa=0,fn=0,fired=0,timers=[],tD=0,tAuto=0;
+function makeNeuron(x,y,target){const n={x,y,segs:[],tips:[],target,born:now,grown:false,charge:0,r:rnd(6.5,8.5),flash:0};
+const prim=Math.round(rnd(5,7)),a0=rnd(0,6.28);let axA;if(target>=0){const t=N[target];axA=Math.atan2(t.y-y,t.x-x)}else axA=opts.axA!=null?opts.axA:.55;
+function branch(px,py,ang,len,w,depth,t0,path){const n2=5;let a=ang,cx=px,cy=py;const pts=[[px,py]];for(let i=0;i<n2;i++){a+=rnd(-.22,.22);const nx=cx+Math.cos(a)*len/n2,ny=cy+Math.sin(a)*len/n2;n.segs.push({x0:cx,y0:cy,x1:nx,y1:ny,w:w*(1-i*.08),t0:t0+i*45});
+if(len>26&&rnd(0,1)<.55){const sa=a+(rnd(0,1)<.5?1.5:-1.5),sl=rnd(2.5,5);n.segs.push({x0:nx,y0:ny,x1:nx+Math.cos(sa)*sl,y1:ny+Math.sin(sa)*sl,w:.6,t0:t0+i*45+60,sp:1})}cx=nx;cy=ny;pts.push([nx,ny])}
+const full=path.concat(pts.slice(1));if(depth<=0||len<14){n.tips.push(full.slice().reverse());return}const k=rnd(0,1)<.7?2:3;for(let j=0;j<k;j++)branch(cx,cy,a+rnd(-.8,.8),len*rnd(.58,.78),w*.66,depth-1,t0+n2*45,full)}
+for(let i=0;i<prim;i++){let ang=a0+i*6.28/prim+rnd(-.25,.25);if(Math.abs(((ang-axA+9.42)%6.28)-3.14)<.5)ang+=.6;branch(x+Math.cos(ang)*n.r*.8,y+Math.sin(ang)*n.r*.8,ang,rnd(48,74),1.9,3,rnd(0,120),[[x,y]])}
+/* axônio */
+let ex,ey;if(target>=0){const t=N[target],d=Math.hypot(t.x-x,t.y-y);ex=x+(t.x-x)*(1-34/d);ey=y+(t.y-y)*(1-34/d)}else{const L=opts.axLen||200;ex=x+Math.cos(axA)*L;ey=y+Math.sin(axA)*L}
+const sx=x+Math.cos(axA)*n.r,sy=y+Math.sin(axA)*n.r,dx=ex-sx,dy=ey-sy,dl=Math.hypot(dx,dy),nx=-dy/dl,ny=dx/dl,bend=rnd(-.22,.22)*dl,c1=[sx+dx*.33+nx*bend,sy+dy*.33+ny*bend],c2=[sx+dx*.66-nx*bend*.6,sy+dy*.66-ny*bend*.6];
+const ax=[];let L=0;for(let i=0;i<=120;i++){const t=i/120,u=1-t,p=[u*u*u*sx+3*u*u*t*c1[0]+3*u*t*t*c2[0]+t*t*t*ex,u*u*u*sy+3*u*u*t*c1[1]+3*u*t*t*c2[1]+t*t*t*ey];if(i)L+=Math.hypot(p[0]-ax[i-1][0],p[1]-ax[i-1][1]);p[2]=L;ax.push(p)}n.ax=ax;n.axL=L;
+n.nodes=[];for(let s2=14;s2<L-10;s2+=16)n.nodes.push(s2);
+n.term=[];const ta=Math.atan2(ey-ax[110][1],ex-ax[110][0]);for(let j=0;j<5;j++){const aa=ta+(j-2)*.42+rnd(-.12,.12),l=rnd(12,22),mx=ex+Math.cos(aa)*l*.55+rnd(-2,2),my=ey+Math.sin(aa)*l*.55+rnd(-2,2);n.term.push({pts:[[ex,ey],[mx,my],[ex+Math.cos(aa)*l,ey+Math.sin(aa)*l]],flash:0})}
+n.tDend=Math.max(...n.segs.map(s=>s.t0))+220;return n}
+const at=(n,s)=>{s=Math.max(0,Math.min(n.axL,s));let i=1;while(i<n.ax.length-1&&n.ax[i][2]<s)i++;const a=n.ax[i-1],b=n.ax[i],k=(s-a[2])/((b[2]-a[2])||1);return[a[0]+(b[0]-a[0])*k,a[1]+(b[1]-a[1])*k]};
+function drawNeuron(c,n,age,glow){const T=RM?1e9:age;c.save();if(glow){c.shadowColor="rgba(176,77,255,.75)";c.shadowBlur=7}
+for(const s of n.segs){if(T<s.t0)continue;const k=Math.min(1,(T-s.t0)/200);c.strokeStyle=s.sp?"rgba(214,170,255,.75)":"rgba(186,120,255,.88)";c.lineWidth=Math.max(.5,s.w);c.beginPath();c.moveTo(s.x0,s.y0);c.lineTo(s.x0+(s.x1-s.x0)*k,s.y0+(s.y1-s.y0)*k);c.stroke()}
 /* soma */
-const g=o.createRadialGradient(SO.x-8,SO.y-10,4,SO.x,SO.y,SO.r+18);g.addColorStop(0,"#F3DEFF");g.addColorStop(.35,"#B04DFF");g.addColorStop(.75,"#6A0A9C");g.addColorStop(1,"rgba(106,10,156,0)");o.fillStyle=g;o.beginPath();o.arc(SO.x,SO.y,SO.r+18,0,7);o.fill();
-o.fillStyle="rgba(255,255,255,.9)";o.beginPath();o.arc(SO.x-4,SO.y-4,9,0,7);o.fill();
-/* poeira de fundo */
-const dust=[];for(let i=0;i<70;i++)dust.push({x:rnd(0,W),y:rnd(0,H),r:rnd(.6,1.8),vx:rnd(-.12,.12),vy:rnd(-.1,.1),a:rnd(.15,.45)});
-let aps=[],dps=[],nts=[],cursor=null,raf=0,last=0,fa=0,fn=0,fired=0,soma=0,tAuto=0,tD=0;
-const fire=()=>{aps.push({s:0,v:RM?2:7.5});soma=1};
+const sk=Math.min(1,T/300);const g=c.createRadialGradient(n.x-2,n.y-2,1,n.x,n.y,n.r*2.2);g.addColorStop(0,"rgba(250,235,255,1)");g.addColorStop(.35,"rgba(190,110,255,.95)");g.addColorStop(.8,"rgba(110,10,170,.5)");g.addColorStop(1,"rgba(110,10,170,0)");c.fillStyle=g;c.beginPath();c.arc(n.x,n.y,n.r*2.2*sk,0,7);c.fill();
+/* axônio e mielina */
+const ta=n.tDend*.55,ap=Math.max(0,Math.min(1,(T-ta)/900)),sl=n.axL*ap;if(ap>0){c.strokeStyle="rgba(210,160,255,.9)";c.lineWidth=1.3;c.beginPath();for(let i=0;i<n.ax.length&&n.ax[i][2]<=sl;i++){const p=n.ax[i];i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1])}c.stroke();
+c.lineCap="round";for(const nd of n.nodes){if(nd>sl)break;const a=at(n,nd-13),b=at(n,nd-3);c.strokeStyle="rgba(138,0,196,.95)";c.lineWidth=4.4;c.beginPath();c.moveTo(a[0],a[1]);c.lineTo(b[0],b[1]);c.stroke();c.strokeStyle="rgba(235,205,255,.55)";c.lineWidth=1.1;c.beginPath();c.moveTo(a[0],a[1]-1.2);c.lineTo(b[0],b[1]-1.2);c.stroke()}}
+if(ap>=1){const tk=Math.min(1,(T-ta-900)/300);for(const t of n.term){c.strokeStyle="rgba(210,160,255,.85)";c.lineWidth=.9;c.beginPath();c.moveTo(t.pts[0][0],t.pts[0][1]);c.quadraticCurveTo(t.pts[1][0],t.pts[1][1],t.pts[0][0]+(t.pts[2][0]-t.pts[0][0])*tk,t.pts[0][1]+(t.pts[2][1]-t.pts[0][1])*tk);c.stroke();if(tk>=1){c.fillStyle="rgba(255,160,100,.95)";c.beginPath();c.arc(t.pts[2][0],t.pts[2][1],2.1,0,7);c.fill()}}}
+c.restore();return ap>=1&&T>ta+1250}
+function spawn(x,y){if(N.length>=MAX)return-1;let tg=-1,bd=1e9;N.forEach((m,j)=>{const d=Math.hypot(m.x-x,m.y-y);if(d<bd&&d>90){bd=d;tg=j}});const n=makeNeuron(x,y,tg);N.push(n);count();return N.length-1}
+function count(){if(nOut)nOut.textContent=String(N.length);if(lOut)lOut.textContent=String(N.filter(n=>n.target>=0).length)}
+function fire(i){const n=N[i];if(!n||!n.grown)return;aps.push({n:i,s:0,v:RM?n.axL:6.2});n.flash=1;fired++;if(fOut)fOut.textContent=String(fired)}
+function nextSlot(){for(const s of SLOTS){if(!N.some(n=>Math.hypot(n.x-s[0],n.y-s[1])<120))return s}return[rnd(760,1540),rnd(80,840)]}
+function pulse(){fire(0);const s=nextSlot();spawn(s[0]+rnd(-20,20),s[1]+rnd(-20,20))}
 function fit(){const r=cv.getBoundingClientRect(),k=r.width?r.width/W:1,pr=Math.min(2,Math.max(1,(devicePixelRatio||1)*k));cv.width=Math.round(W*pr);cv.height=Math.round(H*pr);ctx.setTransform(pr,0,0,pr,0,0)}
 const loc=e=>{const r=cv.getBoundingClientRect();return{x:(e.clientX-r.left)*W/r.width,y:(e.clientY-r.top)*H/r.height}};
 root.addEventListener("pointermove",e=>{cursor=loc(e)});root.addEventListener("pointerleave",()=>cursor=null);
-root.addEventListener("pointerdown",e=>{if(e.target.closest("button,a"))return;fire()});
-function frame(t){const dt=last?Math.min(50,t-last):16.7;last=t;const k=dt/16.7;
-ctx.clearRect(0,0,W,H);
+root.addEventListener("pointerdown",e=>{if(e.target.closest("button,a"))return;const p=loc(e);let hit=-1;N.forEach((n,j)=>{if(Math.hypot(n.x-p.x,n.y-p.y)<60)hit=j});if(hit>=0)fire(hit);else if(p.x>600)spawn(Math.min(1560,p.x),Math.max(60,Math.min(850,p.y)))});
+if(btn)btn.addEventListener("click",e=>{e.stopPropagation();pulse()});
+const dust=[];for(let i=0;i<60;i++)dust.push({x:Math.random()*W,y:Math.random()*H,r:.5+Math.random()*1.2,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.16,a:.12+Math.random()*.3});
+function frame(t){const dt=last?Math.min(50,t-last):16.7;last=t;now+=dt;const k=dt/16.7;ctx.clearRect(0,0,W,H);
 for(const d of dust){d.x+=d.vx*k;d.y+=d.vy*k;if(d.x<0)d.x=W;if(d.x>W)d.x=0;if(d.y<0)d.y=H;if(d.y>H)d.y=0;ctx.fillStyle=`rgba(201,214,232,${d.a})`;ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,7);ctx.fill()}
-ctx.drawImage(off,0,0);
-/* sinais dendríticos: das pontas até o soma; perto do cursor nascem mais */
-tD+=dt;if(tD>(cursor?160:520)){tD=0;let pick=tips[Math.floor(rnd(0,tips.length))];if(cursor){let best=1e9;tips.forEach(tp=>{const d=Math.hypot(tp[0].x-cursor.x,tp[0].y-cursor.y);if(d<best&&rnd(0,1)<.5){best=d;pick=tp}})}dps.push({p:pick,i:0,f:0})}
-for(let q=dps.length-1;q>=0;q--){const d=dps[q];d.f+=.55*k;while(d.f>=1){d.f-=1;d.i++}if(d.i>=d.p.length-1){dps.splice(q,1);soma=Math.min(1,soma+.25);if(soma>=.95)fire();continue}const a=d.p[d.i],b=d.p[d.i+1],x=a.x+(b.x-a.x)*d.f,y=a.y+(b.y-a.y)*d.f;ctx.save();ctx.shadowColor="#E6C2FF";ctx.shadowBlur=14;ctx.fillStyle="rgba(240,220,255,.95)";ctx.beginPath();ctx.arc(x,y,2.6,0,7);ctx.fill();ctx.restore()}
-tAuto+=dt;if(tAuto>2600){tAuto=0;fire()}
-/* soma pulsando */
-soma=Math.max(0,soma-.012*k);ctx.save();ctx.globalCompositeOperation="lighter";const sg=ctx.createRadialGradient(SO.x,SO.y,0,SO.x,SO.y,SO.r*2.6);sg.addColorStop(0,`rgba(214,140,255,${.35+.5*soma})`);sg.addColorStop(1,"rgba(176,77,255,0)");ctx.fillStyle=sg;ctx.beginPath();ctx.arc(SO.x,SO.y,SO.r*2.6,0,7);ctx.fill();ctx.restore();
-/* potenciais de ação: saltam entre os nós de Ranvier */
-for(let q=aps.length-1;q>=0;q--){const a=aps[q];a.s+=a.v*k;if(a.s>=L){aps.splice(q,1);fired++;bout.forEach(b=>b.flash=1);for(let i=0;i<14;i++){const b=bout[i%bout.length];nts.push({x:b.x,y:b.y,vx:rnd(-1.1,1.1),vy:rnd(-1.1,1.1),a:1})}continue}
-let ni=nodes.findIndex(n=>n>a.s);const sJ=ni<0?a.s:nodes[ni];const near=ni<0?1:Math.max(0,1-(sJ-a.s)/(MY+GAPN));const p=at(a.s);
-ctx.save();ctx.globalCompositeOperation="lighter";const rg=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,34);rg.addColorStop(0,"rgba(255,255,255,.95)");rg.addColorStop(.25,"rgba(214,140,255,.8)");rg.addColorStop(1,"rgba(176,77,255,0)");ctx.fillStyle=rg;ctx.beginPath();ctx.arc(p.x,p.y,34,0,7);ctx.fill();
-if(ni>=0){const pn=at(nodes[ni]);ctx.fillStyle=`rgba(255,180,120,${.25+.6*near})`;ctx.beginPath();ctx.arc(pn.x,pn.y,5+5*near,0,7);ctx.fill()}ctx.restore()}
-/* terminais e neurotransmissores */
-for(const b of bout){b.flash=Math.max(0,b.flash-.02*k);ctx.save();ctx.shadowColor="#FF8A4C";ctx.shadowBlur=10+24*b.flash;ctx.fillStyle=`rgba(255,${150+60*b.flash},${90+80*b.flash},1)`;ctx.beginPath();ctx.arc(b.x,b.y,5.5+3*b.flash,0,7);ctx.fill();ctx.restore()}
-for(let q=nts.length-1;q>=0;q--){const n=nts[q];n.x+=n.vx*k;n.y+=n.vy*k;n.a-=.012*k;if(n.a<=0){nts.splice(q,1);continue}ctx.fillStyle=`rgba(255,170,110,${n.a})`;ctx.beginPath();ctx.arc(n.x,n.y,1.8,0,7);ctx.fill()}
-if(cursor){ctx.strokeStyle="rgba(214,140,255,.25)";ctx.beginPath();ctx.arc(cursor.x,cursor.y,90,0,7);ctx.stroke()}
-fa+=dt;fn++;if(fn>=20){if(fOut)fOut.textContent=String(Math.min(60,Math.round(1000/(fa/fn))));if(nOut)nOut.textContent=String(fired);fa=0;fn=0}
+ctx.drawImage(bake,0,0);
+N.forEach(n=>{if(!n.grown){if(drawNeuron(ctx,n,now-n.born,false)){n.grown=true;drawNeuron(bx,n,1e9,true)}}});
+/* sinais dendríticos */
+tD+=dt;if(tD>(cursor?140:380)){tD=0;const g=N.filter(n=>n.grown);if(g.length){let n=g[Math.floor(Math.random()*g.length)];if(cursor){let bd=1e9;g.forEach(m=>{const d=Math.hypot(m.x-cursor.x,m.y-cursor.y);if(d<bd){bd=d;n=m}})}sig.push({n,p:n.tips[Math.floor(Math.random()*n.tips.length)],i:0,f:0})}}
+for(let q=sig.length-1;q>=0;q--){const s=sig[q];s.f+=.5*k;while(s.f>=1){s.f-=1;s.i++}if(s.i>=s.p.length-1){sig.splice(q,1);s.n.charge+=.22;if(s.n.charge>=1){s.n.charge=0;fire(N.indexOf(s.n))}continue}const a=s.p[s.i],b=s.p[s.i+1];ctx.fillStyle="rgba(245,225,255,.95)";ctx.beginPath();ctx.arc(a[0]+(b[0]-a[0])*s.f,a[1]+(b[1]-a[1])*s.f,1.6,0,7);ctx.fill()}
+tAuto+=dt;if(tAuto>3200){tAuto=0;fire(0)}
+/* somas acesas */
+ctx.save();ctx.globalCompositeOperation="lighter";N.forEach(n=>{if(!n.grown)return;n.flash=Math.max(0,n.flash-.025*k);const e=Math.min(1,.25+n.charge*.5+n.flash);const g=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,n.r*4);g.addColorStop(0,`rgba(220,160,255,${.45*e})`);g.addColorStop(1,"rgba(176,77,255,0)");ctx.fillStyle=g;ctx.beginPath();ctx.arc(n.x,n.y,n.r*4,0,7);ctx.fill()});ctx.restore();
+/* potenciais de ação saltando entre nós */
+for(let q=aps.length-1;q>=0;q--){const a=aps[q],n=N[a.n];a.s+=a.v*k;if(a.s>=n.axL){aps.splice(q,1);n.term.forEach(t=>t.flash=1);if(n.target>=0){const tg=N[n.target];for(let j=0;j<7;j++){const t=n.term[j%n.term.length].pts[2];sparks.push({x:t[0],y:t[1],tx:tg.x,ty:tg.y,f:0,v:rnd(.02,.035),tg:n.target})}}continue}
+const nd=n.nodes.find(v=>v>a.s),p=at(n,a.s);ctx.save();ctx.globalCompositeOperation="lighter";const rg=ctx.createRadialGradient(p[0],p[1],0,p[0],p[1],16);rg.addColorStop(0,"rgba(255,255,255,.95)");rg.addColorStop(.3,"rgba(214,140,255,.75)");rg.addColorStop(1,"rgba(176,77,255,0)");ctx.fillStyle=rg;ctx.beginPath();ctx.arc(p[0],p[1],16,0,7);ctx.fill();if(nd){const q2=at(n,nd);ctx.fillStyle="rgba(255,180,120,.8)";ctx.beginPath();ctx.arc(q2[0],q2[1],2.6,0,7);ctx.fill()}ctx.restore()}
+N.forEach(n=>n.term.forEach(t=>{if(!t.flash)return;t.flash=Math.max(0,t.flash-.03*k);ctx.save();ctx.shadowColor="#FF8A4C";ctx.shadowBlur=12*t.flash;ctx.fillStyle=`rgba(255,190,130,${t.flash})`;ctx.beginPath();ctx.arc(t.pts[2][0],t.pts[2][1],2.2+2*t.flash,0,7);ctx.fill();ctx.restore()}));
+/* neurotransmissores atravessando a sinapse */
+for(let q=sparks.length-1;q>=0;q--){const s=sparks[q];s.f+=s.v*k;if(s.f>=1){sparks.splice(q,1);const tg=N[s.tg];tg.charge+=.2;if(tg.charge>=1){tg.charge=0;fire(s.tg)}continue}const x=s.x+(s.tx-s.x)*s.f,y=s.y+(s.ty-s.y)*s.f;ctx.fillStyle=`rgba(255,170,110,${1-s.f*.6})`;ctx.beginPath();ctx.arc(x,y,1.5,0,7);ctx.fill()}
+if(cursor){ctx.strokeStyle="rgba(214,140,255,.22)";ctx.beginPath();ctx.arc(cursor.x,cursor.y,70,0,7);ctx.stroke()}
+fa+=dt;fn++;if(fn>30){fa=0;fn=0}
 if(!RM)raf=requestAnimationFrame(frame)}
-function play(){stop();fit();aps=[];dps=[];nts=[];fired=0;if(lOut)lOut.textContent=String(bout.length+tips.length);root.classList.remove("in");void root.offsetWidth;root.classList.add("in");last=0;fire();raf=requestAnimationFrame(frame)}
-function stop(){cancelAnimationFrame(raf);raf=0}
+function play(){stop();fit();sd=11;N=[];sig=[];aps=[];sparks=[];fired=0;now=0;tAuto=0;bx.clearRect(0,0,W,H);spawn(SLOTS[0][0],SLOTS[0][1]);if(fOut)fOut.textContent="0";root.classList.remove("in");void root.offsetWidth;root.classList.add("in");last=0;
+timers.push(setTimeout(()=>{const s=nextSlot();spawn(s[0],s[1])},RM?0:2600));timers.push(setTimeout(()=>{const s=nextSlot();spawn(s[0],s[1])},RM?0:5200));
+if(RM){N.forEach(n=>{n.grown=true;drawNeuron(bx,n,1e9,true)});frame(0)}else raf=requestAnimationFrame(frame)}
+function stop(){cancelAnimationFrame(raf);raf=0;timers.forEach(clearTimeout);timers=[]}
 addEventListener("resize",()=>{if(raf)fit()});return{play,stop}}
