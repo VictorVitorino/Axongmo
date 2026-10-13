@@ -926,41 +926,66 @@ html,body{background:radial-gradient(1400px 900px at 50% 40%,#EEF1F5 0%,#DCE2E9 
 /* ===== Proposta 2 · GMO · componentes novos ===== */
 .body.dk .stmt2 [data-fx-hl]{color:#F9A64A}
 .body.dk .lbl{color:#fff}.body.dk .lbl small{color:#9DB7CE}
-/* dois futuros: cena de fluxo (estilo Connector / Flow Line do guia) */
-.fut-scene{position:relative;height:470px;flex:none}
-.fut-scene .col{position:absolute;top:0;font:500 10.5px "JetBrains Mono",monospace;letter-spacing:.18em;text-transform:uppercase;color:#6B7A90;text-align:center;width:180px}
-.fut-scene .fn{position:absolute;width:180px;border-radius:10px;background:#fff;border:1.5px solid #BFD0E1;padding:9px 11px;color:#35516A;cursor:pointer;box-shadow:0 1px 2px rgba(14,28,57,.05);transition:opacity .4s,border-color .3s,box-shadow .3s,transform .3s}
-.fut-scene .fn b{display:block;font:700 13px/1.2 var(--fb);color:#002B49}
-.fut-scene .fn span{display:block;font:500 10.5px/1.3 var(--fb);color:#6B7A90;margin-top:3px}
-.fut-scene .fn i{position:absolute;right:9px;top:6px;font:600 10px "JetBrains Mono",monospace;color:#B5C0D0;font-style:normal}
-.fut-scene .fn.start{width:160px;background:linear-gradient(150deg,#1F3263,#122143);border-color:#1F3263;text-align:center;padding:14px 12px}
-.fut-scene .fn.start b{font:800 20px/1 var(--fh);color:#fff;letter-spacing:.04em}.fut-scene .fn.start span{color:#C9D6E8;font-weight:600}
-.fut-scene .fn.end{width:236px;padding:11px 13px;border-width:2px}
-.fut-scene .fn.end em{display:block;font:600 9.5px "JetBrains Mono",monospace;letter-spacing:.16em;text-transform:uppercase;font-style:normal;margin-bottom:3px}
-.fut-scene .fn.end b{font:800 16px/1.15 var(--fh)}
+/* dois futuros: fluxo em raias (estilo Connector / Flow Line do guia) */
+.fut-scene{position:relative;height:566px;flex:none}
+.fut-scene .col{position:absolute;top:0;font:500 10.5px "JetBrains Mono",monospace;letter-spacing:.18em;text-transform:uppercase;color:#6B7A90;text-align:center}
+.fut-scene .fl-svg{position:absolute;left:0;top:0;overflow:visible;pointer-events:none;z-index:1}
+.fut-scene .ln .b{fill:none;stroke:var(--c,#BFD0E1);stroke-width:2;stroke-linecap:round;transition:stroke .3s,opacity .3s}
+.fut-scene .ln .f{fill:none;stroke:var(--c,#BFD0E1);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:3 9;opacity:0;transition:opacity .4s}
+.fut-scene .ln.dim .b{stroke:#D5DEE8;opacity:.8}
+.fut-scene .ln.drawn .f{opacity:.9;animation:fl-dash 1s linear infinite}
+@keyframes fl-dash{to{stroke-dashoffset:-12}}
+.fut-scene .ctr{position:absolute;border:2px dashed var(--c);border-radius:16px;background:color-mix(in srgb,var(--c) 6%,transparent);opacity:0;transform:scale(.985);transition:opacity .35s,transform .35s;pointer-events:none;z-index:0}
+.fut-scene .ctr.on{opacity:1;transform:none}
+.fut-scene .lane{position:absolute;display:flex;align-items:center;gap:8px;font:800 12px var(--fb);letter-spacing:.06em;text-transform:uppercase;color:#002B49;cursor:pointer;z-index:2;transition:opacity .4s}
+.fut-scene .lane b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;color:#fff;font:800 12.5px var(--fb)}
+.fut-scene .lane.p1 b{background:#F78C16;color:#0E1C39}.fut-scene .lane.p2 b{background:#5E8AB4}.fut-scene .lane.p3 b{background:#BC0404}
+.fut-scene .lane em{font-style:normal;font:700 11px var(--fb);letter-spacing:0;text-transform:none;color:#002B49;background:#EEF3F8;border-radius:99px;padding:3px 9px}
+.fut-scene .lane.off{opacity:.35}
+.fut-scene .stp{position:absolute;perspective:900px;cursor:pointer;z-index:2;transition:opacity .4s}
+.fut-scene .stp .in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.22,.61,.36,1)}
+.fut-scene .stp.flip .in{transform:rotateY(180deg)}
+.fut-scene .stp .fr,.fut-scene .stp .bk{position:absolute;inset:0;border-radius:11px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center;padding:8px 12px}
+.fut-scene .stp .fr{background:#fff;border:1.5px solid var(--c);box-shadow:0 6px 16px rgba(14,28,57,.08)}
+.fut-scene .stp .fr i{font:600 11px "JetBrains Mono",monospace;font-style:normal;color:var(--c);letter-spacing:.06em}
+.fut-scene .stp .fr b{font:700 14px/1.2 var(--fb);color:#002B49;margin-top:2px}
+.fut-scene .stp .bk{transform:rotateY(180deg);background:var(--c);color:#fff;box-shadow:0 10px 24px rgba(14,28,57,.18)}
+.fut-scene .stp.p1 .bk{color:#0E1C39}
+.fut-scene .stp .bk i{font:600 9.5px "JetBrains Mono",monospace;font-style:normal;letter-spacing:.06em;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fut-scene .stp .bk span{font:600 12px/1.35 var(--fb)}
+.fut-scene .stp:hover .fr{box-shadow:0 10px 24px rgba(14,28,57,.14)}
+.fut-scene .stp.off{opacity:.3}.fut-scene .stp.off .fr{border-color:#BFD0E1}.fut-scene .stp.off .fr i{color:#8A97A8}
+.fut-scene .fn{position:absolute;border-radius:14px;z-index:2;transition:opacity .4s,box-shadow .3s,transform .3s}
+.fut-scene .fn.start{background:linear-gradient(150deg,#A21CE0,#8A00C4 55%,#5A0A86);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;box-shadow:0 0 0 1px rgba(255,255,255,.12) inset,0 14px 34px rgba(138,0,196,.38)}
+.fut-scene .fn.start b{font:800 26px/1 var(--fh);color:#fff;letter-spacing:.08em}
+.fut-scene .fn.start span{font:600 11.5px/1.3 var(--fb);color:#F0DBFF;margin-top:5px}
+.fut-scene .fn.end{padding:14px 16px;border:2px solid;cursor:pointer;display:flex;flex-direction:column;justify-content:center}
+.fut-scene .fn.end em{font:600 10px "JetBrains Mono",monospace;letter-spacing:.16em;text-transform:uppercase;font-style:normal}
+.fut-scene .fn.end b{font:800 19px/1.15 var(--fh);color:#002B49;margin-top:4px}
+.fut-scene .fn.end span{font:500 11.5px/1.4 var(--fb);color:#35516A;margin-top:5px}
+.fut-scene .fn.end .tap{font:600 10px var(--fb);font-style:normal;color:#8A97A8;margin-top:6px}
 .fut-scene .fn.end.ok{border-color:#F78C16;background:#FFF8F0}.fut-scene .fn.end.ok em{color:#C96A05}
 .fut-scene .fn.end.bad{border-color:#BC0404;background:#FDF3F2}.fut-scene .fn.end.bad em{color:#BC0404}
-.fut-scene .lane{position:absolute;display:flex;align-items:center;gap:8px;font:800 11px var(--fb);letter-spacing:.1em;text-transform:uppercase;color:#35516A;cursor:pointer;transition:opacity .4s}
-.fut-scene .lane b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#1F3263;color:#fff;font:800 12px var(--fb)}
-.fut-scene .lane.c1 b{background:#BC0404}.fut-scene .lane.c2 b{background:#F78C16;color:#0E1C39}.fut-scene .lane.c3 b{background:#5E8AB4}
-.fut-scene .lane em{font-style:normal;font:600 10.5px var(--fb);letter-spacing:0;text-transform:none;color:#002B49;background:#EEF3F8;border-radius:99px;padding:2px 8px}
-.fut-scene .fn.off,.fut-scene .lane.off{opacity:.28}
-.fut-scene .fn.c1.lit{border-color:#BC0404}.fut-scene .fn.c2.lit{border-color:#F78C16}.fut-scene .fn.c3.lit{border-color:#5E8AB4}
-.fut-scene .fn.lit{box-shadow:0 8px 20px rgba(14,28,57,.1)}
-.fut-scene .fn.end.pin{box-shadow:0 0 0 3px #fff,0 0 0 5px currentColor,0 12px 30px rgba(14,28,57,.18);transform:translateY(-2px)}
+.fut-scene .fn.end.off{opacity:.35}
+.fut-scene .fn.end.pin{box-shadow:0 0 0 4px #fff,0 0 0 6px currentColor,0 14px 34px rgba(14,28,57,.18);transform:translateY(-2px)}
 .fut-scene .fn.end.ok.pin{color:#F78C16}.fut-scene .fn.end.bad.pin{color:#BC0404}
-.fut-scene .fn.fx-cf-hot{box-shadow:0 0 0 1px #F78C16,0 14px 34px rgba(247,140,22,.22)}
-.fut-scene.fx-cf{--fx-cf-line:#1F3263;--fx-cf-flow:#5E8AB4;--fx-cf-hot:#F78C16;--fx-cf-dot:#F78C16}
-.fut-scene .fx-cf-base{stroke-width:2}.fut-scene .fx-cf-flow{stroke-width:2.2;stroke-dasharray:2 7;stroke-linecap:round}
-.fut-ctl{display:flex;align-items:center;gap:8px;flex:none}
-.fut-ctl .btn{height:32px;padding:0 14px;border-radius:9px;background:#002B49;color:#fff;font:700 12.5px var(--fb);border:0;cursor:pointer;white-space:nowrap}
-.fut-ctl .btn.c1{background:#BC0404}.fut-ctl .btn.c2{background:#F78C16;color:#0E1C39}.fut-ctl .btn.c3{background:#5E8AB4}
-.fut-ctl .lb{font:500 10px "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#8A97A8;margin-left:6px}
-.fut-ctl .hnt{margin-left:auto;font:500 11px var(--fb);color:#8A97A8;background:#fff;border:1px solid var(--line);border-radius:99px;padding:5px 12px}
-.fut-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:#35516A;cursor:pointer;transition:border-color .2s,box-shadow .2s}
-.fut-card.on{box-shadow:0 8px 22px rgba(14,28,57,.1);border-color:#002B49}
-.fut-card b{display:block;font:800 14px var(--fh);color:#002B49}.fut-card span{display:block;font:500 11px/1.35 var(--fb);color:#35516A;margin-top:3px}
-.fut-card .t{display:inline-block;margin-top:5px;font:800 11px var(--fb);color:#C96A05}
+.fut-ctl{display:flex;align-items:center;gap:10px;flex:none}
+.fut-ctl .lb{font:500 10.5px "JetBrains Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:#6B7A90}
+.fut-ctl .hnt{margin-left:auto;font:500 11.5px var(--fb);color:#6B7A90;background:#fff;border:1px solid var(--line);border-radius:99px;padding:6px 14px}
+.fut-ctl .hnt b{color:#002B49}
+.path-seg .tg.num{width:32px;padding:0;text-align:center;font:800 13px var(--fb);border-radius:50%;height:32px}
+.path-seg .pname{font:500 12px var(--fb);color:#35516A;white-space:nowrap;margin-left:4px}
+.path-seg .pname b{font-weight:800}
+/* AXON em roxo neon */
+:root{--axon:#8A00C4;--axon-dk:#C163FF}
+.ax{color:var(--axon)!important;-webkit-text-fill-color:var(--axon);font-weight:800}
+.ax.ax-dk{color:var(--axon-dk)!important;-webkit-text-fill-color:var(--axon-dk);text-shadow:0 0 14px rgba(193,99,255,.55)}
+tspan.ax{fill:var(--axon);font-weight:800}tspan.ax.ax-dk{fill:var(--axon-dk)}
+.ax-hl,.ax-hl .fx-ty-u{color:var(--axon)!important}
+.ax-hl.fx-ty-hl::after,.fx-ty-hl.ax-hl::after{background:linear-gradient(90deg,#8A00C4,#C163FF)}
+.fx-sh-text.ax-sh{--fx-sh-base:#B04DFF;--fx-sh-a:#E6C2FF;--fx-sh-c:#FFFFFF;--fx-sh-b:#8A00C4;filter:drop-shadow(0 0 22px rgba(176,77,255,.55))}
+.fn.start .ax,.ba-lbl.b .ax,.tobe .hd em .ax{color:#fff!important;-webkit-text-fill-color:#fff;text-shadow:none}
+x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 /* contexto: texto */
 .ctx-txt{display:flex;flex-direction:column;gap:14px;overflow:hidden;justify-content:space-between}
 .ctx-txt h4{font:800 17px/1.1 var(--fh);color:#002B49;letter-spacing:.02em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
@@ -986,8 +1011,8 @@ html,body{background:radial-gradient(1400px 900px at 50% 40%,#EEF1F5 0%,#DCE2E9 
 .ba-ctl .hnt,.mx .ctl .hnt{margin-left:auto;font:500 11px var(--fb);color:#8A97A8}
 .ba-ctl .btn{height:30px;padding:0 12px;border-radius:8px;background:#002B49;color:#fff;font:600 12px var(--fb);border:0;cursor:pointer}
 .ba-ctl .btn.on{background:#F78C16}
-.path-seg{display:flex;gap:6px}
-.path-seg .tg.c1.on{background:#8A3A3A;border-color:#8A3A3A}.path-seg .tg.c2.on{background:#F78C16;border-color:#F78C16;color:#0E1C39}.path-seg .tg.c3.on{background:#5E8AB4;border-color:#5E8AB4}
+.path-seg{display:flex;gap:6px;align-items:center}
+.path-seg .tg.p3.on{background:#8A3A3A;border-color:#8A3A3A}.path-seg .tg.p1.on{background:#F78C16;border-color:#F78C16;color:#0E1C39}.path-seg .tg.p2.on{background:#5E8AB4;border-color:#5E8AB4}
 /* asis / tobe do contexto */
 .asis{background:#E4EBF5;padding:40px 14px 12px;display:flex;flex-direction:column;gap:7px;color:#3E4C5E;height:100%}
 .asis .bar{display:flex;align-items:center;gap:6px;background:#CBD4E1;border:1px solid #B5C0D0;border-radius:4px;padding:3px 8px;font:500 9.5px var(--fb)}
@@ -1165,19 +1190,18 @@ html,body{background:radial-gradient(1400px 900px at 50% 40%,#EEF1F5 0%,#DCE2E9 
 </section>
 
 <!--@FUTUROS-->
-<section class="slide" data-p="1 · Futuros" data-t="Dois futuros possíveis" data-band="Dois futuros possíveis · três caminhos para o AXON" data-c="c-navy" data-bs="Clique em Caminho para redesenhar · clique num futuro para ver quem leva até ele" data-src="Os caminhos e as durações são PREVISÃO da consultoria a partir da leitura do produto e de referências de adoção de plataformas técnicas; calibrados no raio-x do mês 1. O AXON não é um programa de redução de quadro: a decisão sobre pessoas é da liderança do ONS.">
+<section class="slide" data-p="1 · Futuros" data-t="Dois futuros possíveis" data-band="Dois futuros possíveis · três caminhos para o AXON" data-c="c-navy" data-bs="Escolha o caminho 1, 2 ou 3 · clique numa etapa · clique num futuro" data-src="Os caminhos e as durações são PREVISÃO da consultoria a partir da leitura do produto e de referências de adoção de plataformas técnicas; calibrados no raio-x do mês 1. O AXON não é um programa de redução de quadro: a decisão sobre pessoas é da liderança do ONS.">
   <div class="body sp">
     <div class="stmt2" data-fx-type="word">O AXON vai acontecer. O que ainda não está decidido é <span data-fx-hl>em qual dos dois futuros</span> ele termina, e isso depende do <span data-fx-hl>caminho que as pessoas percorrem</span>, não do código.</div>
     <div id="flowScene" class="fut-scene"></div>
     <div id="futCtl" class="fut-ctl"></div>
-    <div id="futFoot" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px"></div>
   </div>
 </section>
 
 <!--@CONTEXTO-->
 <section class="slide" data-p="2 · Contexto" data-t="Contexto" data-band="Contexto · o que o AXON faz e o que ele muda para o ONS" data-c="c-navy" data-bs="Leia à esquerda · arraste o divisor à direita · troque o caminho" data-src="Leitura da demonstração do produto e das conversas com o time. Sem números auditados: a leitura é qualitativa e será verificada no raio-x do mês 1. O quadro Sem AXON × Com AXON muda conforme o caminho escolhido na página anterior.">
   <div class="body sp fill">
-    <div class="stmt2" data-fx-type="word" style="font-size:23px">Um modelo em container vira uma caixinha que roda na nuvem. <span data-fx-hl>Isso é o AXON.</span> O que ele muda é <span data-fx-hl>quem faz o quê</span> dentro do ONS.</div>
+    <div class="stmt2" data-fx-type="word" style="font-size:23px">Um modelo em container vira uma caixinha que roda na nuvem. <span data-fx-hl class="ax-hl">Isso é o AXON.</span> O que ele muda é <span data-fx-hl class="ax-hl">quem faz o quê</span> dentro do ONS.</div>
     <div class="gr" style="display:grid;grid-template-columns:640px 1fr;gap:20px;min-height:0">
       <div class="ctx-txt" id="ctxTxt"></div>
       <div style="display:flex;flex-direction:column;gap:8px;min-height:0">
@@ -2098,11 +2122,11 @@ function tween(dur,fn,done){let raf=0;const t0=performance.now(),e=t=>1-Math.pow
 document.querySelectorAll(".slide").forEach(s=>{if(s.querySelector("[data-fx-type]"))FXR.add(s,fxTypography(s,{delay:220,gap:120}))});
 
 /* ---------- caminhos (estado compartilhado entre as páginas) ---------- */
-const PATHS={c1:{k:"c1",tag:"C1",n:"Sem gestão de mudanças",s:"a plataforma é liberada e cada gerência se vira",col:"#E0443A",soft:"#8A3A3A",short:"Sem GMO",T:"14+ meses · sem garantia"},c2:{k:"c2",tag:"C2",n:"GMO desde o desenvolvimento",s:"catequização, impactos e riscos mapeados antes da liberação",col:"#F78C16",soft:"#F78C16",short:"GMO antes da liberação",T:"~6 a 7 meses"},c3:{k:"c3",tag:"C3",n:"GMO a partir da liberação",s:"a gestão de mudanças começa quando a plataforma já está no ar",col:"#5E8AB4",soft:"#5E8AB4",short:"GMO após a liberação",T:"~9 a 11 meses"}};
-const PK=["c1","c2","c3"];let PATH="c2";const PSUB=[];
+const PATHS={p3:{k:"p3",tag:"3",n:"Sem gestão de mudanças",s:"a plataforma é liberada e cada gerência se vira",col:"#E0443A",soft:"#8A3A3A",short:"Sem GMO",T:"14+ meses · sem garantia"},p1:{k:"p1",tag:"1",n:"GMO desde o desenvolvimento",s:"catequização, impactos e riscos mapeados antes da liberação",col:"#F78C16",soft:"#F78C16",short:"GMO antes da liberação",T:"~6 a 7 meses"},p2:{k:"p2",tag:"2",n:"GMO a partir da liberação",s:"a gestão de mudanças começa quando a plataforma já está no ar",col:"#5E8AB4",soft:"#5E8AB4",short:"GMO após a liberação",T:"~9 a 11 meses"}};
+const PK=["p1","p2","p3"];let PATH="p1";const PSUB=[];
 function setPath(k,src){PATH=k;PSUB.forEach(f=>f(k,src))}
 function onPath(f){PSUB.push(f);f(PATH)}
-function pathSeg(el,cls){PK.forEach(k=>{const p=PATHS[k];const b=H("button",{class:`tg ${k}`,title:p.n},el,`${p.tag} · ${p.short}`);b.addEventListener("click",e=>{e.stopPropagation();setPath(k,el)})});onPath(k=>el.querySelectorAll(".tg").forEach(b=>b.classList.toggle("on",b.classList.contains(k))))}
+function pathSeg(el,opt){opt=opt||{};el.classList.add("path-seg");PK.forEach(k=>{const p=PATHS[k];const b=H("button",{class:`tg num ${k}`,title:`Caminho ${p.tag} · ${p.n}`},el,p.tag);b.addEventListener("click",e=>{e.stopPropagation();setPath(k,el)})});const nm=opt.name===false?null:H("span",{class:"pname"},el,"");onPath(k=>{el.querySelectorAll(".tg").forEach(b=>b.classList.toggle("on",b.classList.contains(k)));if(nm){const p=PATHS[k];nm.innerHTML=`<b style="color:${p.col}">${p.n}</b> · ${p.T}`}})}
 
 /* ---------- before / after slider ---------- */
 function baSlider(root,o){root.classList.add("ba");root.innerHTML="";const B=H("div",{class:"ba-b"},root),A=H("div",{class:"ba-a"},root);
@@ -2128,30 +2152,36 @@ H("span",{class:"hnt"},el,o.hint||"Arraste o divisor · clique no painel · ← 
 
 /* ---------- 1 · DOIS FUTUROS POSSÍVEIS ---------- */
 (function(){const sl=SL("Dois futuros possíveis"),sc=$("flowScene");
-const LANES={c2:{y:52,steps:[["Mapa de impactos e riscos","durante o desenvolvimento, com cada gerência"],["Catequização e coalizão","especialistas entram no piloto e viram multiplicadores"],["Paridade validada junto","o especialista confere o resultado contra o método dele"],["Liberação com pessoas prontas","trilha feita, caminho combinado, legado com guardião"],["Ondas por gerência","rodada paralela curta, reforço e desligamento"]],end:"eok"},
-c3:{y:194,steps:[["Liberação da plataforma","o AXON chega antes da conversa"],["Diagnóstico de impactos, tarde","receios já formados; a narrativa corre atrás"],["Reconquista da confiança","rodadas paralelas longas para provar paridade"],["Capacitação assistida","turmas, plantões e multiplicadores"],["Ondas por gerência","mais lentas, com recaídas tratadas"]],end:"eok"},
-c1:{y:336,steps:[["Liberação da plataforma","treinamento demonstrativo e manual"],["Uso paralelo por garantia","legado continua como fonte oficial"],["Primeira divergência","resultado diferente do legado vira desconfiança"],["Recaída ao legado","o AXON vira ferramenta de alguns"],["Adoção parcial","2 de 5 gerências, sem desligar legados"]],end:"ebad"}};
-const SX=[200,424,648,872,1096],EX=1310,NH=66;
-["Partida","Etapa 1","Etapa 2","Etapa 3","Etapa 4","Etapa 5","Futuro"].forEach((t,i)=>H("div",{class:"col",style:`left:${i===0?-10:i===6?EX+28:SX[i-1]}px`},sc,t));
-const st=H("div",{class:"fn start","data-fx-node":"s0",style:"left:0;top:206px"},sc);st.innerHTML=`<b>AXON</b><span>Caminhos de implementação</span>`;
-const ok=H("div",{class:"fn end ok","data-fx-node":"eok",style:`left:${EX}px;top:104px`},sc);ok.innerHTML=`<em>Futuro 1</em><b>O AXON vira a rotina do ONS</b><span>cinco gerências rodando estudos no AXON, legados desligados, custo e tempo visíveis, especialistas analisando em vez de operar</span>`;
-const bad=H("div",{class:"fn end bad","data-fx-node":"ebad",style:`left:${EX}px;top:318px`},sc);bad.innerHTML=`<em>Futuro 2</em><b>O AXON vira mais um sistema</b><span>convivência dupla sem fim, legados mantidos por garantia, resultado questionado e a plataforma usada por quem já acreditava nela</span>`;
-const EDGES={},NODES={},LAB={};PK.forEach(k=>{const L=LANES[k],p=PATHS[k];const lab=H("div",{class:`lane ${k}`,style:`left:${SX[0]}px;top:${L.y-26}px`},sc);lab.innerHTML=`<b>${p.tag.slice(1)}</b>${p.n}<em>${p.T}</em>`;lab.addEventListener("click",e=>{e.stopPropagation();show(k)});LAB[k]=lab;
-let prev="s0";EDGES[k]=[];NODES[k]=[];L.steps.forEach(([t,d],i)=>{const id=k+i,n=H("div",{class:`fn ${k}`,"data-fx-node":id,style:`left:${SX[i]}px;top:${L.y}px;min-height:${NH}px`},sc);n.innerHTML=`<i>0${i+1}</i><b>${t}</b><span>${d}</span>`;tip(n,`${p.tag} · ${t}`,d);n.addEventListener("click",()=>show(k));EDGES[k].push([prev,id]);NODES[k].push(n);prev=id});EDGES[k].push([prev,L.end])});
-let cf=null,mode="c2",pin=null;
-function draw(lanes){if(cf)cf.destroy();const edges=lanes.flatMap(k=>EDGES[k]);cf=fxConnector(sc,{edges,hover:true,auto:false,dim:false,dots:0,delay:150,stagger:110,dur:480,curve:.55});sc.classList.add("fx-cf--light");cf.play();
-PK.forEach(k=>{const on=lanes.includes(k);NODES[k].forEach(n=>{n.classList.toggle("off",!on);n.classList.toggle("lit",on)});LAB[k].classList.toggle("off",!on)});
-ok.classList.toggle("off",!lanes.some(k=>LANES[k].end==="eok"));bad.classList.toggle("off",!lanes.some(k=>LANES[k].end==="ebad"))}
-function show(k){pin=null;ok.classList.remove("pin");bad.classList.remove("pin");mode=k;setPath(k,sc)}
-function future(id){pin=pin===id?null:id;ok.classList.toggle("pin",pin==="eok");bad.classList.toggle("pin",pin==="ebad");if(!pin){draw([mode]);return}draw(PK.filter(k=>LANES[k].end===pin));$("futHint").textContent=pin==="eok"?"Futuro 1: chegam até ele os caminhos C2 e C3, em tempos diferentes":"Futuro 2: é onde termina o caminho C1, sem gestão de mudanças"}
-ok.addEventListener("click",e=>{e.stopPropagation();future("eok")});bad.addEventListener("click",e=>{e.stopPropagation();future("ebad")});
-/* controles: um botão que avança C1 → C2 → C3 e redesenha os fluxos */
-const ctl=$("futCtl");const nb=H("button",{class:"btn"},ctl,"");nb.addEventListener("click",e=>{e.stopPropagation();show(PK[(PK.indexOf(mode)+1)%3])});
-H("span",{class:"lb"},ctl,"Caminho");const seg=H("div",{class:"path-seg"},ctl);pathSeg(seg);const rd=H("button",{class:"btn",style:"background:#fff;color:#002B49;border:1px solid var(--line)"},ctl,"↻ Redesenhar");rd.addEventListener("click",e=>{e.stopPropagation();draw(pin?PK.filter(k=>LANES[k].end===pin):[mode])});
-H("span",{class:"hnt",id:"futHint"},ctl,"Clique em Caminho para ver o próximo · clique num futuro para ver quem chega até ele");
-onPath((k,src)=>{mode=k;pin=null;ok.classList.remove("pin");bad.classList.remove("pin");const p=PATHS[k],nx=PATHS[PK[(PK.indexOf(k)+1)%3]];nb.className="btn "+k;nb.textContent=`Caminho ${p.tag.slice(1)} · ${p.short}  →  ver ${nx.tag}`;$("futHint").textContent=`${p.tag} · ${p.n}: ${p.s}`;$("futFoot").querySelectorAll(".fut-card").forEach(c=>c.classList.toggle("on",c.dataset.k===k));if(sl.classList.contains("active"))draw([k])});
-[["c1","Ganha: velocidade para liberar","Arrisca: o especialista nunca passa a confiar; o legado vira fonte oficial por garantia e a plataforma perde a disputa pela rotina."],["c2","Ganha: pessoas prontas no dia da liberação","Arrisca: exige abrir a plataforma às gerências enquanto ela ainda muda; o time de produto precisa de proteção para não virar balcão."],["c3","Ganha: começa com a plataforma estável","Arrisca: os receios já se formaram sem resposta; reconquistar confiança custa mais do que construí-la antes."]].forEach(([k,g,r])=>{const p=PATHS[k],c=H("div",{class:"fut-card","data-k":k,style:`border-top:3px solid ${p.col}`},$("futFoot"));c.innerHTML=`<b>${p.tag} · ${p.n}</b><span>${g}</span><span>${r}</span><span class="t">Previsão de rotina: ${p.T}</span>`;c.addEventListener("click",e=>{e.stopPropagation();show(k)})});
-FXR.add(sl,{play(){pin=null;ok.classList.remove("pin");bad.classList.remove("pin");draw([mode])},stop(){if(cf)cf.stop()}})})();
+const LANES={p1:{y:118,steps:[["Mapa de impactos","Durante o desenvolvimento, cada gerência mapeia quem é afetado e como."],["Catequização","Especialistas entram no piloto e viram multiplicadores."],["Paridade validada","O especialista confere o resultado contra o método dele."],["Liberação com pessoas prontas","Trilha feita, caminho combinado, legado com guardião."],["Ondas por gerência","Rodada paralela curta, reforço e desligamento do legado."]],end:"eok"},
+p2:{y:298,steps:[["Liberação da plataforma","O AXON chega antes da conversa com as pessoas."],["Diagnóstico tardio","Os receios já se formaram; a narrativa corre atrás."],["Reconquista da confiança","Rodadas paralelas longas para provar a paridade."],["Capacitação assistida","Turmas, plantões e multiplicadores formados no caminho."],["Ondas mais lentas","Adoção por gerência, com recaídas tratadas uma a uma."]],end:"eok"},
+p3:{y:478,steps:[["Liberação da plataforma","Treinamento demonstrativo e manual; cada gerência se vira."],["Uso paralelo por garantia","O legado continua como fonte oficial."],["Primeira divergência","Resultado diferente do legado vira desconfiança."],["Recaída ao legado","O AXON vira ferramenta de alguns."],["Adoção parcial","Duas de cinco gerências, sem desligar legados."]],end:"ebad"}};
+const W=1540,SW=150,LX=212,CW=176,GAP=38,CH=70,FX=1300,FW=W-FX,SX=i=>LX+i*(CW+GAP),EXR=LX+5*CW+4*GAP,SY=298;
+const F={eok:{y:208,h:178},ebad:{y:478,h:150}};
+["Partida","Etapa 1","Etapa 2","Etapa 3","Etapa 4","Etapa 5","Futuro"].forEach((t,i)=>H("div",{class:"col",style:`left:${i===0?0:i===6?FX:SX(i-1)}px;width:${i===0?SW:i===6?FW:CW}px`},sc,t));
+const svg=S("svg",{class:"fl-svg",width:W,height:560,viewBox:`0 0 ${W} 560`},sc);const df=S("defs",null,svg);
+const arrow=(id,c)=>{const m=S("marker",{id,viewBox:"0 0 10 10",refX:"9",refY:"5",markerWidth:"7",markerHeight:"7",orient:"auto"},df);S("path",{d:"M0 1 L9 5 L0 9 z",fill:c},m)};
+arrow("flA0","#BFD0E1");PK.forEach(k=>arrow("flA"+k,PATHS[k].col));
+const ctr={};PK.forEach(k=>{const L=LANES[k];ctr[k]=H("div",{class:`ctr ${k}`,style:`left:${LX-14}px;top:${L.y-CH/2-44}px;width:${EXR-LX+28}px;height:${CH+58}px;--c:${PATHS[k].col}`},sc)});
+const st=H("div",{class:"fn start",style:`left:0;top:${SY-52}px;width:${SW}px;height:104px`},sc);st.innerHTML=`<b>AXON</b><span>Caminhos de implementação</span>`;
+const fut={};[["eok","ok","Futuro 1","O AXON vira a rotina do ONS","Cinco gerências rodando estudos no AXON, legados desligados, custo e tempo visíveis."],["ebad","bad","Futuro 2","O AXON vira mais um sistema","Convivência dupla sem fim, legado mantido por garantia e resultado questionado."]].forEach(([id,cl,e,t,d])=>{const f=F[id];const n=H("div",{class:`fn end ${cl}`,style:`left:${FX}px;top:${f.y-f.h/2}px;width:${FW}px;height:${f.h}px`},sc);n.innerHTML=`<em>${e}</em><b>${t}</b><span>${d}</span><i class="tap">clique para ver quem chega aqui</i>`;n.addEventListener("click",e2=>{e2.stopPropagation();future(id)});fut[id]=n});
+const lines={},cards={},labs={};
+PK.forEach((k,li)=>{const L=LANES[k],p=PATHS[k];lines[k]=[];cards[k]=[];
+const lab=H("div",{class:`lane ${k}`,style:`left:${LX}px;top:${L.y-CH/2-34}px`},sc);lab.innerHTML=`<b>${p.tag}</b>${p.n}<em>${p.T}</em>`;lab.addEventListener("click",e=>{e.stopPropagation();setPath(k,sc)});labs[k]=lab;
+const add=(d)=>{const g=S("g",{class:"ln"},svg);const base=S("path",{d,class:"b"},g),flow=S("path",{d,class:"f"},g);lines[k].push({g,base,flow});return g};
+const y=L.y,yS=SY+(li-1)*26;add(`M${SW} ${yS} C${SW+36} ${yS} ${LX-40} ${y} ${LX-3} ${y}`);
+L.steps.forEach(([t,d],i)=>{const x=SX(i);const c=H("div",{class:`stp ${k}`,style:`left:${x}px;top:${y-CH/2}px;width:${CW}px;height:${CH}px;--c:${p.col}`},sc);c.innerHTML=`<div class="in"><div class="fr"><i>${String(i+1).padStart(2,"0")}</i><b>${t}</b></div><div class="bk"><span>${d}</span></div></div>`;c.addEventListener("click",e=>{e.stopPropagation();const was=c.classList.contains("flip");sc.querySelectorAll(".stp.flip").forEach(z=>z.classList.remove("flip"));if(!was)c.classList.add("flip");if(PATH!==k)setPath(k,sc)});cards[k].push(c);
+if(i<4)add(`M${x+CW+2} ${y} L${x+CW+GAP-3} ${y}`)});
+const f=F[L.end],ty=f.y+(L.end==="eok"?(k==="p1"?-30:30):0);add(`M${EXR+2} ${y} C${EXR+40} ${y} ${FX-40} ${ty} ${FX-3} ${ty}`)});
+let pin=null,timers=[];
+function light(ks){timers.forEach(clearTimeout);timers=[];PK.forEach(k=>{const on=ks.includes(k);cards[k].forEach(c=>{c.classList.toggle("off",!on);if(!on)c.classList.remove("flip")});labs[k].classList.toggle("off",!on);lines[k].forEach(l=>{l.g.classList.remove("on","drawn");l.g.style.setProperty("--c",on?PATHS[k].col:"#BFD0E1");l.base.setAttribute("marker-end",`url(#flA${on?k:"0"})`);const len=l.base.getTotalLength();l.base.style.transition="none";l.base.style.strokeDasharray=len;l.base.style.strokeDashoffset=on?len:0;l.g.classList.toggle("dim",!on)})});
+fut.eok.classList.toggle("off",!ks.some(k=>LANES[k].end==="eok"));fut.ebad.classList.toggle("off",!ks.some(k=>LANES[k].end==="ebad"));
+ks.forEach(k=>lines[k].forEach((l,i)=>{timers.push(setTimeout(()=>{l.base.getBoundingClientRect();l.base.style.transition="stroke-dashoffset .45s cubic-bezier(.22,.61,.36,1)";l.base.style.strokeDashoffset=0;l.g.classList.add("on")},RMO?0:150+i*160));timers.push(setTimeout(()=>l.g.classList.add("drawn"),RMO?0:600+i*160))}))}
+function future(id){pin=pin===id?null:id;PK.forEach(k=>ctr[k].classList.toggle("on",!!pin&&LANES[k].end===pin));fut.eok.classList.toggle("pin",pin==="eok");fut.ebad.classList.toggle("pin",pin==="ebad");
+if(!pin){light([PATH]);hint(PATH);return}light(PK.filter(k=>LANES[k].end===pin));$("futHint").innerHTML=pin==="eok"?"<b>Futuro 1</b> · chegam aqui os caminhos 1 e 2, em tempos diferentes":"<b>Futuro 2</b> · é onde termina o caminho 3, sem gestão de mudanças"}
+function hint(k){const p=PATHS[k];$("futHint").innerHTML=`Clique numa etapa para ver o detalhe · clique num futuro para ver quem chega até ele`}
+const ctl=$("futCtl");H("span",{class:"lb"},ctl,"Caminho");pathSeg(H("div",null,ctl));H("span",{class:"hnt",id:"futHint"},ctl,"");
+onPath(k=>{pin=null;PK.forEach(q=>ctr[q].classList.remove("on"));fut.eok.classList.remove("pin");fut.ebad.classList.remove("pin");hint(k);if(sl.classList.contains("active"))light([k])});
+FXR.add(sl,{play(){pin=null;PK.forEach(q=>ctr[q].classList.remove("on"));fut.eok.classList.remove("pin");fut.ebad.classList.remove("pin");sc.querySelectorAll(".stp.flip").forEach(z=>z.classList.remove("flip"));light([PATH])},stop(){timers.forEach(clearTimeout)}})})();
 
 /* ---------- 2 · CONTEXTO ---------- */
 (function(){const sl=SL("Contexto");
@@ -2160,21 +2190,21 @@ $("ctxTxt").innerHTML=`<h4><i></i>O que o AXON faz</h4><p>Qualquer modelo comput
 <h4><i></i>O que mexe nas pessoas</h4><p>O AXON substitui legados, planilhas e scripts que hoje têm dono, história e identidade. Quem mantém esses sistemas vê o próprio domínio mudar de lugar; quem roda estudos todos os dias vê a agenda esvaziar; quem confia no método de sempre precisa confiar num resultado que veio de outra lógica. <b>Nada disso é sobre o código; tudo isso é sobre adoção.</b></p>
 <div class="q">O maior impacto do AXON não é técnico. É o dia em que cada especialista decide se a rotina dele passa pela plataforma ou continua passando pelo legado.</div>`;
 const ROWS=[["sliders","Configurar estudo","vários arquivos de definição editados à mão, cada um com um dono"],["cpu","Rodar modelo","servidor e fila locais; lotes grandes levam dias"],["check","Validar resultado","confiança no método conhecido; divergência vira retrabalho"],["layers","Sistemas e legados","legados e satélites, cada um com seus mantenedores"],["coin","Custo da rodada","pouco visível, descoberto na fatura"],["people","Papel do especialista","opera arquivos e sistemas; analisa quando sobra tempo"]];
-const TO={c2:[["Tela de parâmetros salva e duplicável; parâmetro novo sem pedir desenvolvimento","hot"],["Nuvem escalável, milhares de casos em paralelo, em horas","hot"],["Paridade validada pelo próprio especialista antes do go; rodada paralela curta","hot"],["Uma plataforma; legados congelados e desligados com portão","hot"],["Previsto por rodada e acompanhado por time","hot"],["Prepara, compara e decide; multiplicador do AXON na gerência","hot"]],
-c3:[["Tela de parâmetros salva e duplicável","hot"],["Nuvem escalável, em horas","hot"],["Rodadas paralelas longas até reconquistar a confiança","" ],["Convivência dupla por mais tempo; desligamento adiado",""],["Previsto por rodada, mas pouco usado no início",""],["Migra para análise, mais tarde e com mais atrito",""]],
-c1:[["Tela existe, mas o arquivo antigo continua sendo editado por garantia","cold"],["Roda na nuvem quando alguém se dispõe; o lote oficial segue no servidor","cold"],["Primeira divergência vira desconfiança; o legado é a referência","cold"],["Legados continuam como fonte oficial; o AXON vira satélite","cold"],["Custo visível, mas comparado como gasto extra","cold"],["Continua operando; o AXON é ferramenta de alguns","cold"]]};
+const TO={p1:[["Tela de parâmetros salva e duplicável; parâmetro novo sem pedir desenvolvimento","hot"],["Nuvem escalável, milhares de casos em paralelo, em horas","hot"],["Paridade validada pelo próprio especialista antes do go; rodada paralela curta","hot"],["Uma plataforma; legados congelados e desligados com portão","hot"],["Previsto por rodada e acompanhado por time","hot"],["Prepara, compara e decide; multiplicador do AXON na gerência","hot"]],
+p2:[["Tela de parâmetros salva e duplicável","hot"],["Nuvem escalável, em horas","hot"],["Rodadas paralelas longas até reconquistar a confiança","" ],["Convivência dupla por mais tempo; desligamento adiado",""],["Previsto por rodada, mas pouco usado no início",""],["Migra para análise, mais tarde e com mais atrito",""]],
+p3:[["Tela existe, mas o arquivo antigo continua sendo editado por garantia","cold"],["Roda na nuvem quando alguém se dispõe; o lote oficial segue no servidor","cold"],["Primeira divergência vira desconfiança; o legado é a referência","cold"],["Legados continuam como fonte oficial; o AXON vira satélite","cold"],["Custo visível, mas comparado como gasto extra","cold"],["Continua operando; o AXON é ferramenta de alguns","cold"]]};
 const ba=baSlider($("baCtx"),{la:"Sem AXON · hoje",lb:"Com AXON"});
 const as=H("div",{class:"asis"},ba.A);as.innerHTML=`<div class="bar"><span>estudo_v14_FINAL(2).dat · servidor-pl-03</span><i>manual</i><i>5 legados</i><i>dias</i></div>`+ROWS.map(([ic,k,o])=>`<div class="row"><b>${k}</b><span>${o}</span></div>`).join("");
-const tb=H("div",{class:"tobe"},ba.B);function fill(k){const p=PATHS[k];tb.innerHTML=`<div class="hd"><div><span>Com AXON · caminho ${p.tag}</span><b>${p.n}</b></div><em style="background:${p.col};color:${k==="c2"?"#0E1C39":"#fff"}">${p.T}</em></div>`+ROWS.map(([ic,kk],i)=>`<div class="row ${TO[k][i][1]}"><b>${kk}</b><span>${TO[k][i][0]}</span></div>`).join("")}
+const tb=H("div",{class:"tobe"},ba.B);function fill(k){const p=PATHS[k];tb.innerHTML=`<div class="hd"><div><span>Com AXON · caminho ${p.tag}</span><b>${p.n}</b></div><em style="background:${p.col};color:${k==="p1"?"#0E1C39":"#fff"}">${p.T}</em></div>`+ROWS.map(([ic,kk],i)=>`<div class="row ${TO[k][i][1]}"><b>${kk}</b><span>${TO[k][i][0]}</span></div>`).join("")}
 pathSeg($("ctxSeg"));onPath(fill);
 const ctl=baCtl($("baCtl"),ba,{a:"Sem AXON",b:"Com AXON"});
 FXR.add(sl,{play(){ba.play()},stop(){ctl.stop();ba.halt()}})})();
 
 /* ---------- 3 · CENÁRIOS E RISCOS (matriz interativa) ---------- */
-const RISKS=[{k:"A",fr:"A · Engajamento e gestão de stakeholders",kind:"Risco humano e comportamental",t:"Perda de domínio e identidade profissional",d:"O profissional teme perder relevância, autonomia ou o domínio de processos que construiu ao longo dos anos.",cs:"resistência silenciosa e baixa disposição para mudar",ad:["A","D"],mo:"pré-implantação",c:"#002B49",pos:{c1:[80,86],c3:[56,72],c2:[34,58]}},
-{k:"B",fr:"B · Comunicação e construção de confiança",kind:"Risco de credibilidade e percepção de valor",t:"Ruptura da confiança técnica",d:"O especialista não confia plenamente na consistência dos resultados do AXON em comparação aos métodos conhecidos.",cs:"rejeição da plataforma como referência técnica, mesmo com resultados válidos",ad:["K","D"],mo:"piloto e validação",c:"#1F3263",pos:{c1:[72,78],c3:[46,62],c2:[20,44]}},
-{k:"C",fr:"C · Capacitação e adoção assistida",kind:"Risco cognitivo e de produtividade",t:"Vale da implementação",d:"Durante a curva de aprendizagem a produtividade cai temporariamente, enquanto esforço e insegurança aumentam.",cs:"frustração, abandono precoce e percepção negativa da solução",ad:["K","H"],mo:"expansão do uso",c:"#5E8AB4",pos:{c1:[88,68],c3:[64,56],c2:[46,50]}},
-{k:"D",fr:"D · Gestão de impactos e sustentação",kind:"Risco operacional e de institucionalização",t:"Inércia dos legados e efeito dominó",d:"As equipes continuam usando scripts, planilhas e sistemas anteriores, mantendo processos paralelos.",cs:"retrabalho, baixa adesão sustentada e benefícios não capturados",ad:["H","R"],mo:"consolidação",c:"#F78C16",pos:{c1:[92,90],c3:[52,80],c2:[26,70]}}];
+const RISKS=[{k:"A",fr:"A · Engajamento e gestão de stakeholders",kind:"Risco humano e comportamental",t:"Perda de domínio e identidade profissional",d:"O profissional teme perder relevância, autonomia ou o domínio de processos que construiu ao longo dos anos.",cs:"resistência silenciosa e baixa disposição para mudar",ad:["A","D"],mo:"pré-implantação",c:"#002B49",pos:{p3:[80,86],p2:[56,72],p1:[34,58]}},
+{k:"B",fr:"B · Comunicação e construção de confiança",kind:"Risco de credibilidade e percepção de valor",t:"Ruptura da confiança técnica",d:"O especialista não confia plenamente na consistência dos resultados do AXON em comparação aos métodos conhecidos.",cs:"rejeição da plataforma como referência técnica, mesmo com resultados válidos",ad:["K","D"],mo:"piloto e validação",c:"#1F3263",pos:{p3:[72,78],p2:[46,62],p1:[20,44]}},
+{k:"C",fr:"C · Capacitação e adoção assistida",kind:"Risco cognitivo e de produtividade",t:"Vale da implementação",d:"Durante a curva de aprendizagem a produtividade cai temporariamente, enquanto esforço e insegurança aumentam.",cs:"frustração, abandono precoce e percepção negativa da solução",ad:["K","H"],mo:"expansão do uso",c:"#5E8AB4",pos:{p3:[88,68],p2:[64,56],p1:[46,50]}},
+{k:"D",fr:"D · Gestão de impactos e sustentação",kind:"Risco operacional e de institucionalização",t:"Inércia dos legados e efeito dominó",d:"As equipes continuam usando scripts, planilhas e sistemas anteriores, mantendo processos paralelos.",cs:"retrabalho, baixa adesão sustentada e benefícios não capturados",ad:["H","R"],mo:"consolidação",c:"#F78C16",pos:{p3:[92,90],p2:[52,80],p1:[26,70]}}];
 const ADN={A:"Consciência",D:"Desejo",K:"Conhecimento",H:"Habilidade",R:"Reforço"};
 (function(){const sl=SL("Cenários e riscos"),root=$("mx");
 root.innerHTML=`<div class="read"><b data-n>Troque o caminho ou arraste um risco</b><span>prob.</span><b data-p>—</b><span>impacto</span><b data-i>—</b></div><div class="ylab"><span>Impacto ↑</span></div><div class="plot"><div class="q tl" data-q="tl"><b>Atenção</b><span>alto impacto · menor probabilidade</span></div><div class="q tr" data-q="tr"><b>Crítico</b><span>alto impacto · alta probabilidade</span></div><div class="q bl" data-q="bl"><b>Monitorar</b><span>baixo impacto · baixa probabilidade</span></div><div class="q br" data-q="br"><b>Preparar</b><span>baixo impacto · alta probabilidade</span></div><i class="ax v"></i><i class="ax h"></i></div><div class="xlab">Probabilidade →</div><div class="ctl"><div class="lbl" style="font-size:11px">Caminho</div><div class="path-seg" id="mxSeg"></div><span class="hnt">Arraste um risco · clique num quadrante ou num cartão</span></div>`;
@@ -2199,10 +2229,10 @@ FXR.add(sl,{play(){ST.forEach(s=>s.el.classList.remove("in"));apply(PATH);ST.for
 /* ---------- 4 · PREVISÃO DE ABSORÇÃO (linha do tempo) ---------- */
 (function(){const sl=SL("Previsão de absorção");
 const FR=[{k:"A",n:"Engajamento e stakeholders",base:7,team:2,c:"#002B49"},{k:"B",n:"Comunicação e confiança",base:6,team:1.5,c:"#1F3263"},{k:"C",n:"Capacitação e adoção assistida",base:8,team:2,c:"#5E8AB4"},{k:"D",n:"Impactos e sustentação",base:10,team:1.5,c:"#F78C16"}];
-const SCN={c1:{R:[0,0,0,0],S:[0,1,2,4],gmo:false},c2:{R:[.5,.45,.4,.45],S:[-3,-2,0,1],gmo:true},c3:{R:[.3,.35,.3,.3],S:[0,1,2,3],gmo:true}};
+const SCN={p3:{R:[0,0,0,0],S:[0,1,2,4],gmo:false},p1:{R:[.5,.45,.4,.45],S:[-3,-2,0,1],gmo:true},p2:{R:[.3,.35,.3,.3],S:[0,1,2,3],gmo:true}};
 const calc=k=>{const s=SCN[k];const rows=FR.map((f,i)=>{const D=+(f.base*(1-s.R[i])).toFixed(1),S=s.S[i];return{f,S,D,E:s.gmo?+(D*f.team).toFixed(1):0,end:+(S+D).toFixed(1)}});return{rows,T:Math.max(...rows.map(r=>r.end)),E:+rows.reduce((a,r)=>a+r.E,0).toFixed(1),vale:[rows[2].S+rows[2].D*.15,rows[2].S+rows[2].D*.7]}};
 pathSeg($("tlSeg"));$("tlSeg").classList.add("path-seg");
-$("tlForm").innerHTML=`<div class="tl-form"><code>D_f = D_base × (1 − R)</code><span>duração de cada frente: a base sem gestão de mudanças, reduzida pelo fator R do caminho</span><code>T = max(S_f + D_f)</code><span>mês em que a última frente fecha = AXON como rotina (mês 0 = liberação)</span><code>E = Σ D_f × equipe_f</code><span>esforço de GMO em pessoa-mês (equipe por frente: 1,5 a 2 pessoas)</span><code>R · S</code><span>C1: R = 0, começa na liberação · C3: R = 0,30 a 0,35, começa na liberação · C2: R = 0,40 a 0,50, começa 3 meses antes</span></div>`;
+$("tlForm").innerHTML=`<div class="tl-form"><code>D_f = D_base × (1 − R)</code><span>duração de cada frente: a base sem gestão de mudanças, reduzida pelo fator R do caminho</span><code>T = max(S_f + D_f)</code><span>mês em que a última frente fecha = AXON como rotina (mês 0 = liberação)</span><code>E = Σ D_f × equipe_f</code><span>esforço de GMO em pessoa-mês (equipe por frente: 1,5 a 2 pessoas)</span><code>R · S</code><span>caminho 1: R = 0,40 a 0,50, começa 3 meses antes · caminho 2: R = 0,30 a 0,35, começa na liberação · caminho 3: R = 0, começa na liberação</span></div>`;
 const s=$("tl"),W=1020,X0=190,X1=W-16,M0=-4,M1=16,MW=(X1-X0)/(M1-M0),XM=m=>X0+(m-M0)*MW,top=50,rh=72,yMs=top+FR.length*rh+34;mk(s,"tlA","#F78C16");
 for(let m=M0;m<M1;m++){S("rect",{x:XM(m)+1,y:14,width:MW-2,height:18,rx:4,fill:m<0?"#FEF1E2":m%2?"#EEF3F8":"#E4EBF2"},s);T(s,XM(m)+MW/2,27,m<0?"−"+(-m):String(m),{"text-anchor":"middle",fill:m<0?"#B35F00":"#35516A",style:"font:800 10.5px var(--fb)"});S("line",{x1:XM(m),y1:34,x2:XM(m),y2:yMs+6,stroke:"#EEF2F5"},s)}
 T(s,XM(M0),9,"meses antes da liberação",{fill:"#B35F00",style:"font:700 9.5px var(--fb)"});T(s,XM(1),9,"meses após a liberação",{fill:"#6B7B8C",style:"font:700 9.5px var(--fb)"});
@@ -2212,14 +2242,14 @@ const vale=S("g",null,s);const vr=S("rect",{x:0,y:top+2*rh+4,width:0,height:rh-1
 const msg=S("g",null,s);const ml=S("line",{x1:0,y1:top-4,x2:0,y2:yMs+6,stroke:"#F78C16","stroke-width":2.5},msg);const md=S("path",{d:"",fill:"#F78C16"},msg);const mt=T(msg,0,yMs+4,"",{"text-anchor":"middle",fill:"#B35F00",style:"font:800 11px var(--fb)"});const mq=T(msg,0,yMs+4,"",{fill:"#BC0404",style:"font:800 10px var(--fb)"});
 const cur={};let an=[];const fmt=v=>String(v).replace(".",",");
 function draw(k,anim){an.forEach(f=>f());an=[];const c=calc(k),p=PATHS[k];
-c.rows.forEach((row,i)=>{const b=bars[i],from=cur[i]||{S:0,D:0};const x0=XM(from.S),w0=from.D*MW,x1=XM(row.S),w1=row.D*MW;b.sub.textContent=`início mês ${fmt(row.S)} · ${fmt(row.D)} meses · ${row.E?fmt(row.E)+" pessoa-mês":"sem equipe de GMO"}`;b.t.textContent=`${fmt(row.D)} m`;tip(b.g,FR[i].k+" · "+FR[i].n,`${p.tag}: começa no mês ${fmt(row.S)}, dura ${fmt(row.D)} meses${row.E?", "+fmt(row.E)+" pessoa-mês de GMO":", esforço absorvido pelas gerências"}`);
-b.ghost.setAttribute("opacity",k==="c1"?0:1);b.ghost.setAttribute("x",XM(SCN.c1.S[i]));b.ghost.setAttribute("width",FR[i].base*MW);
+c.rows.forEach((row,i)=>{const b=bars[i],from=cur[i]||{S:0,D:0};const x0=XM(from.S),w0=from.D*MW,x1=XM(row.S),w1=row.D*MW;b.sub.textContent=`início mês ${fmt(row.S)} · ${fmt(row.D)} meses · ${row.E?fmt(row.E)+" pessoa-mês":"sem equipe de GMO"}`;b.t.textContent=`${fmt(row.D)} m`;tip(b.g,FR[i].k+" · "+FR[i].n,`Caminho ${p.tag}: começa no mês ${fmt(row.S)}, dura ${fmt(row.D)} meses${row.E?", "+fmt(row.E)+" pessoa-mês de GMO":", esforço absorvido pelas gerências"}`);
+b.ghost.setAttribute("opacity",k==="p3"?0:1);b.ghost.setAttribute("x",XM(SCN.p3.S[i]));b.ghost.setAttribute("width",FR[i].base*MW);
 an.push(tween(anim?900:0,e=>{const x=x0+(x1-x0)*e,w=w0+(w1-w0)*e;b.r.setAttribute("x",x);b.r.setAttribute("width",Math.max(0,w));b.t.setAttribute("x",x+10);b.t.setAttribute("opacity",w>60?1:0)}));cur[i]={S:row.S,D:row.D}});
 const vx0=XM(c.vale[0]),vx1=XM(c.vale[1]);vr.setAttribute("x",vx0);vr.setAttribute("width",vx1-vx0);vt.setAttribute("x",vx0+6);
-const mx=XM(c.T);ml.setAttribute("x1",mx);ml.setAttribute("x2",mx);md.setAttribute("d",`M${mx-7} ${top-6} L${mx+7} ${top-6} L${mx} ${top+4} Z`);mt.setAttribute("x",mx);mt.textContent=(k==="c1"?"adoção parcial · mês ":"AXON como rotina · mês ")+fmt(c.T);const far=mx>W-200;mq.setAttribute("x",far?mx-8:mx+8);mq.setAttribute("text-anchor",far?"end":"start");mq.setAttribute("y",top-10);mq.textContent=k==="c1"?"sem garantia de chegada":"";mt.setAttribute("text-anchor",far?"end":"middle");mt.setAttribute("x",far?mx+4:mx);
+const mx=XM(c.T);ml.setAttribute("x1",mx);ml.setAttribute("x2",mx);md.setAttribute("d",`M${mx-7} ${top-6} L${mx+7} ${top-6} L${mx} ${top+4} Z`);mt.setAttribute("x",mx);mt.textContent=(k==="p3"?"adoção parcial · mês ":"AXON como rotina · mês ")+fmt(c.T);const far=mx>W-200;mq.setAttribute("x",far?mx-8:mx+8);mq.setAttribute("text-anchor",far?"end":"start");mq.setAttribute("y",top-10);mq.textContent=k==="p3"?"sem garantia de chegada":"";mt.setAttribute("text-anchor",far?"end":"middle");mt.setAttribute("x",far?mx+4:mx);
 $("tlLab").textContent=`caminho ${p.tag} · ${p.n}`;
-$("tlTab").innerHTML=`<tr><th>Frente</th><th style="text-align:right">Início</th><th style="text-align:right">Duração</th><th style="text-align:right">Esforço GMO</th></tr>`+c.rows.map(r=>`<tr><td><b>${r.f.k}</b> · ${r.f.n}</td><td class="n">mês ${fmt(r.S)}</td><td class="n">${fmt(r.D)} m</td><td class="n">${r.E?fmt(r.E)+" p·m":"—"}</td></tr>`).join("")+`<tr class="tot"><td><b>${k==="c1"?"Adoção parcial":"AXON como rotina"}</b></td><td class="n">—</td><td class="n">mês ${fmt(c.T)}</td><td class="n">${c.E?fmt(c.E)+" p·m":"—"}</td></tr>`;
-$("tlSum").innerHTML=`<div class="tl-sum"><b style="color:${p.col}">${k==="c1"?fmt(c.T)+"+":fmt(c.T)}</b>meses até a rotina</div><div class="tl-sum"><b>${c.E?fmt(c.E):"0"}</b>pessoa-mês de GMO</div><div class="tl-sum"><b>${fmt(+(c.vale[1]-c.vale[0]).toFixed(1))}</b>meses de vale</div>`}
+$("tlTab").innerHTML=`<tr><th>Frente</th><th style="text-align:right">Início</th><th style="text-align:right">Duração</th><th style="text-align:right">Esforço GMO</th></tr>`+c.rows.map(r=>`<tr><td><b>${r.f.k}</b> · ${r.f.n}</td><td class="n">mês ${fmt(r.S)}</td><td class="n">${fmt(r.D)} m</td><td class="n">${r.E?fmt(r.E)+" p·m":"—"}</td></tr>`).join("")+`<tr class="tot"><td><b>${k==="p3"?"Adoção parcial":"AXON como rotina"}</b></td><td class="n">—</td><td class="n">mês ${fmt(c.T)}</td><td class="n">${c.E?fmt(c.E)+" p·m":"—"}</td></tr>`;
+$("tlSum").innerHTML=`<div class="tl-sum"><b style="color:${p.col}">${k==="p3"?fmt(c.T)+"+":fmt(c.T)}</b>meses até a rotina</div><div class="tl-sum"><b>${c.E?fmt(c.E):"0"}</b>pessoa-mês de GMO</div><div class="tl-sum"><b>${fmt(+(c.vale[1]-c.vale[0]).toFixed(1))}</b>meses de vale</div>`}
 onPath((k,src)=>draw(k,src!==undefined));
 FXR.add(sl,{play(){Object.keys(cur).forEach(i=>delete cur[i]);draw(PATH,true)},stop(){an.forEach(f=>f());an=[]}})})();
 
@@ -2324,7 +2354,7 @@ document.querySelectorAll(".kin").forEach(kin);
 const b=H("button",{class:"clk","data-a":"up",style:`--d:${12+i};display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;text-align:left;background:#fff;border:1.5px solid var(--line);border-top:4px solid ${col};border-radius:12px;padding:7px 12px`},ag);
 H("div",{style:`font:800 27px var(--fh);color:${col}`},b,n);const x=H("div",null,b);H("div",{style:"font:800 14px var(--fh);color:var(--navy);white-space:nowrap"},x,`Parte ${n} · ${lab} · telas ${l[0]+1}–${l[l.length-1]+1}`);H("div",{class:"small",style:"font-size:10.5px"},x,desc);b.addEventListener("click",()=>go(l[0]))})})();
 
-function fit(){const vw=innerWidth,vh=innerHeight,sm=vw<760,pad=sm?8:22,bar=sm?54:64,sc=Math.min((vw-pad*2)/1600,(vh-pad-bar)/900),st=$("stage");st.style.left=vw/2+"px";st.style.top=(pad+(vh-pad-bar)/2)+"px";st.style.transform=`translate(-50%,-50%) scale(${sc})`}
+function fit(){const vw=innerWidth,vh=innerHeight,sm=vw<760,pad=sm?6:10,bar=sm?54:62,sc=Math.min((vw-pad*2)/1600,(vh-pad-bar)/900),st=$("stage");st.style.left=vw/2+"px";st.style.top=(pad+(vh-pad-bar)/2)+"px";st.style.transform=`translate(-50%,-50%) scale(${sc})`}
 addEventListener("resize",fit);
 function counters(n){n.querySelectorAll("[data-count]").forEach(el=>{const to=+el.dataset.count,suf=el.dataset.suf||"";count(el,0,to,suf)})}
 function activate(i,inst,back){const n=slides[i];slides.forEach((s,k)=>{if(k!==i)s.classList.remove("active","entering","play","back")});n.classList.remove("play","entering","back");void n.offsetWidth;n.classList.add("active","play");if(!inst){n.classList.add("entering");if(back)n.classList.add("back")}cur=i;
@@ -2407,6 +2437,20 @@ let open=false;const set=v=>{open=v;ix.classList.toggle("on",v);c.classList.togg
 c.addEventListener("click",e=>{e.stopPropagation();set(!open)});c.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();set(!open)}});xb.addEventListener("click",()=>set(false));
 ix.addEventListener("click",e=>e.stopPropagation());addEventListener("click",()=>{if(open)set(false)});addEventListener("keydown",e=>{if(e.key==="g"||e.key==="G")set(!open);if(e.key==="Escape")set(false)})})();
 if(ENTER["Capa"]&&cur===0)ENTER["Capa"]();
+
+/* AXON sempre em roxo neon: envolve cada ocorrência (HTML e SVG), inclusive no conteúdo gerado depois */
+(function(){const RX=/\bAXON\b/;const SKIP="script,style,.ax,.fx-sh-text,textarea,input,title";
+const lum=c=>{const m=c.match(/[\d.]+/g);if(!m)return 0;const[r,g,b]=m.map(Number);return(.299*r+.587*g+.114*b)/255};
+function wrapText(t){const p=t.parentNode;if(!p||p.nodeType!==1||p.closest(SKIP)||!RX.test(t.nodeValue))return;
+const svg=p.namespaceURI==="http://www.w3.org/2000/svg";const parts=t.nodeValue.split(/(\bAXON\b)/);const f=document.createDocumentFragment();
+const dk=svg?lum(getComputedStyle(p).fill||"")>.6:lum(getComputedStyle(p).color)>.6;
+parts.forEach(s=>{if(!s)return;if(s==="AXON"){const e=svg?document.createElementNS("http://www.w3.org/2000/svg","tspan"):document.createElement("x-ax");e.setAttribute("class","ax"+(dk?" ax-dk":""));e.textContent=s;f.appendChild(e)}else f.appendChild(document.createTextNode(s))});p.replaceChild(f,t)}
+function scan(root){if(root.nodeType===3){wrapText(root);return}if(root.nodeType!==1||root.closest&&root.closest(SKIP))return;
+root.querySelectorAll&&root.querySelectorAll(".fx-sh-text").forEach(e=>{if(RX.test(e.textContent))e.classList.add("ax-sh")});
+root.querySelectorAll&&root.querySelectorAll("[data-fx-hl]").forEach(e=>{if(RX.test(e.textContent))e.classList.add("ax-hl")});
+const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>RX.test(n.nodeValue)?1:2});const L=[];while(w.nextNode())L.push(w.currentNode);L.forEach(wrapText)}
+const roots=[$("stage")||document.body];roots.forEach(scan);
+let q=[],raf=0;new MutationObserver(ms=>{ms.forEach(m=>m.addedNodes.forEach(n=>q.push(n)));if(!raf)raf=requestAnimationFrame(()=>{raf=0;const L=q;q=[];L.forEach(n=>{if(n.isConnected)scan(n)})})}).observe(document.body,{childList:true,subtree:true})})();
 
 </script>
 </body>

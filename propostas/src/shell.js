@@ -20,7 +20,7 @@ document.querySelectorAll(".kin").forEach(kin);
 const b=H("button",{class:"clk","data-a":"up",style:`--d:${12+i};display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;text-align:left;background:#fff;border:1.5px solid var(--line);border-top:4px solid ${col};border-radius:12px;padding:7px 12px`},ag);
 H("div",{style:`font:800 27px var(--fh);color:${col}`},b,n);const x=H("div",null,b);H("div",{style:"font:800 14px var(--fh);color:var(--navy);white-space:nowrap"},x,`Parte ${n} · ${lab} · telas ${l[0]+1}–${l[l.length-1]+1}`);H("div",{class:"small",style:"font-size:10.5px"},x,desc);b.addEventListener("click",()=>go(l[0]))})})();
 
-function fit(){const vw=innerWidth,vh=innerHeight,sm=vw<760,pad=sm?8:22,bar=sm?54:64,sc=Math.min((vw-pad*2)/1600,(vh-pad-bar)/900),st=$("stage");st.style.left=vw/2+"px";st.style.top=(pad+(vh-pad-bar)/2)+"px";st.style.transform=`translate(-50%,-50%) scale(${sc})`}
+function fit(){const vw=innerWidth,vh=innerHeight,sm=vw<760,pad=sm?6:10,bar=sm?54:62,sc=Math.min((vw-pad*2)/1600,(vh-pad-bar)/900),st=$("stage");st.style.left=vw/2+"px";st.style.top=(pad+(vh-pad-bar)/2)+"px";st.style.transform=`translate(-50%,-50%) scale(${sc})`}
 addEventListener("resize",fit);
 function counters(n){n.querySelectorAll("[data-count]").forEach(el=>{const to=+el.dataset.count,suf=el.dataset.suf||"";count(el,0,to,suf)})}
 function activate(i,inst,back){const n=slides[i];slides.forEach((s,k)=>{if(k!==i)s.classList.remove("active","entering","play","back")});n.classList.remove("play","entering","back");void n.offsetWidth;n.classList.add("active","play");if(!inst){n.classList.add("entering");if(back)n.classList.add("back")}cur=i;
@@ -103,3 +103,17 @@ let open=false;const set=v=>{open=v;ix.classList.toggle("on",v);c.classList.togg
 c.addEventListener("click",e=>{e.stopPropagation();set(!open)});c.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();set(!open)}});xb.addEventListener("click",()=>set(false));
 ix.addEventListener("click",e=>e.stopPropagation());addEventListener("click",()=>{if(open)set(false)});addEventListener("keydown",e=>{if(e.key==="g"||e.key==="G")set(!open);if(e.key==="Escape")set(false)})})();
 if(ENTER["Capa"]&&cur===0)ENTER["Capa"]();
+
+/* AXON sempre em roxo neon: envolve cada ocorrência (HTML e SVG), inclusive no conteúdo gerado depois */
+(function(){const RX=/\bAXON\b/;const SKIP="script,style,.ax,.fx-sh-text,textarea,input,title";
+const lum=c=>{const m=c.match(/[\d.]+/g);if(!m)return 0;const[r,g,b]=m.map(Number);return(.299*r+.587*g+.114*b)/255};
+function wrapText(t){const p=t.parentNode;if(!p||p.nodeType!==1||p.closest(SKIP)||!RX.test(t.nodeValue))return;
+const svg=p.namespaceURI==="http://www.w3.org/2000/svg";const parts=t.nodeValue.split(/(\bAXON\b)/);const f=document.createDocumentFragment();
+const dk=svg?lum(getComputedStyle(p).fill||"")>.6:lum(getComputedStyle(p).color)>.6;
+parts.forEach(s=>{if(!s)return;if(s==="AXON"){const e=svg?document.createElementNS("http://www.w3.org/2000/svg","tspan"):document.createElement("x-ax");e.setAttribute("class","ax"+(dk?" ax-dk":""));e.textContent=s;f.appendChild(e)}else f.appendChild(document.createTextNode(s))});p.replaceChild(f,t)}
+function scan(root){if(root.nodeType===3){wrapText(root);return}if(root.nodeType!==1||root.closest&&root.closest(SKIP))return;
+root.querySelectorAll&&root.querySelectorAll(".fx-sh-text").forEach(e=>{if(RX.test(e.textContent))e.classList.add("ax-sh")});
+root.querySelectorAll&&root.querySelectorAll("[data-fx-hl]").forEach(e=>{if(RX.test(e.textContent))e.classList.add("ax-hl")});
+const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>RX.test(n.nodeValue)?1:2});const L=[];while(w.nextNode())L.push(w.currentNode);L.forEach(wrapText)}
+const roots=[$("stage")||document.body];roots.forEach(scan);
+let q=[],raf=0;new MutationObserver(ms=>{ms.forEach(m=>m.addedNodes.forEach(n=>q.push(n)));if(!raf)raf=requestAnimationFrame(()=>{raf=0;const L=q;q=[];L.forEach(n=>{if(n.isConnected)scan(n)})})}).observe(document.body,{childList:true,subtree:true})})();
