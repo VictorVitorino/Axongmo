@@ -2,10 +2,11 @@
 window.DECK={brandSub:"ONS · AXON · Gestão de Mudanças",rightLabel:"Proposta 2 · GMO",footLabel:"AXON · ADOÇÃO · GMO",
 parts:[["Capa","Contexto"],["Futuros","1 · Futuros"],["Contexto","2 · Contexto"],["Desafios","3 · Riscos"],["Pessoas","4 · Pessoas"],["Método","5 · Método"]],
 chapters:{"1 · Futuros":["01","Dois futuros possíveis","O AXON pode virar a rotina do ONS ou virar mais um sistema. Três caminhos levam a esses dois futuros."],"2 · Contexto":["02","Contexto","O que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas."],"3 · Riscos":["03","Previsão de desafios","Os quatro riscos que o AXON vai enfrentar, em qualquer caminho. E o momento em que cada um aparece numa implementação."],"4 · Pessoas":["04","Aproximação e compreensão","A mensagem clara não apaga a dúvida. O mapa sensorial mostra onde as pessoas sentem o AXON."],"5 · Método":["05","Com método, a mudança acontece","Um modelo integrado, quatro dimensões e cinco métodos em camadas para chegar ao futuro certo."]},
-zoom:["flowScene","baCtx","mx","vale","heatBA","shim"],
+zoom:["flowScene","dlSvg","baCtx","mx","vale","heatBA","shim"],
 descDefault:"Proposta de gestão de mudanças para a adoção do AXON.",
 desc:{"Capa":"Capa com uma rede de neurônios: começa com um neurônio e, a cada Pulsar (ou clique na área à direita), cresce outro que liga o axônio a um vizinho. O impulso chega pelos dendritos, salta pela mielina e atravessa a sinapse até o próximo neurônio. Aproxime o cursor para estimular; clique num neurônio para dispará-lo.",
 "Dois futuros possíveis":"Connector / Flow Line: três caminhos saem da mesma liberação do AXON. Sem gestão de mudanças, o fluxo termina no futuro em que o AXON vira mais um sistema. Com gestão de mudanças desde o desenvolvimento ou a partir da liberação, termina no futuro em que o AXON vira a rotina, em tempos diferentes. Clique num caminho: a escolha segue para as próximas páginas.",
+"Custo de atrasar a GMO":"Modelo The Cost of Delaying Change Management (IdeaLeap): o contexto do projeto começa no primeiro dia; o da gestão de mudanças só quando ela é engajada; o das pessoas só quando elas são envolvidas. Cada atraso encurta o contexto do nível seguinte. Escolha o caminho 1, 2 ou 3, ou use ▶ Atrasar a GMO para ver o contexto encolher do caminho 1 ao 3.",
 "Contexto":"Leitura: o que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas. À direita, o Before / After Slider compara o trabalho sem AXON e com AXON; os três botões mostram como o lado 'com AXON' fica em cada caminho.",
 "Cenários e riscos":"Interactive Matrix: quatro riscos, um por frente de gestão de mudanças, posicionados por probabilidade e impacto. Troque o caminho (1, 2 ou 3) e veja os riscos se moverem; arraste um risco para discutir a avaliação; passe o mouse ou clique num cartão para destacar o risco na matriz.",
 "Vale da implementação":"Linha do tempo conceitual sobre um projeto de implementação de referência (modelo ERP): a curva de desempenho sobe na preparação, cai no vale depois do impacto inicial e volta mais alta na autonomia. Os riscos A a D aparecem no momento em que costumam surgir. Percorra a implementação, clique num risco para ver o que se ouve, o sinal de alerta e o que a gestão de mudanças faz, e compare com a curva sem gestão de mudanças, em que o vale se prolonga.",
@@ -80,6 +81,50 @@ function hint(k){const p=PATHS[k];$("futHint").innerHTML=`Clique numa etapa para
 const ctl=$("futCtl");H("span",{class:"lb"},ctl,"Caminho");pathSeg(H("div",null,ctl));H("span",{class:"hnt",id:"futHint"},ctl,"");
 onPath(k=>{pin=null;PK.forEach(q=>ctr[q].classList.remove("on"));fut.eok.classList.remove("pin");fut.ebad.classList.remove("pin");hint(k);if(sl.classList.contains("active"))light([k])});
 FXR.add(sl,{play(){pin=null;PK.forEach(q=>ctr[q].classList.remove("on"));fut.eok.classList.remove("pin");fut.ebad.classList.remove("pin");sc.querySelectorAll(".stp.flip").forEach(z=>z.classList.remove("flip"));light([PATH])},stop(){timers.forEach(clearTimeout)}})})();
+
+/* ---------- 1b · CUSTO DE ATRASAR A GMO (modelo IdeaLeap) ---------- */
+(function(){const sl=SL("Custo de atrasar a GMO"),s=$("dlSvg"),X0=20,X1=990,FX=f=>X0+f*(X1-X0),GL=.58;
+const PH=[[0,.12,"Preparação"],[.12,.28,"Desenho"],[.28,.45,"Construção"],[.45,.58,"Testes"],[.58,.80,"Estabilização"],[.80,1,"Evolução"]];
+const CF={p1:{g:.12,p:.20,gl:"GMO engajada no desenho",pl:"pessoas engajadas na construção do modelo",ms:[.28,.45,.58,.80],ctx:78,int:"em cada marco do programa",win:"longa, antes do go-live"},
+p2:{g:.58,p:.64,gl:"GMO engajada na liberação",pl:"pessoas engajadas depois do go-live",ms:[],ctx:34,int:"pontual, a partir da liberação",win:"nenhuma: o AXON chega pronto"},
+p3:{g:null,p:.60,gl:"",pl:"pessoas recebem o comunicado do go-live",ms:[],ctx:10,int:"nenhuma",win:"nenhuma: só o comunicado"}};
+const COST={p1:["As pessoas acompanham o desenho e validam a paridade junto.","A resistência aparece cedo, quando ainda é barato tratar.","O especialista chega ao go-live sabendo o porquê e o como."],
+p2:["A gestão de mudanças herda decisões já tomadas e corre atrás da narrativa.","As pessoas recebem o AXON pronto; os receios já se formaram.","Reconquistar confiança custa mais do que construí-la antes."],
+p3:["O contexto fica com o projeto; as pessoas só recebem o comunicado.","Cada gerência interpreta sozinha o que mudou.","O legado vira fonte oficial por garantia e o vale se prolonga."]};
+/* fases */
+const ph=S("g",null,s);PH.forEach(([a,b,t],i)=>{S("rect",{x:FX(a)+1,y:14,width:FX(b)-FX(a)-2,height:22,rx:5,fill:i%2?"#EEF3F8":"#E4EBF2"},ph);T(ph,(FX(a)+FX(b))/2,29,t,{"text-anchor":"middle",fill:"#35516A",style:"font:700 11px var(--fb)"});S("line",{x1:FX(a),y1:38,x2:FX(a),y2:500,stroke:"#EEF2F5"},ph)});
+S("line",{x1:FX(GL),y1:38,x2:FX(GL),y2:502,stroke:"#BC0404","stroke-width":1.4,"stroke-dasharray":"5 4"},s);const gl=S("g",null,s);S("rect",{x:FX(GL)-36,y:500,width:72,height:20,rx:10,fill:"#fff",stroke:"#BC0404"},gl);T(gl,FX(GL),514,"GO-LIVE",{"text-anchor":"middle",fill:"#BC0404",style:"font:800 10px var(--fb);letter-spacing:.12em"});
+/* camadas de contexto */
+const ROW=[{y:92,lab:"CONTEXTO DO PROJETO",fill:"#CFE7F7",st:"#5E8AB4"},{y:262,lab:"CONTEXTO DA GESTÃO DE MUDANÇAS",fill:"#EBD9FB",st:"#8A00C4"},{y:432,lab:"CONTEXTO DAS PESSOAS IMPACTADAS",fill:"#FFF1D6",st:"#E0A000"}];
+const lost=[],bars=[],labs=[];ROW.forEach((r,i)=>{labs.push(T(s,X0+4,r.y-12,r.lab,{class:"halo",fill:"#002B49",style:"font:800 13px var(--fb);letter-spacing:.08em"}));
+if(i){const L=S("rect",{x:X0,y:r.y,width:0,height:46,rx:23,fill:"url(#dlHatch)",stroke:"#E7B9B9","stroke-dasharray":"4 3"},s);const lt=T(s,X0+18,r.y+28,"",{fill:"#BC0404",style:"font:700 12px var(--fb)"});lost.push({L,lt})}
+bars.push(S("rect",{x:X0,y:r.y,width:X1-X0,height:46,rx:23,fill:r.fill,stroke:r.st,"stroke-width":2},s))});
+const df=S("defs",null,s),pt=S("pattern",{id:"dlHatch",width:8,height:8,patternUnits:"userSpaceOnUse",patternTransform:"rotate(45)"},df);S("rect",{width:8,height:8,fill:"#FDF3F2"},pt);S("line",{x1:0,y1:0,x2:0,y2:8,stroke:"#F2C4C0","stroke-width":3},pt);
+const ticks=S("g",null,s),integ=S("g",null,s);
+const c1=S("g",null,s),c2=S("g",null,s);
+const conn=(g,x,y0,y1,label)=>{g.innerHTML="";S("line",{x1:x,y1:y0+23,x2:x,y2:y1+23,stroke:"#002B49","stroke-width":1.8},g);S("circle",{cx:x,cy:y0+23,r:8,fill:"#F9C80E",stroke:"#002B49","stroke-width":2},g);S("circle",{cx:x,cy:y1+23,r:4.5,fill:"#002B49"},g);const my=y1-y0>200?y0+46+52:(y0+46+y1)/2+4,right=x<X1-260;T(g,right?x+12:x-12,my,label,{class:"halo","text-anchor":right?"start":"end",fill:"#002B49",style:"font:700 12.5px var(--fb)"})};
+let cur={g:.12,p:.2},an=null;
+function render(c,k){const C=CF[k];
+/* GMO */
+const g=C.g;bars[1].style.opacity=g==null?.12:1;labs[1].style.opacity=g==null?.4:1;
+const gx=g==null?FX(GL):FX(c.g);bars[1].setAttribute("x",gx);bars[1].setAttribute("width",Math.max(0,X1-gx));
+lost[0].L.setAttribute("width",Math.max(0,(g==null?X1:gx)-X0));lost[0].lt.textContent=g==null?"sem gestão de mudanças: ninguém traduz o contexto do projeto para as pessoas":(gx-X0>230?"contexto que a GMO não viveu":"");
+/* pessoas */
+const px=FX(c.p);bars[2].setAttribute("x",px);bars[2].setAttribute("width",Math.max(0,X1-px));bars[2].style.opacity=k==="p3"?0:1;
+lost[1].L.setAttribute("width",Math.max(0,px-X0));lost[1].lt.textContent=px-X0>250?"o que as pessoas não acompanharam":"";
+ticks.innerHTML="";const step=k==="p3"?46:22;for(let x=px+12;x<X1-8;x+=step)S("rect",{x:x-3,y:ROW[2].y+8,width:6,height:30,rx:2,fill:"#E0B400",stroke:"#002B49","stroke-width":1.2},ticks);
+/* conectores */
+if(g==null){c1.innerHTML="";conn(c2,px,ROW[0].y,ROW[2].y,C.pl)}else{conn(c1,gx,ROW[0].y,ROW[1].y,C.gl);conn(c2,px,ROW[1].y,ROW[2].y,C.pl)}
+integ.innerHTML="";C.ms.forEach(m=>{if(FX(m)<=gx+20)return;S("line",{x1:FX(m),y1:ROW[0].y+46,x2:FX(m),y2:ROW[1].y,stroke:"#8A00C4","stroke-width":1.4,"stroke-dasharray":"3 4",opacity:.7},integ);S("circle",{cx:FX(m),cy:ROW[0].y+46,r:3.5,fill:"#8A00C4"},integ)})}
+function side(k){const C=CF[k],p=PATHS[k];$("dlSide").innerHTML=`<div class="dl-who"><em>Quem apresenta o modelo</em><b>The Cost of Delaying Change Management</b><span>Modelo visual da <strong>IdeaLeap</strong>: o contexto do projeto começa no primeiro dia; o da gestão de mudanças, só quando ela é engajada; o das pessoas, só quando elas são envolvidas.</span></div>
+<div class="dl-path"><span class="n">${p.tag}</span><b>${p.n}</b></div>
+<div class="dl-kpi"><div><em>A GMO entra</em><b>${C.g==null?"não entra":C.gl.replace("GMO engajada ","")}</b></div><div><em>Integração com o programa</em><b>${C.int}</b></div><div class="w"><em>Contexto que chega às pessoas <small>ilustrativo</small></em><div class="mt"><i style="width:${C.ctx}%;background:${C.ctx>60?"#8A00C4":C.ctx>25?"#F78C16":"#BC0404"}"></i></div><b class="pc">${C.ctx>60?"alto":C.ctx>25?"parcial":"mínimo"}</b></div><div class="w"><em>Janela de preparação antes do go-live</em><b>${C.win}</b></div></div>
+<div class="dl-cost"><em>O custo neste caminho</em>${COST[k].map(t=>`<p>${t}</p>`).join("")}</div>`}
+function go2(k,anim){if(an)an();const C=CF[k],from={...cur},to={g:C.g==null?GL:C.g,p:C.p};side(k);an=tween(anim?900:0,e=>{const c={g:from.g+(to.g-from.g)*e,p:from.p+(to.p-from.p)*e};render(c,k)},()=>{cur=to;an=null});}
+const ctl=$("dlCtl");ctl.innerHTML=`<span class="src">Modelo · <b>The Cost of Delaying Change Management</b> · IdeaLeap</span><span class="lb">Caminho</span><div id="dlSeg"></div><button class="btn" data-run>▶ Atrasar a GMO</button>`;pathSeg($("dlSeg"),{name:false});
+let tm=[];ctl.querySelector("[data-run]").addEventListener("click",e=>{e.stopPropagation();tm.forEach(clearTimeout);tm=[];setPath("p1");["p2","p3"].forEach((k,i)=>tm.push(setTimeout(()=>setPath(k),1700*(i+1))))});
+onPath((k,src)=>go2(k,src!==undefined));
+FXR.add(sl,{play(){tm.forEach(clearTimeout);tm=[];cur={g:0,p:0};go2(PATH,true)},stop(){tm.forEach(clearTimeout)}})})();
 
 /* ---------- 2 · CONTEXTO ---------- */
 (function(){const sl=SL("Contexto");
