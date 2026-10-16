@@ -777,34 +777,28 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 .vl-det.ng em{color:#BC0404}
 .tilt2 .ficha .fg .rw{padding:7px 0}.tilt2 .ficha .steps{padding:6px 18px 8px}
 
-/* custo de atrasar a GMO */
-.dl-ctl{display:flex;align-items:center;gap:10px;flex:none}
-.dl-ctl .src{font:500 12px var(--fb);color:#6B7B8C;background:#fff;border:1px solid var(--line);border-radius:99px;padding:6px 14px}
-.dl-ctl .src b{color:#002B49}
-.dl-ctl .lb{margin-left:auto;font:500 10.5px "JetBrains Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:#6B7A90}
-.dl-ctl .btn{height:32px;padding:0 14px;border-radius:9px;background:linear-gradient(150deg,#B04DFF,#8A00C4);color:#fff;font:700 12.5px var(--fb);border:0;cursor:pointer;box-shadow:0 0 12px rgba(176,77,255,.4)}
-.dl-card{border-radius:14px;padding:10px 12px;display:flex;align-items:center}
-#dlSvg rect,#dlSvg line{transition:opacity .4s}
-.dl-side{display:flex;flex-direction:column;gap:12px;min-height:0}
-.dl-who{background:linear-gradient(155deg,#1F3263,#122143 60%,#0E1C39);border-radius:14px;padding:14px 18px;color:#DDEAF5}
-.dl-who em{display:block;font:800 10px var(--fb);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:#F9A64A}
-.dl-who b{display:block;font:800 20px/1.15 var(--fh);color:#fff;margin-top:4px}
-.dl-who span{display:block;font:500 12.5px/1.45 var(--fb);color:#C8DBEB;margin-top:6px}
-.dl-who strong{color:#fff}
-.dl-path{display:flex;align-items:center;gap:10px}
-.dl-path .n{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:linear-gradient(150deg,#B04DFF,#8A00C4);color:#fff;font:800 14px var(--fb);box-shadow:0 0 12px rgba(176,77,255,.5)}
-.dl-path b{font:800 20px var(--fh);color:#002B49}
-.dl-kpi{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.dl-kpi>div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
-.dl-kpi>div.w{grid-column:1/-1}
-.dl-kpi em{display:block;font:800 9.5px var(--fb);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:#5E8AB4}
-.dl-kpi em small{font:600 9px var(--fb);color:#B35F00;letter-spacing:.06em;margin-left:6px}
-.dl-kpi b{display:block;font:700 13.5px/1.3 var(--fb);color:#002B49;margin-top:3px}
-.dl-kpi .mt{height:10px;border-radius:99px;background:#EEF2F5;overflow:hidden;margin-top:6px}
-.dl-kpi .mt i{display:block;height:100%;border-radius:99px;transition:width .9s cubic-bezier(.22,.61,.36,1),background .4s}
-.dl-cost{background:#FFF8F0;border:1px solid #F5D2A8;border-radius:12px;padding:10px 14px;flex:1}
-.dl-cost em{display:block;font:800 10px var(--fb);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:#C96A05;margin-bottom:4px}
-.dl-cost p{margin:5px 0 0;padding-left:14px;position:relative;font:500 13px/1.45 var(--fb);color:#35516A}
-.dl-cost p::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:#F78C16}
+
+/* custo de atrasar a GMO (v2) */
 #dlSvg text.halo{paint-order:stroke;stroke:#fff;stroke-width:5px;stroke-linejoin:round}
-.dl-card{padding:8px 10px}
+#dlSvg .dl2-cur{transition:opacity .4s}
+#dlSvg .dl2-turn .rg{transform-box:fill-box;transform-origin:center;animation:mxHalo 2.4s ease-out infinite}
+.dl2-modes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;flex:none}
+.dl2-m{background:#F7F9FC;border:1px solid var(--line);border-radius:12px;padding:10px 14px;opacity:.5;transition:opacity .35s,border-color .35s,box-shadow .35s,background .35s}
+.dl2-m .h{display:flex;align-items:center;gap:8px}
+.dl2-m .ic{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#8A97A8;flex:none;transition:background .35s}
+.dl2-m b{font:800 17px var(--fh);color:#002B49}
+.dl2-m em{margin-left:auto;font:600 10.5px var(--fb);font-style:normal;color:#6B7B8C;white-space:nowrap}
+.dl2-m p{margin:6px 0 0;font:500 12.5px/1.45 var(--fb);color:#35516A}
+.dl2-m.on{opacity:1;background:#fff;border-color:#8A00C4;box-shadow:0 0 0 2px rgba(138,0,196,.18),0 10px 24px rgba(14,28,57,.1)}
+.dl2-m.on .ic{background:linear-gradient(150deg,#B04DFF,#8A00C4)}
+.dl2-m.on.none{border-color:#BC0404;box-shadow:0 0 0 2px rgba(188,4,4,.15),0 10px 24px rgba(14,28,57,.1)}
+.dl2-m.on.none .ic{background:#BC0404}
+.dl2-mkt{padding:16px 18px;display:flex;flex-direction:column;gap:12px;border-radius:14px}
+.dl2-stats{display:flex;flex-direction:column;gap:10px;flex:1}
+.dl2-st{display:grid;grid-template-columns:118px 1fr;gap:12px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 14px;flex:1}
+.dl2-st b{font:800 30px/1 var(--fh);color:#F9A64A;letter-spacing:-.01em}
+.dl2-st:first-child b{color:#D9A6FF;text-shadow:0 0 14px rgba(176,77,255,.5)}
+.dl2-st p{margin:0;font:500 12.5px/1.42 var(--fb);color:#DDEAF5}
+.dl2-st span{display:block;margin-top:4px;font:600 10px "JetBrains Mono",monospace;letter-spacing:.06em;color:#9DB7CE}
+.dl2-src{font:500 11px var(--fb);color:#9DB7CE;border-top:1px solid rgba(255,255,255,.12);padding-top:9px}
+.dl2-src b{color:#fff;font-weight:700}
