@@ -1434,6 +1434,40 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 .dl2-src{font:500 11px var(--fb);color:#9DB7CE;border-top:1px solid rgba(255,255,255,.12);padding-top:9px}
 .dl2-src b{color:#fff;font-weight:700}
 
+/* plano de trabalho · checklist editável */
+.wp-ctl{display:flex;align-items:center;gap:12px;flex:none}
+.wp-ctl .lb{font:500 10.5px "JetBrains Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:#6B7A90}
+.wp-ctl .tg2{margin-left:auto;height:30px;padding:0 12px;border-radius:8px;border:1px solid var(--line);background:#fff;font:600 12px var(--fb);color:#6B7B8C;cursor:pointer}
+.wp-sum{display:flex;align-items:center;gap:8px;margin-left:16px}
+.wp-sum .rs{display:inline-flex;align-items:center;gap:6px;font:600 11.5px var(--fb);color:#002B49;background:#fff;border:1px solid var(--line);border-radius:99px;padding:3px 10px 3px 4px}
+.wp-sum .rs i{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--c);color:#fff;font:800 11px var(--fh);font-style:normal}
+.wp-sum .rs b{font:700 11px "JetBrains Mono",monospace;color:#6B7B8C}
+.wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;min-height:0}
+.wp-col{background:#fff;border:1px solid var(--line);border-top:5px solid var(--c);border-radius:14px;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.wp-col .hd{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line2)}
+.wp-col .hd .ic{width:36px;height:36px;border-radius:50%;background:var(--c);display:grid;place-items:center;flex:none}
+.wp-col .hd b{display:block;font:800 21px/1.05 var(--fh);color:#002B49}
+.wp-col .hd>div>span{display:block;font:500 11.5px var(--fb);color:#6B7B8C;margin-top:2px}
+.wp-col .pg{margin-left:auto;text-align:right;min-width:92px}
+.wp-col .pg b{font:800 20px/1 var(--fh);color:var(--c)}
+.wp-col .pg i{display:block;height:6px;border-radius:99px;background:#EEF2F5;margin-top:5px;overflow:hidden}
+.wp-col .pg s{display:block;height:100%;background:var(--c);transition:width .5s}
+.wp-col .ls{flex:1;min-height:0;overflow:auto;padding:6px 10px;display:flex;flex-direction:column;gap:4px}
+.wp-col .it{display:grid;grid-template-columns:24px 1fr auto 24px 18px;gap:8px;align-items:center;padding:6px 8px;border-radius:9px;border:1px solid transparent;transition:background .2s}
+.wp-col .it:hover{background:#F7F9FC;border-color:var(--line2)}
+.wp-col .cb{width:22px;height:22px;border-radius:7px;border:2px solid #BFD0E1;background:#fff;display:grid;place-items:center;cursor:pointer;padding:0}
+.wp-col .cb svg{opacity:0;transition:opacity .2s}
+.wp-col .it.on .cb{background:var(--c);border-color:var(--c)}.wp-col .it.on .cb svg{opacity:1}
+.wp-col .tx{font:500 13px/1.35 var(--fb);color:#002B49;outline:none;border-radius:6px;padding:2px 6px;cursor:text}
+.wp-col .tx:focus{background:#FFF8F0;box-shadow:0 0 0 2px rgba(247,140,22,.35)}
+.wp-col .it.on .tx{color:#8A97A8;text-decoration:line-through}
+.wp-col .ph{font:600 10px var(--fb);color:#6B7B8C;background:#EEF3F8;border-radius:99px;padding:3px 8px;white-space:nowrap}
+.wp-col .rk{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;color:#fff;font:800 11px var(--fh);cursor:help}
+.wp-col .rm{border:0;background:none;color:#B5C0D0;font:700 16px/1 var(--fb);cursor:pointer;padding:0;opacity:0;transition:opacity .2s}
+.wp-col .it:hover .rm{opacity:1}.wp-col .rm:hover{color:#BC0404}
+.wp-col .add{margin:0 10px 10px;height:32px;border-radius:9px;border:1.5px dashed #BFD0E1;background:#fff;font:600 12px var(--fb);color:#5E8AB4;cursor:pointer}
+.wp-col .add:hover{border-color:var(--c);color:var(--c)}
+
 </style>
 </head>
 <body>
@@ -1514,17 +1548,6 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
   </div>
 </section>
 
-<!--@PESSOAS-->
-<section class="slide" data-p="4 · Pessoas" data-t="Aproximação e compreensão" data-band="Pessoas · o heatmap sensorial e cognitivo do AXON" data-c="c-red" data-bs="Clique numa zona · arraste o divisor para ver o depois" data-src="Mapa sensorial: cada fonte de calor é um receio, uma dúvida ou uma racionalização esperada para o perfil × tema, ponderada pela leitura da consultoria (ILUSTRATIVO, medido no raio-x do mês 1 por pulso anônimo). O lado direito do divisor mostra o calor previsto após o trabalho de aproximação.">
-  <div class="body dk sp fill">
-    <div class="stmt2" data-fx-type="word" style="color:#fff;font-size:23px">O AXON não é um programa de quadro. Mas a mensagem clara <span data-fx-hl>não apaga a dúvida</span>: a adoção é um trabalho de <span data-fx-hl>aproximação e compreensão</span>, pessoa a pessoa.</div>
-    <div class="gr" style="display:grid;grid-template-columns:1020px 1fr;gap:16px;min-height:0">
-      <div style="display:flex;flex-direction:column;gap:8px"><div id="heatBA" class="ba ba--dk" style="height:540px;flex:none"></div><div id="heatScale" style="display:grid;grid-template-columns:auto 300px 1fr;gap:12px;align-items:center"></div></div>
-      <div id="heatPanel" style="min-height:0"></div>
-    </div>
-  </div>
-</section>
-
 <!--@MODELO-->
 <section class="slide" data-p="5 · Método" data-t="Modelo integrado" data-band="Método · AXON, Modelo Integrado de Transformação e Adoção" data-c="c-blue" data-bs="Os indicadores carregam sozinhos · passe o mouse no selo" data-src="Modelo integrado proposto pela consultoria: quatro dimensões (humana, cognitiva, comportamental, organizacional) e cinco metodologias de referência (Kotter, Bridges, Cognitive Task Analysis, Kolb, COM-B) organizadas em quatro frentes. Indicadores: cobertura do modelo, não medições.">
   <div class="body sp fill">
@@ -1538,6 +1561,15 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
   <div class="body sp fill">
     <div class="stmt2" data-fx-type="word" style="font-size:23px">Cinco métodos, cinco camadas de um mesmo programa: <span data-fx-hl>gire, expanda e traga cada camada para frente</span> para ver a ficha técnica.</div>
     <div class="gr tilt2" id="tiltRoot"></div>
+  </div>
+</section>
+
+<!--@PLANO-->
+<section class="slide" data-p="6 · Plano de trabalho" data-t="Plano de trabalho" data-band="Plano de trabalho · duas frentes, dois caminhos, um checklist de atividades" data-c="c-navy" data-bs="Escolha o caminho 1 ou 2 · marque as atividades · clique no texto para editar" data-src="Atividades propostas pela consultoria, organizadas em duas frentes (Resistência e stakeholders; Adoção e treinamento), com o risco que cada atividade trata (A a D) e a fase em que acontece. Checklist editável na apresentação: marque, edite ou acrescente atividades; as alterações ficam salvas neste navegador.">
+  <div class="body sp fill">
+    <div class="stmt2" data-fx-type="word" style="font-size:23px">O método vira <span data-fx-hl>atividades com dono e momento</span>: o que fazemos para vencer a resistência e o que fazemos para a adoção <span data-fx-hl>virar rotina</span>.</div>
+    <div class="wp-ctl" id="wpCtl"></div>
+    <div class="gr wp-grid" id="wpGrid"></div>
   </div>
 </section>
 
@@ -2443,9 +2475,9 @@ function fxSpotlight(rootEl, opts) {
 }
 /* ===== Proposta 2 · Gestão de Mudanças (GMO) · adoção do AXON · dois futuros, três caminhos ===== */
 window.DECK={brandSub:"ONS · AXON · Gestão de Mudanças",rightLabel:"Proposta 2 · GMO",footLabel:"AXON · ADOÇÃO · GMO",
-parts:[["Capa","Contexto"],["Futuros","1 · Futuros"],["Contexto","2 · Contexto"],["Desafios","3 · Riscos"],["Pessoas","4 · Pessoas"],["Método","5 · Método"]],
-chapters:{"1 · Futuros":["01","Dois futuros possíveis","O AXON pode virar a rotina do ONS ou virar mais um sistema. Três caminhos levam a esses dois futuros."],"2 · Contexto":["02","Contexto","O que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas."],"3 · Riscos":["03","Previsão de desafios","Os quatro riscos que o AXON vai enfrentar, em qualquer caminho. E o momento em que cada um aparece numa implementação."],"4 · Pessoas":["04","Aproximação e compreensão","A mensagem clara não apaga a dúvida. O mapa sensorial mostra onde as pessoas sentem o AXON."],"5 · Método":["05","Com método, a mudança acontece","Um modelo integrado, quatro dimensões e cinco métodos em camadas para chegar ao futuro certo."]},
-zoom:["flowScene","dlSvg","baCtx","mx","vale","heatBA","shim"],
+parts:[["Capa","Contexto"],["Futuros","1 · Futuros"],["Contexto","2 · Contexto"],["Desafios","3 · Riscos"],["Método","5 · Método"],["Plano","6 · Plano de trabalho"]],
+chapters:{"1 · Futuros":["01","Dois futuros possíveis","O AXON pode virar a rotina do ONS ou virar mais um sistema. Três caminhos levam a esses dois futuros."],"2 · Contexto":["02","Contexto","O que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas."],"3 · Riscos":["03","Previsão de desafios","Os quatro riscos que o AXON vai enfrentar, em qualquer caminho. E o momento em que cada um aparece numa implementação."],"5 · Método":["04","Com método, a mudança acontece","Um modelo integrado, quatro dimensões e cinco métodos em camadas para chegar ao futuro certo."],"6 · Plano de trabalho":["05","Plano de trabalho","Duas frentes e um checklist de atividades. Resistência tratada de perto e adoção com treinamento, no caminho 1 e no caminho 2."]},
+zoom:["flowScene","dlSvg","baCtx","mx","vale","shim"],
 descDefault:"Proposta de gestão de mudanças para a adoção do AXON.",
 desc:{"Capa":"Capa com uma rede de neurônios: começa com um neurônio e, a cada Pulsar (ou clique na área à direita), cresce outro que liga o axônio a um vizinho. O impulso chega pelos dendritos, salta pela mielina e atravessa a sinapse até o próximo neurônio. Aproxime o cursor para estimular; clique num neurônio para dispará-lo.",
 "Dois futuros possíveis":"Connector / Flow Line: três caminhos saem da mesma liberação do AXON. Sem gestão de mudanças, o fluxo termina no futuro em que o AXON vira mais um sistema. Com gestão de mudanças desde o desenvolvimento ou a partir da liberação, termina no futuro em que o AXON vira a rotina, em tempos diferentes. Clique num caminho: a escolha segue para as próximas páginas.",
@@ -2453,7 +2485,7 @@ desc:{"Capa":"Capa com uma rede de neurônios: começa com um neurônio e, a cad
 "Contexto":"Leitura: o que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas. À direita, o Before / After Slider compara o trabalho sem AXON e com AXON; os três botões mostram como o lado 'com AXON' fica em cada caminho.",
 "Cenários e riscos":"Interactive Matrix: quatro riscos, um por frente de gestão de mudanças, posicionados por probabilidade e impacto. Troque o caminho (1, 2 ou 3) e veja os riscos se moverem; arraste um risco para discutir a avaliação; passe o mouse ou clique num cartão para destacar o risco na matriz.",
 "Vale da implementação":"Linha do tempo conceitual sobre um projeto de implementação de referência (modelo ERP): a curva de desempenho sobe na preparação, cai no vale depois do impacto inicial e volta mais alta na autonomia. Os riscos A a D aparecem no momento em que costumam surgir. Percorra a implementação, clique num risco para ver o que se ouve, o sinal de alerta e o que a gestão de mudanças faz, e compare com a curva sem gestão de mudanças, em que o vale se prolonga.",
-"Aproximação e compreensão":"Heatmap sensorial e cognitivo (efeito térmico do modelo TMG, modulado para o AXON): perfis × temas de preocupação. O divisor compara o calor sem aproximação e o calor previsto com o trabalho de aproximação. Clique numa zona para ler o que a pessoa pensa e como nos aproximamos.",
+"Plano de trabalho":"Checklist de atividades em duas frentes, Resistência e stakeholders e Adoção e treinamento, para os caminhos 1 (GMO desde o desenvolvimento) e 2 (GMO a partir da liberação). Cada atividade mostra a fase e o risco que trata (A a D). Clique na caixa para marcar, clique no texto para editar, use + para acrescentar; o progresso aparece por frente e por risco.",
 "Modelo integrado":"Shimmer / Holographic Sweep: os indicadores do modelo carregam sobre um esqueleto e o selo do programa recebe o reflexo holográfico. Quatro dimensões, cinco métodos, quatro frentes, quatro riscos tratados.",
 "Camadas de método":"3D Tilt / Perspective: os cinco métodos são camadas do programa. Clique numa ficha ou numa camada para abrir a ficha técnica; recolha o bloco para ver o protótipo do programa AXON e expanda para ver cada camada."}};
 
@@ -2699,43 +2731,6 @@ bRun.addEventListener("click",e=>{e.stopPropagation();if(raf)stopRun();else run(
 FXR.add(sl,{play(){tm.forEach(clearTimeout);tm=[];stopRun();nog=false;bNog.classList.remove("on");s.classList.remove("nog");bNog.textContent="Percurso sem gestão de mudanças";pick(-1);mks.forEach(m=>m.g.classList.remove("in"));cr.setAttribute("width",0);
 tween(RMO?0:1800,e=>cr.setAttribute("width",(W*e).toFixed(0)));mks.forEach((m,j)=>tm.push(setTimeout(()=>m.g.classList.add("in"),RMO?0:900+j*260)));tm.push(setTimeout(run,RMO?0:2400))},stop(){tm.forEach(clearTimeout);stopRun()}})})();
 
-/* ---------- 5 · APROXIMAÇÃO E COMPREENSÃO (heatmap sensorial) ---------- */
-(function(){const sl=SL("Aproximação e compreensão");
-const PRF=["Construtores","Usam só o AXON","Usam de vez em quando","Consultam","Gestores"],TH=["Meu trabalho continua?","Meu domínio e identidade","Confio no resultado?","Esforço de aprender","O legado que eu mantenho","Meu time e orçamento"];
-/* calor antes (0 a 3) e depois do trabalho de aproximação */
-const BEF=[[1,3,1,2,3,0],[3,3,2,3,2,1],[2,1,3,3,1,0],[0,1,2,1,1,0],[2,1,2,1,2,3]],AFT=[[0,1,0,1,1,0],[1,1,1,1,1,0],[1,0,1,1,0,0],[0,0,1,0,0,0],[1,0,1,0,1,1]];
-const SAY={"0,1":["“Eu sou quem sabe fazer isso rodar. Numa caixinha, qualquer um faz.”","racionalização: “o container nunca vai cobrir os casos especiais”","Padrão de container construído com o construtor, que vira dono do padrão e mentor dos próximos"],"0,4":["“Esse servidor sou eu que mantenho há anos.”","racionalização: “se desligar, ninguém vai saber recuperar”","Inventário feito junto; o mantenedor vira guardião da migração e assina a paridade"],"1,0":["“Se o estudo roda sozinho, o que eu faço o dia inteiro?”","racionalização: “vou ficar só conferindo”","Conversa do líder antes de qualquer anúncio e caminho individual combinado: preparar, comparar e decidir"],"1,1":["“Eu era a referência de como rodar. Agora o sistema é.”","racionalização: “a plataforma não entende o contexto”","Nomear o que se perde (Bridges) e dar o papel novo: multiplicador do AXON na gerência"],"1,3":["“Não tenho tempo de aprender e entregar ao mesmo tempo.”","racionalização: “depois eu vejo”","Turma com o estudo real da pessoa, plantão na onda e meta protegida durante o vale"],"2,2":["“Deu diferente do meu. O meu está certo.”","racionalização: “o AXON arredonda”","Paridade validada pelo próprio especialista, com tolerância combinada antes da rodada"],"2,3":["“Toda vez que volto, esqueci como faz.”","racionalização: “é mais rápido do jeito antigo”","Manual por tarefa, assistente no MCP e estudo salvo para duplicar"],"4,5":["“Como redistribuo o tempo do meu time? E o orçamento de nuvem?”","racionalização: “vou esperar para ver”","Kit do líder: leitura de capacidade, destino combinado para cada pessoa e orçamento por rodada"],"4,0":["“Vão achar que estou enxugando a área.”","racionalização: “melhor não falar nada”","Narrativa única do patrocinador: o AXON não é programa de quadro; decisões de time ficam com a liderança e RH"]};
-const W=1020,Hh=540,HX0=170,HY0=56,HCW=(W-HX0-10)/6,HRH=(Hh-HY0-40)/5;
-const field=M=>{const off=document.createElement("canvas");off.width=W;off.height=Hh;const o=off.getContext("2d"),img=o.createImageData(W,Hh);const src=[];M.forEach((row,r)=>row.forEach((w,c)=>{if(!w)return;for(let q=0;q<w;q++)src.push([HX0+HCW*(c+.5)+Math.sin((r*7+c*3+q)*12.9898)*HCW*.22,HY0+HRH*(r+.5)+Math.cos((r*5+c*2+q)*78.233)*HRH*.22,1])}));
-const F=new Float32Array(W*Hh);let mx=0;const sg=2*50*50;for(let y=0;y<Hh;y+=2)for(let x=0;x<W;x+=2){let v=0;for(const[cx,cy,w]of src){const dx=x-cx,dy=y-cy;v+=w*Math.exp(-(dx*dx+dy*dy)/sg)}F[y*W+x]=v;if(v>mx)mx=v}return{off,o,img,F,mx}};
-const CM=[[0,[5,6,15]],[.12,[27,12,65]],[.28,[74,12,107]],[.42,[120,28,109]],[.56,[165,44,96]],[.68,[207,68,70]],[.8,[237,105,37]],[.9,[251,155,6]],[1,[252,255,164]]];
-const cmap=t=>{for(let i=1;i<CM.length;i++)if(t<=CM[i][0]){const[a,ca]=CM[i-1],[b,cb]=CM[i],k=(t-a)/(b-a);return ca.map((c,j)=>c+(cb[j]-c)*k)}return CM[CM.length-1][1]};
-const fb=field(BEF),fa=field(AFT),MX=fb.mx;[fb,fa].forEach(f=>{for(let y=0;y<Hh;y++)for(let x=0;x<W;x++){const v=f.F[(y&~1)*W+(x&~1)]/MX,c=cmap(Math.pow(clamp(v,0,1),.85)),i=(y*W+x)*4;f.img.data[i]=c[0];f.img.data[i+1]=c[1];f.img.data[i+2]=c[2];f.img.data[i+3]=255}f.o.putImageData(f.img,0,0)});
-const ba=baSlider($("heatBA"),{la:"Sem aproximação · receios",lb:"Com aproximação · previsto",knobOnly:true});
-const cvA=H("canvas",{width:W,height:Hh,style:"position:absolute;inset:0"},ba.A),cvB=H("canvas",{width:W,height:Hh,style:"position:absolute;inset:0"},ba.B);const cxA=cvA.getContext("2d"),cxB=cvB.getContext("2d");
-const grid=S("svg",{viewBox:`0 0 ${W} ${Hh}`,width:W,height:Hh,style:"position:absolute;inset:0;z-index:3"},$("heatBA"));
-TH.forEach((t,c)=>{const x=HX0+HCW*c;const w=t.split(" ");const l1=w.slice(0,Math.ceil(w.length/2)).join(" "),l2=w.slice(Math.ceil(w.length/2)).join(" ");T(grid,x+HCW/2,20,l1,{"text-anchor":"middle",fill:"#DDEAF5",style:"font:700 11.5px var(--fb)"});T(grid,x+HCW/2,35,l2,{"text-anchor":"middle",fill:"#DDEAF5",style:"font:700 11.5px var(--fb)"});if(c)S("line",{x1:x,y1:HY0,x2:x,y2:HY0+HRH*5,stroke:"rgba(255,255,255,.14)"},grid)});
-PRF.forEach((t,r)=>{const y=HY0+HRH*r;T(grid,14,y+HRH/2-4,t,{fill:"#fff",style:"font:800 13px var(--fb)"});const b=BEF[r].reduce((a,v)=>a+v,0),a=AFT[r].reduce((x,v)=>x+v,0);T(grid,14,y+HRH/2+14,`${b} → ${a} pts de calor`,{fill:"#F9A64A",style:"font:600 10.5px var(--fb)"});if(r)S("line",{x1:HX0,y1:y,x2:W-10,y2:y,stroke:"rgba(255,255,255,.14)"},grid)});
-S("rect",{x:HX0,y:HY0,width:HCW*6,height:HRH*5,fill:"none",stroke:"rgba(255,255,255,.25)"},grid);
-const cells=[];for(let r=0;r<5;r++)for(let c=0;c<6;c++)cells.push([r,c,BEF[r][c]]);const top3=[...cells].sort((a,b)=>b[2]-a[2]).slice(0,3);
-top3.forEach(([r,c],k)=>{const cx=HX0+HCW*(c+.5),cy=HY0+HRH*(r+.5),g=S("g",null,grid);S("circle",{cx,cy,r:28,fill:"none",stroke:"#fff","stroke-width":2,class:"ring",style:`animation-delay:${k*.5}s`},g)});
-const hit=[];cells.forEach(([r,c])=>{const re=S("rect",{x:HX0+HCW*c+2,y:HY0+HRH*r+2,width:HCW-4,height:HRH-4,rx:6,fill:"transparent",stroke:"transparent","stroke-width":2.5,style:"cursor:pointer;pointer-events:all"},grid);re.addEventListener("click",e=>{e.stopPropagation();sel(r,c)});re.addEventListener("mouseenter",()=>re.setAttribute("stroke","rgba(255,255,255,.6)"));re.addEventListener("mouseleave",()=>re.setAttribute("stroke",re._on?"#fff":"transparent"));hit.push([r,c,re])});
-const lg=$("heatScale");H("div",{class:"eye",style:"color:#9DB7CE;margin:0"},lg,"Escala sensorial");const lgb=H("div",null,lg);H("div",{style:"height:12px;border-radius:6px;background:linear-gradient(90deg,#1B0C41,#781C6D,#CF4446,#FB9B06,#FCFFA4)"},lgb);const scl=H("div",{style:"display:flex;justify-content:space-between;margin-top:3px"},lgb);H("span",{class:"small",style:"color:#C8DBEB"},scl,"frio · tranquilo");H("span",{class:"small",style:"color:#C8DBEB"},scl,"quente · receio, dúvida, racionalização");H("div",{class:"small",style:"color:#9DB7CE"},lg,"cada fonte de calor = um receio esperado para o perfil × tema (ILUSTRATIVO) · à direita do divisor, o calor previsto com a aproximação");
-const box=H("div",{class:"heat-box"},$("heatPanel"));
-function sel(r,c){hit.forEach(([a,b,re])=>{re._on=a===r&&b===c;re.setAttribute("stroke",re._on?"#fff":"transparent")});const b=BEF[r][c],a=AFT[r][c],say=SAY[r+","+c]||["Receio difuso sobre o tema; aparece nas conversas do raio-x.","racionalização: “isso não é para mim”","Conversa aberta na gerência e caminho combinado por pessoa"];
-const FRM=[["A","Engajamento e stakeholders"],["A","Engajamento e stakeholders"],["B","Comunicação e confiança"],["C","Capacitação e adoção assistida"],["D","Impactos e sustentação"],["A","Engajamento e stakeholders"]],ADC=["D · Desejo","D · Desejo","K · Conhecimento","A · Habilidade","R · Reforço","A · Consciência"],TMP=["frio","morno","quente","muito quente"];
-box.innerHTML=`<div><div class="eye" style="color:#F78C16;margin:0 0 6px;font-size:12px">${PRF[r]} × ${TH[c]}</div><div class="hq">${say[0]}</div><div class="hr">${say[1]}</div></div>
-<div class="tp"><div class="sem"><em>Sem aproximação</em><b>${b}<small>pts · ${TMP[b]}</small></b></div><span class="ar">→</span><div class="com"><em>Com aproximação</em><b>${a}<small>pts · ${TMP[a]}</small></b></div></div>
-<div class="fix"><div class="e">COMO NOS APROXIMAMOS</div><div class="t">${say[2]}</div></div>
-<div class="th"><div><i>+</i><span><b>Efeito positivo que o AXON traz aqui</b>${POS[c]}</span></div><div><i>−</i><span><b>Efeito negativo se ninguém se aproximar</b>${NEG[c]}</span></div></div>
-<div class="fa"><div><em>Frente de GMO</em><span><i>${FRM[c][0]}</i>${FRM[c][1]}</span></div><div><em>Estágio ADKAR em jogo</em><span><i>${ADC[c][0]}</i>${ADC[c].slice(4)}</span></div></div>
-<div class="hm2"><div class="eye" style="color:#9DB7CE;margin:0 0 7px;font-size:10.5px">Como medimos a temperatura</div><div class="cl">${["pulso anônimo por gerência","conversa do líder antes do anúncio","observação de rodadas","escuta nas turmas e plantões"].map(t=>`<span>${t}</span>`).join("")}</div></div>`}
-const POS=["o tempo operacional vira tempo de análise; o trabalho muda de natureza, não de dono","quem domina o estudo passa a dominar a plataforma; o saber tácito vira padrão de container","o resultado vira reproduzível, versionado e comparável, com o especialista como validador","a curva é curta quando se aprende com o estudo real e com apoio na onda","o legado deixa de depender de uma pessoa; o guardião vira referência da migração","custo por rodada visível e capacidade do time redistribuída com critério"];
-const NEG=["medo silencioso, baixa disposição e recaída ao legado por garantia","perda de identidade sentida como desvalorização; resistência passiva","a primeira divergência vira rejeição da plataforma como referência","vale de produtividade longo, frustração e abandono precoce","convivência dupla sem fim e retrabalho em duas fontes","decisões de time tomadas por boato; líder sem kit para conversar"];
-let raf=0;function play(){cancelAnimationFrame(raf);ba.set(100);const t0=performance.now();const fr=t=>{const k=clamp((t-t0)/1800,0,1),e=1-Math.pow(1-k,2),sx=e*W;[[cxA,fb],[cxB,fa]].forEach(([ctx,f])=>{ctx.fillStyle="#05060F";ctx.fillRect(0,0,W,Hh);ctx.save();ctx.beginPath();ctx.rect(0,0,sx,Hh);ctx.clip();ctx.globalAlpha=.35+.65*e;ctx.drawImage(f.off,0,0);ctx.restore();if(k<1){const g=ctx.createLinearGradient(sx-40,0,sx+4,0);g.addColorStop(0,"rgba(157,187,217,0)");g.addColorStop(1,"rgba(157,187,217,.85)");ctx.fillStyle=g;ctx.fillRect(sx-40,0,44,Hh)}});if(k<1)raf=requestAnimationFrame(fr);else ba.glide(58,1200)};raf=requestAnimationFrame(fr)}
-cxA.drawImage(fb.off,0,0);cxB.drawImage(fa.off,0,0);sel(top3[0][0],top3[0][1]);
-FXR.add(sl,{play,stop(){cancelAnimationFrame(raf);ba.halt()}})})();
-
 /* ---------- 6 · MODELO INTEGRADO (shimmer / holographic sweep) ---------- */
 const METH=[{k:"kotter",n:"Kotter",full:"8 Steps for Leading Change",fn:"Liderança e mobilização organizacional",ax:"Coalizões de liderança, visão compartilhada, remoção de barreiras e conquistas de curto prazo para sustentar a expansão do AXON.",dim:"Organizacional · Humana",fr:["01","04"],risk:"Resistência e perda de domínio; retorno aos legados",steps:["Urgência","Coalizão","Visão","Comunicar","Remover barreiras","Vitórias curtas","Consolidar","Ancorar"],c:"#002B49",bg:"linear-gradient(160deg,#1F3263,#0E1C39 60%,#071A33)",fg:"#C9D6E8",blocks:["Coalizão","Visão","Barreiras","Vitórias"]},
 {k:"bridges",n:"Bridges",full:"Transition Model",fn:"Transição psicológica e identidade profissional",ax:"Trabalhar o que os especialistas deixam para trás, a fase de incerteza e a construção de uma nova identidade técnica.",dim:"Humana",fr:["01"],risk:"Perda de domínio e identidade profissional",steps:["Fim","Zona neutra","Novo começo"],c:"#33556D",bg:"linear-gradient(160deg,#5E8AB4,#33556D)",fg:"#fff",blocks:["Fim","Zona neutra","Novo começo","Identidade"]},
@@ -2801,6 +2796,34 @@ let t0=0;function frame(t){if(!t0)t0=t;if(orbit&&!drag)tgt.rz=BASE.rz+Math.sin((
 stack.style.transform=`rotateX(${cur.rx.toFixed(2)}deg) rotateZ(${cur.rz.toFixed(2)}deg) translateZ(${(-(N-1)*gap/2).toFixed(1)}px)`;rd.textContent=`inclinação ${cur.rx.toFixed(0)}° · giro ${((cur.rz%360+360)%360).toFixed(0)}° · camadas ${gap}px`;raf=requestAnimationFrame(frame)}
 ficha(0);layout();
 FXR.add(sl,{play(){cancelAnimationFrame(raf);fitScale();cur={rx:80,rz:-70};tgt={...BASE};orbit=!RMO;bOrb.classList.toggle("on",orbit);select(-1);ficha(0);items[0].classList.add("on");gap=8;layout();setTimeout(()=>{gap=64;layout()},1300);t0=0;raf=requestAnimationFrame(frame)},stop(){cancelAnimationFrame(raf)}})})();
+
+/* ---------- 8 · PLANO DE TRABALHO (checklist editável por caminho) ---------- */
+(function(){const sl=SL("Plano de trabalho"),grid=$("wpGrid"),ctl=$("wpCtl");
+const RK={A:"#002B49",B:"#5E8AB4",C:"#F78C16",D:"#8A3A3A"},RN={A:"Perda de domínio",B:"Ruptura de confiança",C:"Vale da implementação",D:"Inércia dos legados"};
+const FR=[{k:"res",ic:"people",c:"#8A00C4",t:"Resistência e stakeholders",s:"catequização, mensagens lúdicas e gestão de quem é impactado"},{k:"ado",ic:"cap",c:"#F78C16",t:"Adoção e treinamento",s:"capacitação com o estudo real, apoio na onda e reforço da rotina"}];
+const ACT={p1:{res:[["Mapa de stakeholders por gerência: quem perde, quem ganha, quem decide","Iniciação","A"],["Coalizão de patrocinadores: um líder por gerência contando a visão do AXON","Iniciação","A"],["Conversa do líder antes de qualquer anúncio: o que muda para cada pessoa","Planejamento","A"],["Catequização: especialistas desenham os containers e validam a paridade junto","Planejamento","B"],["Mensagens lúdicas: a série “o AXON em 5 minutos” e a vitrine de estudos","Planejamento","B"],["Pulso anônimo de receios por gerência e plano de resposta por tema","Planejamento","A"],["Gestão de resistências: escuta ativa, registro e tratativa em 72 horas","Implementação","A"],["Papel novo combinado por pessoa: multiplicador, guardião do legado, dono de estudo","Implementação","D"],["Reconhecimento público de cada vitória curta nos comitês","Estabilização","D"]],
+ado:[["Trilhas por perfil: construtor, usuário, consulta e gestor","Planejamento","C"],["Turmas com o estudo real de cada gerência: rodar, comparar, refletir, rodar de novo","Implementação","C"],["Plantão na onda: multiplicador ao lado de quem roda a primeira vez","Implementação","C"],["Manual amigável por tarefa e assistente no MCP","Implementação","C"],["Selo da primeira rodada sozinho e meta protegida durante o vale","Estabilização","C"],["Rodada paralela curta com tolerância combinada e aceite do especialista","Estabilização","B"],["Portões de desnutrição do legado: mapear, espelhar, transferir, congelar, desligar","Estabilização","D"],["Diagnóstico COM-B por pessoa: capacidade, oportunidade ou motivação","Estabilização","D"],["Painel de uso efetivo e reforço da rotina nos rituais da gerência","Encerramento","D"]]},
+p2:{res:[["Diagnóstico de impactos imediato: receios já formados por gerência","Implementação","A"],["Narrativa de reconquista: por que o AXON chegou assim e o que muda agora","Implementação","A"],["Coalizão de patrocinadores formada no go-live, com roadshow por gerência","Implementação","A"],["Catequização tardia: especialistas revisam a paridade e apontam divergências","Implementação","B"],["Mensagens lúdicas de reparação: histórias de colegas que já usam","Estabilização","B"],["Gestão de resistências com prioridade: quem mais resiste é ouvido primeiro","Estabilização","A"],["Papel novo combinado por pessoa, com a convivência dupla ainda ativa","Estabilização","D"],["Reconhecimento das primeiras rotinas que migraram inteiras","Encerramento","D"]],
+ado:[["Turmas emergenciais com o estudo real, uma por gerência","Implementação","C"],["Plantão estendido: multiplicadores e suporte assistido por mais tempo","Estabilização","C"],["Manual amigável e assistente no MCP, lançados junto com o plantão","Estabilização","C"],["Rodadas paralelas longas até a confiança ser reconquistada","Estabilização","B"],["Meta protegida durante o vale e selo da primeira rodada sozinho","Estabilização","C"],["Portões de desnutrição do legado, começando pelo mais usado","Encerramento","D"],["Diagnóstico COM-B e vigilância da recaída ao legado","Encerramento","D"],["Painel de uso efetivo e reforço nos rituais da gerência","Encerramento","D"]]}};
+const KEY="axon.wp.v1";let saved={};try{saved=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(_){}
+const persist=()=>{try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(_){}};
+const data=k=>{if(!saved[k])saved[k]={res:ACT[k].res.map(a=>({t:a[0],f:a[1],r:a[2],d:false})),ado:ACT[k].ado.map(a=>({t:a[0],f:a[1],r:a[2],d:false}))};return saved[k]};
+let cur="p1";
+ctl.innerHTML=`<span class="lb">Caminho</span><div class="path-seg" id="wpSeg"><button class="tg num p1">1</button><button class="tg num p2">2</button><span class="pname" id="wpName"></span></div><div class="wp-sum" id="wpSum"></div><button class="tg2" id="wpReset">↻ Restaurar lista</button>`;
+ctl.querySelectorAll("#wpSeg .tg").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();cur=b.classList.contains("p1")?"p1":"p2";render()}));
+$("wpReset").addEventListener("click",e=>{e.stopPropagation();delete saved[cur];persist();render()});
+function render(){const D=data(cur),p=PATHS[cur];ctl.querySelectorAll("#wpSeg .tg").forEach(b=>b.classList.toggle("on",b.classList.contains(cur)));$("wpName").innerHTML=`<b style="color:${p.col}">${p.n}</b>`;
+grid.innerHTML="";FR.forEach(f=>{const L=D[f.k],done=L.filter(x=>x.d).length;const col=H("div",{class:"wp-col",style:`--c:${f.c}`},grid);
+col.innerHTML=`<div class="hd"><span class="ic">${icon(f.ic,"#fff",18)}</span><div><b>${f.t}</b><span>${f.s}</span></div><div class="pg"><b>${done}/${L.length}</b><i><s style="width:${L.length?done/L.length*100:0}%"></s></i></div></div>`;
+const ul=H("div",{class:"ls"},col);L.forEach((it,i)=>{const row=H("div",{class:"it"+(it.d?" on":"")},ul);row.innerHTML=`<button class="cb" aria-label="marcar">${icon("check","#fff",12)}</button><div class="tx" contenteditable="true" spellcheck="false">${it.t}</div><span class="ph">${it.f}</span><span class="rk" style="background:${RK[it.r]}" title="${RN[it.r]}">${it.r}</span><button class="rm" title="remover">×</button>`;
+row.querySelector(".cb").addEventListener("click",e=>{e.stopPropagation();it.d=!it.d;persist();render()});
+const tx=row.querySelector(".tx");tx.addEventListener("click",e=>e.stopPropagation());tx.addEventListener("keydown",e=>{e.stopPropagation();if(e.key==="Enter"){e.preventDefault();tx.blur()}});tx.addEventListener("blur",()=>{it.t=tx.textContent.trim()||it.t;persist()});
+row.querySelector(".rm").addEventListener("click",e=>{e.stopPropagation();L.splice(i,1);persist();render()})});
+const add=H("button",{class:"add"},col,"+ acrescentar atividade");add.addEventListener("click",e=>{e.stopPropagation();L.push({t:"Nova atividade",f:"Implementação",r:"A",d:false});persist();render();const last=grid.querySelectorAll(".wp-col")[FR.indexOf(f)].querySelectorAll(".tx");const el=last[last.length-1];el.focus();document.execCommand&&document.execCommand("selectAll",false,null)})});
+/* resumo por risco */
+const all=[...D.res,...D.ado];$("wpSum").innerHTML=`<span class="lb">Riscos tratados</span>`+["A","B","C","D"].map(r=>{const t=all.filter(x=>x.r===r),d=t.filter(x=>x.d).length;return`<span class="rs" style="--c:${RK[r]}" title="${RN[r]}"><i>${r}</i>${RN[r]}<b>${d}/${t.length}</b></span>`}).join("")}
+grid.addEventListener("keydown",e=>e.stopPropagation());
+FXR.add(sl,{play(){render()},stop(){}})})();
 
 /* ===== Casca de apresentação A&M · mesma navegação, chrome e efeitos do modelo TMG =====
    Cada deck define window.DECK antes deste script e preenche ENTER[t] para animações por tela. */
