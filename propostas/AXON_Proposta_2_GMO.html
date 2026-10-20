@@ -1508,6 +1508,19 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 .tmo-sem em{display:block;font:800 10px var(--fb);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:#F08A82}
 .tmo-sem p{margin:4px 0 0;font:500 12.5px/1.45 var(--fb);color:#F6DADA}
 
+.tmo-whys2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.tmo-whys2 .tw{border-left:3px solid #F78C16;padding:2px 10px}
+.tmo-whys2 .tw b{display:block;font:800 14px var(--fh);color:#002B49}.tmo-whys2 .tw span{display:block;font:500 11.5px/1.4 var(--fb);color:#35516A;margin-top:2px}
+.tmo-acts{margin-top:8px}.tmo-act{padding:8px 4px 6px}.tmo-act i{font:500 10px/1.25 var(--fb);font-style:normal;color:#6B7B8C;text-align:center}
+.tmo-pils{gap:10px}.tmo-pil b{font-size:15px}.tmo-pil p{font-size:12.5px;line-height:1.45}
+.tmo-imps{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.tmo-imps .chip2{font-size:11.5px;padding:5px 10px}
+.tmo-ph{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;flex:none}
+.tmo-ph .ph{background:#fff;border:1px solid var(--line);border-top:4px solid var(--c);border-radius:10px;padding:8px 12px}
+.tmo-ph .ph em{font:800 10px var(--fb);font-style:normal;letter-spacing:.12em;color:var(--c)}
+.tmo-ph .ph b{display:block;font:800 17px/1.1 var(--fh);color:#002B49}.tmo-ph .ph span{font:600 10.5px var(--fb);color:#B35F00}
+.tmo-ph .ph p{margin:3px 0 0;font:500 11.5px/1.35 var(--fb);color:#35516A}
+.tmo-prop ul{margin:8px 0 0;padding-left:18px;flex:none}.tmo-prop .tmo-sem{margin-top:auto;margin-bottom:12px}
+
 </style>
 </head>
 <body>
@@ -1614,19 +1627,32 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 </section>
 
 <!--@TMO-->
-<section class="slide" data-p="7 · TMO" data-t="Por que o TMO" data-band="TMO · por que o Transformation Office é necessário nesta etapa" data-c="c-blue" data-bs="Ao final: o que a Proposta 1 entrega" data-src="Transformation Office (TMO) = PMO + gestão de mudanças, abordagem metodológica da Alvarez &amp; Marsal: sete atividades, quatro pilares, governança em três níveis, gestão de riscos e ferramentas. A Proposta 1 detalha o método e o plano de trabalho de 6 meses.">
+<section class="slide" data-p="7 · TMO" data-t="O que é o TMO" data-band="TMO · o que é o Transformation Office e qual é o método" data-c="c-blue" data-bs="Página 1 de 2 · método" data-src="Transformation Office (TMO) = PMO + gestão de mudanças, abordagem metodológica da Alvarez &amp; Marsal: sete atividades, quatro pilares (Estratégia e Metodologia, Governança e Estrutura, Ferramentas e Indicadores, Gestão da Mudança), governança em três níveis e imperativos.">
   <div class="body sp fill">
-    <div class="stmt2" data-fx-type="word" style="font-size:23px">Quando a GMO entra no go-live, não basta cuidar das pessoas: <span data-fx-hl>produto, gerências e mudança</span> precisam de um só escritório. <span data-fx-hl>É o TMO.</span></div>
-    <div class="gr" style="display:grid;grid-template-columns:1fr 1fr 440px;gap:18px;min-height:0">
+    <div class="stmt2" data-fx-type="word" style="font-size:23px">Quando a GMO entra no go-live, <span data-fx-hl>produto, gerências e mudança</span> precisam de um só escritório: o Transformation Office, <span data-fx-hl>PMO + gestão de mudanças</span>.</div>
+    <div class="gr" style="display:grid;grid-template-columns:470px 1fr;gap:18px;min-height:0">
       <div style="display:flex;flex-direction:column;gap:12px;min-height:0">
-        <div class="pnl" style="padding:14px 18px;flex:none"><div class="eye" style="margin:0">O que é</div><div style="font:800 24px/1.1 var(--fh);color:#fff;margin-top:6px">Transformation Office <small style="font:600 13px var(--fb);color:#F9A64A">PMO + gestão de mudanças</small></div><div style="font:500 13px/1.5 var(--fb);color:#C8DBEB;margin-top:8px">Um escritório que transforma plano em resultado com governança, métricas e disciplina de execução, e que usa a gestão da mudança na condução do próprio programa. Entra na primeira semana e acompanha toda a execução.</div></div>
-        <div style="flex:1;display:flex;flex-direction:column"><div class="lbl">Por que é necessário nesta etapa <small>caminho 2: GMO a partir da liberação</small></div><div id="tmoWhy" class="tmo-whys" style="flex:1"></div></div>
+        <div class="pnl" style="padding:14px 18px"><div class="eye" style="margin:0">O que é</div><div style="font:800 24px/1.1 var(--fh);color:#fff;margin-top:6px">Transformation Office</div><div style="font:500 13px/1.5 var(--fb);color:#C8DBEB;margin-top:8px">Um escritório que transforma plano em resultado com governança, métricas e disciplina de execução, e que usa a gestão da mudança na condução do próprio programa. Entra na primeira semana e acompanha toda a execução.</div></div>
+        <div class="card" style="border-radius:12px;padding:10px 14px"><div class="lbl">Por que nesta etapa <small>caminho 2</small></div><div id="tmoWhy" class="tmo-whys2"></div></div>
+        <div class="card" style="border-radius:12px;padding:10px 14px;flex:1;min-height:0"><div class="lbl">Governança em três níveis</div><svg id="tmoGov" viewBox="0 0 470 186" width="470" height="186" style="display:block;width:100%;height:auto;margin-top:6px"></svg></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:12px;min-height:0">
-        <div><div class="lbl">Os quatro pilares do método A&amp;M</div><div id="tmoPil" class="tmo-pils"></div></div>
-        <div class="card" style="border-radius:12px;padding:10px 14px;flex:1;min-height:0"><div class="lbl">Governança em três níveis</div><svg id="tmoGov" viewBox="0 0 560 186" width="560" height="186" style="display:block;width:100%;height:auto;margin-top:6px"></svg><div class="lbl" style="margin-top:10px">As sete atividades do TO <small>começam no planejamento e acompanham toda a execução</small></div><div id="tmoAct" class="tmo-acts"></div></div>
+        <div class="card" style="border-radius:12px;padding:10px 14px"><div class="lbl">A metodologia A&amp;M · sete atividades do TO <small>começam no planejamento e acompanham toda a execução</small></div><div id="tmoAct" class="tmo-acts"></div></div>
+        <div><div class="lbl">Os quatro pilares <small>três de PMO e um de gestão da mudança</small></div><div id="tmoPil" class="tmo-pils"></div></div>
+        <div class="card" style="border-radius:12px;padding:10px 14px;flex:1;min-height:0"><div class="lbl">Imperativos A&amp;M</div><div id="tmoImp" class="tmo-imps"></div></div>
       </div>
-      <div class="tmo-prop"><div class="eye" style="margin:0;color:#F9A64A">A proposta de TMO</div><b>Proposta 1 · Transformation Office</b><p>Contexto, método e plano de trabalho de 6 meses para escalar o AXON em cinco gerências, com PMO e gestão de mudanças num único programa.</p><ul><li>Governança no ar na primeira semana</li><li>Plano integrado e um único baseline</li><li>Fila de demanda com critério de valor e risco</li><li>Painel do TMO: marcos, uso, custo e riscos</li><li>Ondas, go/no-go e desnutrição dos legados</li><li>Mudança e pessoas por dentro do programa</li><li>TMO repassado ao ONS no mês 6</li></ul><div class="tmo-sem"><em>Sem TMO, no caminho 2</em><p>Produto e gerências negociam ondas por e-mail, a GMO corre atrás de decisões já tomadas e os riscos A a D ficam sem dono. O que seria um programa vira cinco projetos paralelos.</p></div><a id="tmoLink" class="btn" href="AXON_Proposta_1_TMO.html" target="_blank" rel="noopener">Abrir a Proposta 1 · TMO →</a><span class="mini" style="color:#9DB7CE;margin-top:8px;display:block">Caminho 1 (GMO desde o desenvolvimento) pode seguir só com a Proposta 2. Caminho 2 pede as duas.</span></div>
+    </div>
+  </div>
+</section>
+
+<!--@TMOPLAN-->
+<section class="slide" data-p="7 · TMO" data-t="TMO · plano de trabalho" data-band="TMO · método de trabalho em seis meses e o que a Proposta 1 entrega" data-c="c-blue" data-bs="Página 2 de 2 · plano" data-src="Roadmap relativo (mês 1 a mês 6), sem datas de calendário; duração prevista de 6 meses. Gerência piloto, ondas e desligamento dos legados dependem da paridade técnica e da prontidão das pessoas. Proposta de método e plano de trabalho, sem valores; o detalhe está na Proposta 1.">
+  <div class="body sp fill">
+    <div class="stmt2" data-fx-type="word" style="font-size:23px">Seis meses, cinco fases e sete frentes num único baseline: <span data-fx-hl>governança no ar na primeira semana</span> e o TMO <span data-fx-hl>operado pelo ONS no mês 6</span>.</div>
+    <div id="tmoPh" class="tmo-ph"></div>
+    <div class="gr" style="display:grid;grid-template-columns:1fr 400px;gap:18px;min-height:0">
+      <div class="card" style="border-radius:12px;padding:10px 14px;display:flex;flex-direction:column"><svg id="tmoGantt" viewBox="0 0 1080 440" width="1080" height="440" style="display:block;width:100%;height:auto"></svg></div>
+      <div class="tmo-prop"><div class="eye" style="margin:0;color:#F9A64A">O que a Proposta 1 entrega</div><ul id="tmoDeliv"></ul><div class="tmo-sem"><em>Sem TMO, no caminho 2</em><p>Produto e gerências negociam ondas por e-mail, a GMO corre atrás de decisões já tomadas e os riscos A a D ficam sem dono.</p></div><a id="tmoLink" class="btn" href="AXON_Proposta_1_TMO.html" target="_blank" rel="noopener">Abrir a Proposta 1 · TMO →</a><span class="mini" style="color:#9DB7CE;margin-top:8px;display:block">Caminho 1 pode seguir só com a Proposta 2. Caminho 2 pede as duas.</span></div>
     </div>
   </div>
 </section>
@@ -2544,7 +2570,7 @@ desc:{"Capa":"Capa com uma rede de neurônios: começa com um neurônio e, a cad
 "Cenários e riscos":"Interactive Matrix: quatro riscos, um por frente de gestão de mudanças, posicionados por probabilidade e impacto. Troque o caminho (1, 2 ou 3) e veja os riscos se moverem; arraste um risco para discutir a avaliação; passe o mouse ou clique num cartão para destacar o risco na matriz.",
 "Vale da implementação":"Linha do tempo conceitual sobre um projeto de implementação de referência (modelo ERP): a curva de desempenho sobe na preparação, cai no vale depois do impacto inicial e volta mais alta na autonomia. Os riscos A a D aparecem no momento em que costumam surgir. Percorra a implementação, clique num risco para ver o que se ouve, o sinal de alerta e o que a gestão de mudanças faz, e compare com a curva sem gestão de mudanças, em que o vale se prolonga.",
 "Plano de trabalho":"Checklist de atividades em duas frentes, Resistência e stakeholders e Adoção e treinamento, para os caminhos 1 (GMO desde o desenvolvimento) e 2 (GMO a partir da liberação). Cada atividade mostra a fase e o risco que trata (A a D). Clique na caixa para marcar, clique no texto para editar, use + para acrescentar; o progresso aparece por frente e por risco.",
-"Por que o TMO":"Página final sobre o Transformation Office (TMO = PMO + gestão de mudanças), método da Alvarez & Marsal: o que ele é, por que é necessário quando a GMO entra no go-live (caminho 2), os quatro pilares, a governança em três níveis e o que a proposta de TMO entrega. Clique em “ver a Proposta 1” para o deck completo de TMO.",
+"O que é o TMO":"O Transformation Office (PMO + gestão de mudanças) pelo método da Alvarez & Marsal: o que é, por que é necessário quando a GMO entra no go-live, as sete atividades, os quatro pilares, a governança em três níveis e os imperativos.","TMO · plano de trabalho":"Método de trabalho do TMO em seis meses: cinco fases, sete frentes num único baseline e marcos de decisão. À direita, o que a Proposta 1 entrega e o link para o deck completo.",
 "Modelo integrado":"Shimmer / Holographic Sweep: os indicadores do modelo carregam sobre um esqueleto e o selo do programa recebe o reflexo holográfico. Quatro dimensões, cinco métodos, quatro frentes, quatro riscos tratados.",
 "Camadas de método":"3D Tilt / Perspective: os cinco métodos são camadas do programa. Clique numa ficha ou numa camada para abrir a ficha técnica; recolha o bloco para ver o protótipo do programa AXON e expanda para ver cada camada."}};
 
@@ -2889,16 +2915,23 @@ $("wpSum").innerHTML=`<span class="lb">Riscos</span>`+["A","B","C","D"].map(r=>{
 grid.addEventListener("keydown",e=>e.stopPropagation());
 FXR.add(sl,{play(){render()},stop(){}})})();
 
-/* ---------- 9 · POR QUE O TMO ---------- */
-(function(){const sl=SL("Por que o TMO");
-[["Interdependências","Produto, gerências e mudança decidem juntos: fila única, sem sobreposição de ondas e containers."],["Integração","Um baseline, rituais formais e gate de validação técnica e de negócio antes de cada onda."],["Riscos","Os riscos A a D entram no mapa do programa, com dono, prazo e alerta precoce."],["Stakeholders","Comitês com as gerências e a liderança: a resistência sobe pela alçada certa, não pelo corredor."]].forEach(([t,d],i)=>{const x=H("div",{class:"tmo-why","data-a":"up",style:`--d:${4+i*.3}`},$("tmoWhy"));x.innerHTML=`<b>${t}</b><p>${d}</p>`});
-const PIL=[["target","#002B49","Estratégia e Metodologia","abordagem no ritmo do ONS, priorização por valor e prontidão"],["shield","#1F3263","Governança e Estrutura","comitês com alçada, papéis claros, decisões integradas"],["chart","#5E8AB4","Ferramentas e Indicadores","painel de marcos, uso e custo; templates únicos; rastreabilidade"],["people","#F78C16","Gestão da Mudança","comunicação estruturada, apoio nas fricções, narrativa única"]];
-PIL.forEach(([ic,c,t,d],i)=>{const x=H("div",{class:"tmo-pil","data-a":"up",style:`--d:${6+i*.25};--c:${c}`},$("tmoPil"));x.innerHTML=`<span class="ic">${icon(ic,"#fff",17)}</span><b>${t}</b><p>${d}</p>`});
+
+/* ---------- 9 · O QUE É O TMO ---------- */
+(function(){
+[["Interdependências","produto, gerências e mudança decidem juntos: fila única, sem sobreposição de ondas e containers"],["Integração","um baseline, rituais formais e gate de validação técnica e de negócio antes de cada onda"],["Riscos","os riscos A a D entram no mapa do programa, com dono, prazo e alerta precoce"],["Stakeholders","a resistência sobe pela alçada certa: comitês com as gerências e a liderança"]].forEach(([t,d])=>{const x=H("div",{class:"tw"},$("tmoWhy"));x.innerHTML=`<b>${t}</b><span>${d}</span>`});
+[["calendar","Planejamento","plano integrado por ondas"],["target","Definição de métricas","uso, paridade, custo e horas"],["megaphone","Engajamento","patrocinadores e gerências"],["cap","Capacitação","líderes, multiplicadores e times"],["eye","Acompanhamento","status semanal e riscos"],["chat","Comunicação","narrativa e protocolos únicos"],["chart","Report de resultados","valor para a liderança"]].forEach(([ic,t,d])=>{const x=H("div",{class:"tmo-act"},$("tmoAct"));x.innerHTML=`<span>${icon(ic,"#fff",15)}</span><b>${t}</b><i>${d}</i>`});
+[["target","#002B49","Estratégia e Metodologia","abordagem no ritmo do ONS, priorização por valor e prontidão, planejamento incremental por ondas"],["shield","#1F3263","Governança e Estrutura","comitês com alçada para escopo, orçamento de nuvem e legados; papéis claros; decisões integradas"],["chart","#5E8AB4","Ferramentas e Indicadores","painel de marcos, uso e custo por gerência; templates únicos; rastreabilidade de cada onda"],["people","#F78C16","Gestão da Mudança","comunicação estruturada, apoio nas fricções entre produto e gerências, narrativa única do AXON"]].forEach(([ic,c,t,d])=>{const x=H("div",{class:"tmo-pil",style:`--c:${c}`},$("tmoPil"));x.innerHTML=`<span class="ic">${icon(ic,"#fff",17)}</span><b>${t}</b><p>${d}</p>`});
+["Sponsorship forte e participativo","Informação certa, decisão certa","Planejamento de capacidade","Controle de mudança de escopo","Governança permanente","Ferramenta digital de governança","Um baseline","Especialistas (SMEs)","Riscos e qualidade","Suporte à gestão da mudança","Gestão de stakeholders"].forEach((t,i)=>H("span",{class:"chip2",style:i===6?"background:#F78C16;color:#0E1C39":""},$("tmoImp"),t));
 const s=$("tmoGov"),L=[["Comitê Executivo","mensal ou bimestral","escopo, orçamento de nuvem, legados","#002B49"],["Comitê Gestor","quinzenal","frentes, riscos, impedimentos","#1F3263"],["Gestão do TO","semanal","cronograma, status, ações de change","#5E8AB4"]];
-L.forEach(([n,f,d,c],i)=>{const y=8+i*58,w0=90+i*60,w1=150+i*60,cx=120;path(`M${cx-w0/2} ${y} L${cx+w0/2} ${y} L${cx+w1/2} ${y+50} L${cx-w1/2} ${y+50} Z`,{fill:c},s);T(s,cx,y+30,n,{"text-anchor":"middle",fill:"#fff",style:"font:800 13px var(--fh)"});T(s,260,y+22,f,{fill:"#B35F00",style:"font:800 11px var(--fb)"});T(s,260,y+38,d,{fill:"#35516A",style:"font:600 11px var(--fb)"})});
-mk(s,"tmoA","#F78C16");path("M12 176 L12 14",{stroke:"#F78C16","stroke-width":2.5,fill:"none","marker-end":"url(#tmoA)"},s);
-[["calendar","Planejamento"],["target","Métricas"],["megaphone","Engajamento"],["cap","Capacitação"],["eye","Acompanhamento"],["chat","Comunicação"],["chart","Report"]].forEach(([ic,t],i)=>{const x=H("div",{class:"tmo-act","data-a":"pop",style:`--d:${8+i*.15}`},$("tmoAct"));x.innerHTML=`<span>${icon(ic,"#fff",15)}</span><b>${t}</b>`});
-$("tmoLink").addEventListener("click",e=>{e.stopPropagation()})})();
+L.forEach(([n,f,d,c],i)=>{const y=8+i*58,w0=80+i*50,w1=130+i*50,cx=118;path(`M${cx-w0/2} ${y} L${cx+w0/2} ${y} L${cx+w1/2} ${y+50} L${cx-w1/2} ${y+50} Z`,{fill:c},s);T(s,cx,y+30,n,{"text-anchor":"middle",fill:"#fff",style:"font:800 13px var(--fh)"});T(s,250,y+22,f,{fill:"#B35F00",style:"font:800 11px var(--fb)"});T(s,250,y+38,d,{fill:"#35516A",style:"font:600 11px var(--fb)"})});
+mk(s,"tmoA","#F78C16");path("M12 176 L12 14",{stroke:"#F78C16","stroke-width":2.5,fill:"none","marker-end":"url(#tmoA)"},s)})();
+
+/* ---------- 10 · TMO · PLANO DE TRABALHO (estático) ---------- */
+(function(){
+[["01","Mobilizar","mês 1","governança no ar, baseline e leitura das frentes","#5E8AB4"],["02","Estruturar","mês 2","plano integrado, fila priorizada e critérios de go","#33556D"],["03","Pilotar","mês 3","gerência piloto com rodada paralela","#F78C16"],["04","Escalar","meses 4 e 5","ondas, catálogo e desnutrição dos legados","#1F3263"],["05","Transferir","mês 6","TMO operado pelo ONS e lições aprendidas","#002B49"]].forEach(([n,t,w,d,c])=>{const x=H("div",{class:"ph",style:`--c:${c}`},$("tmoPh"));x.innerHTML=`<em>${n}</em><b>${t}</b><span>${w}</span><p>${d}</p>`});
+gantt($("tmoGantt"),[["Governança e PMO","#002B49",[[0,1,"Comitês e baseline"],[1,6,"Status semanal · comitês quinzenal e mensal",1]]],["Produto e backlog","#33556D",[[0,1.5,"Critérios de prioridade"],[1.5,6,"Releases por valor e por onda",1]]],["Containers e catálogo","#5E8AB4",[[.5,2,"Padrão e fila"],[2,3,"Piloto"],[3,5.5,"Ondas"]]],["Ondas de adoção","#F78C16",[[1,2,"Fila de ondas"],[2,3.5,"Piloto + paralela"],[3.5,4.5,"Onda 1"],[4.5,5.5,"Onda 2"]]],["Legados","#1F3263",[[.5,2,"Inventário e guardiões"],[2,5,"Paridade e congelamento",1],[5,6,"Desligar"]]],["Mudança e pessoas","#C96A05",[[0,1.5,"Stakeholders e narrativa"],[1.5,5.5,"Comunicação, trilhas e multiplicadores",1],[5.5,6,"Sustentar"]]],["Valor e custo","#35516A",[[.5,1.5,"Linha de base"],[1.5,6,"Uso, custo por rodada e horas devolvidas",1]]]],{lab:200,rh:50,top:36,ms:[[.25,"Governança no ar"],[2,"Go do piloto"],[3.5,"Go onda 1"],[4.5,"Go onda 2"],[6,"TMO no ONS"]]});
+["Estrutura de governança, alçadas e rituais","Plano integrado e baseline único","Fila de demanda com critérios de prioridade","Painel do TMO: marcos, uso, custo e riscos","Ondas, go/no-go e desnutrição dos legados","Plano de stakeholders e comunicação","Mapa de riscos com alertas precoces","TMO repassado ao ONS, com manual de operação"].forEach(t=>H("li",null,$("tmoDeliv"),t));
+$("tmoLink").addEventListener("click",e=>e.stopPropagation())})();
 
 /* ===== Casca de apresentação A&M · mesma navegação, chrome e efeitos do modelo TMG =====
    Cada deck define window.DECK antes deste script e preenche ENTER[t] para animações por tela. */
