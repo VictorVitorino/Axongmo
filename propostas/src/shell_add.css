@@ -889,3 +889,4 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 .tmo-ph .ph b{display:block;font:800 17px/1.1 var(--fh);color:#002B49}.tmo-ph .ph span{font:600 10.5px var(--fb);color:#B35F00}
 .tmo-ph .ph p{margin:3px 0 0;font:500 11.5px/1.35 var(--fb);color:#35516A}
 .tmo-prop ul{margin:8px 0 0;padding-left:18px;flex:none}.tmo-prop .tmo-sem{margin-top:auto;margin-bottom:12px}
+.tmo-prop .tmo-sem{margin-bottom:10px}
