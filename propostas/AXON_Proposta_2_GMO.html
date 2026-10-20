@@ -1014,7 +1014,7 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 .path-seg{display:flex;gap:6px;align-items:center}
 .path-seg .tg.p3.on{background:#8A3A3A;border-color:#8A3A3A}.path-seg .tg.p1.on{background:#F78C16;border-color:#F78C16;color:#0E1C39}.path-seg .tg.p2.on{background:#5E8AB4;border-color:#5E8AB4}
 /* asis / tobe do contexto */
-.asis{background:#E4EBF5;padding:40px 14px 12px;display:flex;flex-direction:column;gap:7px;color:#3E4C5E;height:100%}
+.asis{background:#FBEDEC;padding:40px 14px 12px;display:flex;flex-direction:column;gap:7px;color:#3E4C5E;height:100%}
 .asis .bar{display:flex;align-items:center;gap:6px;background:#CBD4E1;border:1px solid #B5C0D0;border-radius:4px;padding:3px 8px;font:500 9.5px var(--fb)}
 .asis .bar span{font-family:"JetBrains Mono",monospace;margin:0 auto 0 60px}.asis .bar i{font-style:normal;background:#EEF2F7;border:1px solid #B5C0D0;border-radius:3px;padding:1px 5px}
 .asis .row{flex:1;display:grid;grid-template-columns:150px 1fr;gap:8px;align-items:center;background:#F6F8FB;border:1px solid #CBD4E1;border-radius:4px;padding:6px 9px;font:500 11px/1.35 var(--fb)}
@@ -1026,8 +1026,9 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 .tobe .hd em{font-style:normal;font:700 10.5px var(--fb);color:#fff;border-radius:6px;padding:4px 9px}
 .tobe .row{flex:1;display:grid;grid-template-columns:150px 1fr;gap:8px;align-items:center;background:#F6F8FB;border:1px solid #E2E7EF;border-radius:8px;padding:6px 10px;font:500 12.5px/1.35 var(--fb);color:#35516A}
 .tobe .row b{font:800 12.5px var(--fh);color:#002B49}
-.tobe .row.hot{background:#FEF6EC;border-color:#F5D2A8}
+.tobe .row.hot{background:#EAF2FB;border-color:#BFD0E1}
 .tobe .row.cold{background:#FBEDEC;border-color:#F2B9B5}
+.tobe{background:#F4F8FD}
 /* matriz interativa */
 .mx{position:relative;min-height:0}
 .mx .ylab{position:absolute;left:0;top:30px;bottom:66px;width:20px;display:grid;place-items:center}
@@ -1190,6 +1191,7 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 .asis .hd b{display:block;font:800 16px/1.1 var(--fh);color:#3E4C5E;margin-top:2px}
 .asis .hd em{font-style:normal;font:700 10.5px var(--fb);color:#fff;background:#6B7B8C;border-radius:6px;padding:4px 9px}
 .asis .row,.tobe .row{flex:none;height:48px;padding:4px 12px}
+.asis .row{background:#fff;border-color:#F2B9B5}.asis .row b,.asis .row span{color:#7A2E2E}.asis .hd b{color:#8A1F1F}.asis .hd em{background:#BC0404}.asis .hd span{color:#A05050}
 .ba.knob-bottom .ba-k{top:auto;bottom:6px;margin:0 0 0 -18px}
 .ba .ba-lbl:empty{display:none}
 .ba-ctl .btn,.ba-ctl .tg{white-space:nowrap}
@@ -1482,6 +1484,30 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
 .wp-col .it{grid-template-columns:24px 1fr auto 22px 24px 18px}
 .wp-sum .rs{padding:3px 8px 3px 4px}
 
+.ba .ba-lbl.a{background:#BC0404}.ba .ba-lbl.b{background:#1F3263}
+#dlSvg .dl2-tmo{cursor:pointer}#dlSvg .dl2-tmo:hover rect{fill:#F78C16}#dlSvg .dl2-tmo:hover text{fill:#0E1C39}
+.tmo-whys{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.tmo-why{background:#fff;border:1px solid var(--line);border-left:4px solid #F78C16;border-radius:10px;padding:10px 12px}
+.tmo-why b{display:block;font:800 15px var(--fh);color:#002B49}.tmo-why p{margin:4px 0 0;font:500 12.5px/1.45 var(--fb);color:#35516A}
+.tmo-pils{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.tmo-pil{background:#fff;border:1px solid var(--line);border-top:4px solid var(--c);border-radius:10px;padding:9px 12px}
+.tmo-pil .ic{width:28px;height:28px;border-radius:50%;background:var(--c);display:inline-grid;place-items:center;vertical-align:middle;margin-right:8px}
+.tmo-pil b{font:800 14px var(--fh);color:#002B49;vertical-align:middle}.tmo-pil p{margin:5px 0 0;font:500 11.5px/1.4 var(--fb);color:#35516A}
+.tmo-prop{background:linear-gradient(155deg,#1F3263,#122143 60%,#0E1C39);border-radius:14px;padding:16px 18px;color:#DDEAF5;display:flex;flex-direction:column}
+.tmo-prop b{display:block;font:800 22px/1.1 var(--fh);color:#fff;margin-top:6px}.tmo-prop p{font:500 13px/1.5 var(--fb);color:#C8DBEB;margin:8px 0 0}
+.tmo-prop ul{margin:10px 0 0;padding-left:18px}.tmo-prop li{font:500 12.5px/1.5 var(--fb);color:#DDEAF5}
+.tmo-prop .btn{margin-top:auto;display:block;text-align:center;background:#F78C16;color:#0E1C39;font:800 13px var(--fb);border-radius:9px;padding:10px 14px;text-decoration:none}
+.tmo-prop .btn:hover{background:#F9A64A}
+.tmo-whys{grid-auto-rows:1fr}.tmo-why{display:flex;flex-direction:column;justify-content:center;padding:12px 14px}.tmo-why b{font-size:17px}.tmo-why p{font-size:13.5px}
+.tmo-pil{padding:11px 12px}.tmo-pil p{font-size:12.5px}
+.tmo-acts{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:8px}
+.tmo-act{display:flex;flex-direction:column;align-items:center;gap:5px;background:#F4F7FA;border-radius:9px;padding:8px 4px}
+.tmo-act span{width:28px;height:28px;border-radius:50%;background:#122143;display:grid;place-items:center}
+.tmo-act b{font:800 10.5px/1.1 var(--fh);color:#002B49;text-align:center;letter-spacing:.02em}
+.tmo-sem{margin-top:12px;background:rgba(188,4,4,.16);border:1px solid rgba(224,68,58,.45);border-radius:10px;padding:10px 12px}
+.tmo-sem em{display:block;font:800 10px var(--fb);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:#F08A82}
+.tmo-sem p{margin:4px 0 0;font:500 12.5px/1.45 var(--fb);color:#F6DADA}
+
 </style>
 </head>
 <body>
@@ -1584,6 +1610,24 @@ x-ax{display:inline;font:inherit;font-weight:800;letter-spacing:inherit}
     <div class="stmt2" data-fx-type="word" style="font-size:23px">O método vira <span data-fx-hl>atividades com dono e momento</span>: o que fazemos para vencer a resistência e o que fazemos para a adoção <span data-fx-hl>virar rotina</span>.</div>
     <div class="wp-ctl" id="wpCtl"></div>
     <div class="gr wp-grid" id="wpGrid"></div>
+  </div>
+</section>
+
+<!--@TMO-->
+<section class="slide" data-p="7 · TMO" data-t="Por que o TMO" data-band="TMO · por que o Transformation Office é necessário nesta etapa" data-c="c-blue" data-bs="Ao final: o que a Proposta 1 entrega" data-src="Transformation Office (TMO) = PMO + gestão de mudanças, abordagem metodológica da Alvarez &amp; Marsal: sete atividades, quatro pilares, governança em três níveis, gestão de riscos e ferramentas. A Proposta 1 detalha o método e o plano de trabalho de 6 meses.">
+  <div class="body sp fill">
+    <div class="stmt2" data-fx-type="word" style="font-size:23px">Quando a GMO entra no go-live, não basta cuidar das pessoas: <span data-fx-hl>produto, gerências e mudança</span> precisam de um só escritório. <span data-fx-hl>É o TMO.</span></div>
+    <div class="gr" style="display:grid;grid-template-columns:1fr 1fr 440px;gap:18px;min-height:0">
+      <div style="display:flex;flex-direction:column;gap:12px;min-height:0">
+        <div class="pnl" style="padding:14px 18px;flex:none"><div class="eye" style="margin:0">O que é</div><div style="font:800 24px/1.1 var(--fh);color:#fff;margin-top:6px">Transformation Office <small style="font:600 13px var(--fb);color:#F9A64A">PMO + gestão de mudanças</small></div><div style="font:500 13px/1.5 var(--fb);color:#C8DBEB;margin-top:8px">Um escritório que transforma plano em resultado com governança, métricas e disciplina de execução, e que usa a gestão da mudança na condução do próprio programa. Entra na primeira semana e acompanha toda a execução.</div></div>
+        <div style="flex:1;display:flex;flex-direction:column"><div class="lbl">Por que é necessário nesta etapa <small>caminho 2: GMO a partir da liberação</small></div><div id="tmoWhy" class="tmo-whys" style="flex:1"></div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;min-height:0">
+        <div><div class="lbl">Os quatro pilares do método A&amp;M</div><div id="tmoPil" class="tmo-pils"></div></div>
+        <div class="card" style="border-radius:12px;padding:10px 14px;flex:1;min-height:0"><div class="lbl">Governança em três níveis</div><svg id="tmoGov" viewBox="0 0 560 186" width="560" height="186" style="display:block;width:100%;height:auto;margin-top:6px"></svg><div class="lbl" style="margin-top:10px">As sete atividades do TO <small>começam no planejamento e acompanham toda a execução</small></div><div id="tmoAct" class="tmo-acts"></div></div>
+      </div>
+      <div class="tmo-prop"><div class="eye" style="margin:0;color:#F9A64A">A proposta de TMO</div><b>Proposta 1 · Transformation Office</b><p>Contexto, método e plano de trabalho de 6 meses para escalar o AXON em cinco gerências, com PMO e gestão de mudanças num único programa.</p><ul><li>Governança no ar na primeira semana</li><li>Plano integrado e um único baseline</li><li>Fila de demanda com critério de valor e risco</li><li>Painel do TMO: marcos, uso, custo e riscos</li><li>Ondas, go/no-go e desnutrição dos legados</li><li>Mudança e pessoas por dentro do programa</li><li>TMO repassado ao ONS no mês 6</li></ul><div class="tmo-sem"><em>Sem TMO, no caminho 2</em><p>Produto e gerências negociam ondas por e-mail, a GMO corre atrás de decisões já tomadas e os riscos A a D ficam sem dono. O que seria um programa vira cinco projetos paralelos.</p></div><a id="tmoLink" class="btn" href="AXON_Proposta_1_TMO.html" target="_blank" rel="noopener">Abrir a Proposta 1 · TMO →</a><span class="mini" style="color:#9DB7CE;margin-top:8px;display:block">Caminho 1 (GMO desde o desenvolvimento) pode seguir só com a Proposta 2. Caminho 2 pede as duas.</span></div>
+    </div>
   </div>
 </section>
 
@@ -2489,8 +2533,8 @@ function fxSpotlight(rootEl, opts) {
 }
 /* ===== Proposta 2 · Gestão de Mudanças (GMO) · adoção do AXON · dois futuros, três caminhos ===== */
 window.DECK={brandSub:"ONS · AXON · Gestão de Mudanças",rightLabel:"Proposta 2 · GMO",footLabel:"AXON · ADOÇÃO · GMO",
-parts:[["Capa","Contexto"],["Futuros","1 · Futuros"],["Contexto","2 · Contexto"],["Desafios","3 · Riscos"],["Método","5 · Método"],["Plano","6 · Plano de trabalho"]],
-chapters:{"1 · Futuros":["01","Dois futuros possíveis","O AXON pode virar a rotina do ONS ou virar mais um sistema. Três caminhos levam a esses dois futuros."],"2 · Contexto":["02","Contexto","O que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas."],"3 · Riscos":["03","Previsão de desafios","Os quatro riscos que o AXON vai enfrentar, em qualquer caminho. E o momento em que cada um aparece numa implementação."],"5 · Método":["04","Com método, a mudança acontece","Um modelo integrado, quatro dimensões e cinco métodos em camadas para chegar ao futuro certo."],"6 · Plano de trabalho":["05","Plano de trabalho","Duas frentes e um checklist de atividades. Resistência tratada de perto e adoção com treinamento, no caminho 1 e no caminho 2."]},
+parts:[["Capa","Contexto"],["Futuros","1 · Futuros"],["Contexto","2 · Contexto"],["Desafios","3 · Riscos"],["Método","5 · Método"],["Plano","6 · Plano de trabalho"],["TMO","7 · TMO"]],
+chapters:{"1 · Futuros":["01","Dois futuros possíveis","O AXON pode transformar a rotina do ONS ou virar mais um sistema. Três caminhos levam a esses dois futuros."],"2 · Contexto":["02","Contexto","O que o AXON faz, o que ele muda para o ONS e o que ele mexe nas pessoas."],"3 · Riscos":["03","Previsão de desafios","Os quatro riscos que o AXON vai enfrentar, em qualquer caminho. E o momento em que cada um aparece numa implementação."],"5 · Método":["04","Com método, a mudança acontece","Um modelo integrado, quatro dimensões e cinco métodos em camadas para chegar ao futuro certo."],"6 · Plano de trabalho":["05","Plano de trabalho","Duas frentes e um checklist de atividades. Resistência tratada de perto e adoção com treinamento, no caminho 1 e no caminho 2."],"7 · TMO":["06","Transformation Office","Quando a gestão de mudanças entra tarde, o programa precisa de um escritório que integre produto, gerências e mudança. O TMO é a proposta para essa etapa."]},
 zoom:["flowScene","dlSvg","baCtx","mx","vale","shim"],
 descDefault:"Proposta de gestão de mudanças para a adoção do AXON.",
 desc:{"Capa":"Capa com uma rede de neurônios: começa com um neurônio e, a cada Pulsar (ou clique na área à direita), cresce outro que liga o axônio a um vizinho. O impulso chega pelos dendritos, salta pela mielina e atravessa a sinapse até o próximo neurônio. Aproxime o cursor para estimular; clique num neurônio para dispará-lo.",
@@ -2500,6 +2544,7 @@ desc:{"Capa":"Capa com uma rede de neurônios: começa com um neurônio e, a cad
 "Cenários e riscos":"Interactive Matrix: quatro riscos, um por frente de gestão de mudanças, posicionados por probabilidade e impacto. Troque o caminho (1, 2 ou 3) e veja os riscos se moverem; arraste um risco para discutir a avaliação; passe o mouse ou clique num cartão para destacar o risco na matriz.",
 "Vale da implementação":"Linha do tempo conceitual sobre um projeto de implementação de referência (modelo ERP): a curva de desempenho sobe na preparação, cai no vale depois do impacto inicial e volta mais alta na autonomia. Os riscos A a D aparecem no momento em que costumam surgir. Percorra a implementação, clique num risco para ver o que se ouve, o sinal de alerta e o que a gestão de mudanças faz, e compare com a curva sem gestão de mudanças, em que o vale se prolonga.",
 "Plano de trabalho":"Checklist de atividades em duas frentes, Resistência e stakeholders e Adoção e treinamento, para os caminhos 1 (GMO desde o desenvolvimento) e 2 (GMO a partir da liberação). Cada atividade mostra a fase e o risco que trata (A a D). Clique na caixa para marcar, clique no texto para editar, use + para acrescentar; o progresso aparece por frente e por risco.",
+"Por que o TMO":"Página final sobre o Transformation Office (TMO = PMO + gestão de mudanças), método da Alvarez & Marsal: o que ele é, por que é necessário quando a GMO entra no go-live (caminho 2), os quatro pilares, a governança em três níveis e o que a proposta de TMO entrega. Clique em “ver a Proposta 1” para o deck completo de TMO.",
 "Modelo integrado":"Shimmer / Holographic Sweep: os indicadores do modelo carregam sobre um esqueleto e o selo do programa recebe o reflexo holográfico. Quatro dimensões, cinco métodos, quatro frentes, quatro riscos tratados.",
 "Camadas de método":"3D Tilt / Perspective: os cinco métodos são camadas do programa. Clique numa ficha ou numa camada para abrir a ficha técnica; recolha o bloco para ver o protótipo do programa AXON e expanda para ver cada camada."}};
 
@@ -2572,9 +2617,9 @@ onPath(k=>{pin=null;PK.forEach(q=>ctr[q].classList.remove("on"));fut.eok.classLi
 FXR.add(sl,{play(){pin=null;PK.forEach(q=>ctr[q].classList.remove("on"));fut.eok.classList.remove("pin");fut.ebad.classList.remove("pin");sc.querySelectorAll(".stp.flip").forEach(z=>z.classList.remove("flip"));light([PATH])},stop(){timers.forEach(clearTimeout)}})})();
 
 /* ---------- 1b · CUSTO DE ATRASAR A GMO ---------- */
-(function(){const sl=SL("Custo de atrasar a GMO"),s=$("dlSvg"),X0=24,X1=976,Y0=52,Y1=300,FX=f=>X0+f*(X1-X0),FY=v=>Y1-v*(Y1-Y0);
+(function(){const sl=SL("Custo de atrasar a GMO"),s=$("dlSvg"),X0=24,X1=976,Y0=70,Y1=310,FX=f=>X0+f*(X1-X0),FY=v=>Y1-v*(Y1-Y0);
 const PH=[["Iniciação","escopo e patrocínio"],["Planejamento","desenho do AXON"],["Implementação","construção e go-live"],["Estabilização","uso e ajustes"],["Encerramento","rotina e legado"]];
-const ENTRY={p1:{f:.04,mode:0,lab:"GMO entra na iniciação"},p2:{f:.6,mode:1,lab:"GMO entra no go-live"},p3:{f:null,mode:2,lab:"GMO não entra"}};
+const ENTRY={p1:{f:.04,mode:0,lab:"GMO entra na iniciação"},p2:{f:.6,mode:1,lab:"GMO entra no go-live · exige TMO"},p3:{f:null,mode:2,lab:"GMO não entra"}};
 const df=S("defs",null,s);const lg=(id,c,o1,o2)=>{const g=S("linearGradient",{id,x1:0,y1:0,x2:0,y2:1},df);S("stop",{offset:0,"stop-color":c,"stop-opacity":o1},g);S("stop",{offset:1,"stop-color":c,"stop-opacity":o2},g)};lg("dlInf","#8A00C4",.22,.02);
 const ht=S("pattern",{id:"dlHt",width:9,height:9,patternUnits:"userSpaceOnUse",patternTransform:"rotate(45)"},df);S("rect",{width:9,height:9,fill:"rgba(188,4,4,.035)"},ht);S("line",{x1:0,y1:0,x2:0,y2:9,stroke:"rgba(188,4,4,.16)","stroke-width":3},ht);
 const fl=S("filter",{id:"dlGl",x:"-50%",y:"-50%",width:"200%",height:"200%"},df);S("feGaussianBlur",{stdDeviation:"3",result:"b"},fl);const fm=S("feMerge",null,fl);S("feMergeNode",{in:"b"},fm);S("feMergeNode",{in:"SourceGraphic"},fm);
@@ -2601,7 +2646,7 @@ const badge=(f,v,t)=>{const x=FX(f),g=S("g",{class:"dl2-bd"},s);S("rect",{x:x-62
 badge(.13,"47%","atingem objetivos · Prosci");badge(.9,"29%","atingem objetivos · Prosci");
 /* cursor de entrada da GMO */
 const cur=S("g",{class:"dl2-cur"},s);const cl=S("line",{x1:0,y1:Y0-6,x2:0,y2:Y1,stroke:"#8A00C4","stroke-width":2.5},cur);const cd=S("circle",{cx:0,cy:0,r:8,fill:"#8A00C4",stroke:"#fff","stroke-width":3,filter:"url(#dlGl)"},cur);
-const cp=S("g",null,cur);const cpr=S("rect",{x:0,y:Y0-32,width:0,height:24,rx:12,fill:"url(#dlCp)"},cp);const cpt=T(cp,0,Y0-15,"",{"text-anchor":"middle",fill:"#fff",style:"font:800 11.5px var(--fb)"});
+const cp=S("g",null,cur);const tmoTag=S("g",{class:"dl2-tmo"},cur);const tmoR=S("rect",{x:0,y:Y0-66,width:150,height:24,rx:12,fill:"#002B49",stroke:"#F78C16","stroke-width":1.5},tmoTag);const tmoT=T(tmoTag,0,Y0-50,"TMO · ver página 10 →",{"text-anchor":"middle",fill:"#fff",style:"font:800 11px var(--fb);letter-spacing:.04em"});tmoTag.addEventListener("click",e=>{e.stopPropagation();go(N-1)});tip(tmoTag,"Transformation Office","Com a GMO entrando só no go-live, o programa precisa de um TMO para integrar produto, gerências e mudança. Clique para ver a página 10.");const cpr=S("rect",{x:0,y:Y0-32,width:0,height:24,rx:12,fill:"url(#dlCp)"},cp);const cpt=T(cp,0,Y0-15,"",{"text-anchor":"middle",fill:"#fff",style:"font:800 11.5px var(--fb)"});
 const cg=S("linearGradient",{id:"dlCp",x1:0,y1:0,x2:1,y2:1},df);S("stop",{offset:0,"stop-color":"#B04DFF"},cg);S("stop",{offset:1,"stop-color":"#8A00C4"},cg);
 /* modos */
 const MODES=[["shield","Prevenir","Iniciação e planejamento","A GMO desenha a mudança junto com o produto: mapeia impactos, prepara líderes e envolve os especialistas antes de decidir."],["refresh","Corrigir","Implementação e go-live","A GMO herda decisões prontas: trata a resistência que já se formou e refaz comunicação e capacitação."],["warn","Resgatar","Estabilização em diante","Sem preparo, o custo aparece no uso: retrabalho, redesenho, convivência com o legado e adoção parcial."]];
@@ -2612,7 +2657,7 @@ $("dlStats").innerHTML=ST.map(([v,t,src],i)=>`<div class="dl2-st fx-sh-card" dat
 FXR.add(sl,fxShimmerSweep($("dlStats"),{delay:2400,stagger:220}));
 let an=null,fx=.04;
 function place(f,k){const E=ENTRY[k],none=E.f==null,x=FX(none?1:f),y=FY(inf(Math.min(f,1)));cur.style.opacity=none?.0:1;cl.setAttribute("x1",x);cl.setAttribute("x2",x);cd.setAttribute("cx",x);cd.setAttribute("cy",y);
-const w=E.lab.length*7+34;cpr.setAttribute("x",Math.min(Math.max(x-w/2,X0),X1-w));cpr.setAttribute("width",w);cpt.setAttribute("x",Math.min(Math.max(x,X0+w/2),X1-w/2));cpt.textContent=`${PATHS[k].tag} · ${E.lab}`;
+const w=E.lab.length*7+34;cpr.setAttribute("x",Math.min(Math.max(x-w/2,X0),X1-w));cpr.setAttribute("width",w);cpt.setAttribute("x",Math.min(Math.max(x,X0+w/2),X1-w/2));cpt.textContent=`${PATHS[k].tag} · ${E.lab}`;tmoTag.style.display=k==="p2"?"":"none";const tx=Math.min(Math.max(x,X0+75),X1-75);tmoR.setAttribute("x",tx-75);tmoT.setAttribute("x",tx);
 const lw=(none?X1:x)-X0;lost.setAttribute("width",Math.max(0,lw));lostT.textContent=lw>230?(none?"Sem GMO: ninguém prepara as pessoas em nenhuma fase":"janela de preparo que a GMO não usou"):""}
 function go2(k,anim){if(an)an();const E=ENTRY[k],to=E.f==null?1:E.f,from=fx;mc.forEach((m,i)=>{m.classList.toggle("on",i===E.mode);m.classList.toggle("none",k==="p3"&&i===E.mode)});
 if(k==="p3")mc[2].querySelector("p").textContent="Sem gestão de mudanças, ninguém resgata: o custo do retrabalho e da convivência com o legado fica com as gerências.";else mc[2].querySelector("p").textContent=MODES[2][3];
@@ -2843,6 +2888,17 @@ const add=H("button",{class:"add"},col,"+ acrescentar atividade");add.addEventLi
 $("wpSum").innerHTML=`<span class="lb">Riscos</span>`+["A","B","C","D"].map(r=>{const t=D.filter(x=>x.r===r),d=t.filter(x=>x.d).length;return`<span class="rs" style="--c:${RK[r]}" title="${RN[r]}"><i>${r}</i><b>${d}/${t.length}</b></span>`}).join("")}
 grid.addEventListener("keydown",e=>e.stopPropagation());
 FXR.add(sl,{play(){render()},stop(){}})})();
+
+/* ---------- 9 · POR QUE O TMO ---------- */
+(function(){const sl=SL("Por que o TMO");
+[["Interdependências","Produto, gerências e mudança decidem juntos: fila única, sem sobreposição de ondas e containers."],["Integração","Um baseline, rituais formais e gate de validação técnica e de negócio antes de cada onda."],["Riscos","Os riscos A a D entram no mapa do programa, com dono, prazo e alerta precoce."],["Stakeholders","Comitês com as gerências e a liderança: a resistência sobe pela alçada certa, não pelo corredor."]].forEach(([t,d],i)=>{const x=H("div",{class:"tmo-why","data-a":"up",style:`--d:${4+i*.3}`},$("tmoWhy"));x.innerHTML=`<b>${t}</b><p>${d}</p>`});
+const PIL=[["target","#002B49","Estratégia e Metodologia","abordagem no ritmo do ONS, priorização por valor e prontidão"],["shield","#1F3263","Governança e Estrutura","comitês com alçada, papéis claros, decisões integradas"],["chart","#5E8AB4","Ferramentas e Indicadores","painel de marcos, uso e custo; templates únicos; rastreabilidade"],["people","#F78C16","Gestão da Mudança","comunicação estruturada, apoio nas fricções, narrativa única"]];
+PIL.forEach(([ic,c,t,d],i)=>{const x=H("div",{class:"tmo-pil","data-a":"up",style:`--d:${6+i*.25};--c:${c}`},$("tmoPil"));x.innerHTML=`<span class="ic">${icon(ic,"#fff",17)}</span><b>${t}</b><p>${d}</p>`});
+const s=$("tmoGov"),L=[["Comitê Executivo","mensal ou bimestral","escopo, orçamento de nuvem, legados","#002B49"],["Comitê Gestor","quinzenal","frentes, riscos, impedimentos","#1F3263"],["Gestão do TO","semanal","cronograma, status, ações de change","#5E8AB4"]];
+L.forEach(([n,f,d,c],i)=>{const y=8+i*58,w0=90+i*60,w1=150+i*60,cx=120;path(`M${cx-w0/2} ${y} L${cx+w0/2} ${y} L${cx+w1/2} ${y+50} L${cx-w1/2} ${y+50} Z`,{fill:c},s);T(s,cx,y+30,n,{"text-anchor":"middle",fill:"#fff",style:"font:800 13px var(--fh)"});T(s,260,y+22,f,{fill:"#B35F00",style:"font:800 11px var(--fb)"});T(s,260,y+38,d,{fill:"#35516A",style:"font:600 11px var(--fb)"})});
+mk(s,"tmoA","#F78C16");path("M12 176 L12 14",{stroke:"#F78C16","stroke-width":2.5,fill:"none","marker-end":"url(#tmoA)"},s);
+[["calendar","Planejamento"],["target","Métricas"],["megaphone","Engajamento"],["cap","Capacitação"],["eye","Acompanhamento"],["chat","Comunicação"],["chart","Report"]].forEach(([ic,t],i)=>{const x=H("div",{class:"tmo-act","data-a":"pop",style:`--d:${8+i*.15}`},$("tmoAct"));x.innerHTML=`<span>${icon(ic,"#fff",15)}</span><b>${t}</b>`});
+$("tmoLink").addEventListener("click",e=>{e.stopPropagation()})})();
 
 /* ===== Casca de apresentação A&M · mesma navegação, chrome e efeitos do modelo TMG =====
    Cada deck define window.DECK antes deste script e preenche ENTER[t] para animações por tela. */
